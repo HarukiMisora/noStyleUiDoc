@@ -1,0 +1,26 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    overflow: hidden;
+
+}
+#app{
+    background: #A770EF;  
+    background: -webkit-linear-gradient(to left, #FDB99B, #CF8BF3, #A770EF); 
+    background: linear-gradient(to left, #FDB99B, #CF8BF3, #A770EF);
+    min-height: 100vh;
+    min-width: 100vw
+}
+
+.vuepress-markdown-body:not(.custom){
+    padding: 0 !important;
+}
+.v-md-prism-html,.v-md-prism-bash,.v-md-prism-ts{
+    margin: 0 !important;
+}
+.vuepress-markdown-body div{
+    border-radius: 0 !important;
+}
