@@ -14,7 +14,7 @@
                 <w-button @click="gotoGithub">
                     <LogoGithub  class="w-18 mr-5"></LogoGithub>Github
                 </w-button>
-                <w-span c="primary">0.0.96</w-span>
+                <w-span style="user-select: none;" c="primary">0.1.00</w-span>
             </w-div>
 
         </w-div>

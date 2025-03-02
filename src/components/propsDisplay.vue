@@ -1,14 +1,28 @@
 <script lang='ts' setup>
-const props = defineProps<{
+import { computed } from 'vue';
+
+const props = withDefaults(defineProps<{
     title?:string,
     props?:{
-        prop:string
-        type:string
-        default:string
-        text:string
-        units:string
+        prop?:string
+        type?:string
+        default?:string
+        text?:string
+        units?:string
     }[]
-}>()
+    noneed?:('prop'|'type'|'defalut'|'text'|'units')[]
+}>(),{
+    noneed:()=>[]
+})
+const needs:typeof props.noneed = ['prop','type','defalut','text','units']
+const need = computed(()=>{
+    return needs.filter((value:typeof props.noneed[number])=>{
+        return !props.noneed.includes(value)
+    })
+})
+const w = computed(()=>{
+    return 100/(need.value.length)
+})
 
 </script>
 
@@ -18,20 +32,25 @@ const props = defineProps<{
             <slot></slot>
         </w-div>
         <w-div p="20">
-            <w-div :flex="['col']" >
+            <w-div :flex="['col']" class="area">
                 <w-div flex="" style="justify-content: space-between;">
-                    <w-span w="p20">属性名</w-span>
-                    <w-span w="p20">对应样式/说明</w-span>
-                    <w-span w="p20">类型</w-span>
-                    <w-span w="p20">默认值</w-span>
-                    <w-span w="p20">支持的单位符</w-span>
+                    <w-group :w="`p${w}`" pr="20" py="5">
+                        <w-span  v-if="need.includes('prop')">属性名</w-span>
+                        <w-span  v-if="need.includes('text')">对应样式/说明</w-span>
+                        <w-span  v-if="need.includes('type')">类型</w-span>
+                        <w-span  v-if="need.includes('defalut')">默认值</w-span>
+                        <w-span  v-if="need.includes('units')">支持的单位符</w-span>
+                    </w-group>
                 </w-div>
-                <w-div flex="" style="justify-content: space-between;"pt="10" v-for="i in props.props" :key="i.prop">
-                    <w-span w="p20">{{  i.prop}}</w-span>
-                    <w-span w="p20">{{i.text}}</w-span>
-                    <w-span w="p20">{{ i.type}}</w-span>
-                    <w-span w="p20">{{ i.default }}</w-span>
-                    <w-span w="p20">{{ i.units }}</w-span>
+                <w-div :flex="['j-between']"  v-for="i in props.props" :key="i.prop" class="group">
+                    <w-group :w="`p${w}`" pr="20" py="5">
+                        <w-span  v-if="need.includes('prop')">{{i.prop}}</w-span>
+                        <w-span  v-if="need.includes('text')">{{i.text}}</w-span>
+                        <w-span  v-if="need.includes('type')">{{i.type}}</w-span>
+                        <w-span  v-if="need.includes('defalut')">{{i.default}}</w-span>
+                        <w-span  v-if="need.includes('units')">{{i.units}}</w-span>
+                    </w-group>
+
                 </w-div>
             </w-div> 
         </w-div>
@@ -39,8 +58,15 @@ const props = defineProps<{
 </template>
 
 <style lang='scss'>
-span{
+.area span{
     user-select: text;
+    line-break: anywhere;
+    border-top: 1px solid #99999930;
+    display: flex;
+    align-items: center;
+}
+.group:hover{
+    background-color: #ccc;
 }
 
 </style>

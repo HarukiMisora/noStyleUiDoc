@@ -1,8 +1,8 @@
 <template >
     <w-div class="flex-1" bg="white" p="20">
         <w-div p="20" flex="col">
-            <h1 mb="40">WDiv 盒子</h1>
-            <w-span>它负责渲染一个普通的 {{ '<div></div>' }}，但是我将css样式 “属性化”与“command化”了，我们可以通过属性去定义样式，这和直接定义class或者style有什么区别？我们可以往后看！</w-span>
+            <w-h1 mb="10">WDiv 盒子</w-h1>
+            <NoTice title="作用" msg="它负责渲染一个普通的\<div><\/div>，但是我将css样式 “属性化”与“command化”了，我们可以通过属性去定义样式，这和直接定义class或者style有什么区别？我们可以往后看！"></NoTice>
         </w-div>
         <w-div p="20" >
             <h1 mb="40">基础用法</h1>
@@ -126,7 +126,6 @@ const pxsProps = pxs.map((prop)=>{
     }
 })
 
-const img = '/img.png'
 const backgroundProps = ([
 {
         prop:'无，直接放URL',
