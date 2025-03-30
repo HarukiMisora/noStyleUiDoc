@@ -3,13 +3,9 @@ export const menu =[
     label:'DOM盒子',
     children:[
       {
-        label:'WDiv',
+        label:'WDom',
         name:'wDiv'
       },
-      {
-        label:'WSpan',
-        name:'wSpan'
-      }
     ]
   },
   { 
@@ -25,6 +21,29 @@ export const menu =[
       // },
     ]
   },
+  {
+    label:'props',
+    children:[
+      {
+        label:'bg属性集',
+        name:'divBg'
+      },
+      {
+        label:'bd属性集',
+        name:'bdDoc'
+      },
+      {
+        label:'flex属性集',
+        name:'flexDoc'
+      },
+      {
+        label:'hover属性集',
+        name:'hoverDoc'
+      },
+
+    ]
+  },
+
   {
     label:'组件',
     children:[

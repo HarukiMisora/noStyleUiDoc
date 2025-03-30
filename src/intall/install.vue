@@ -49,7 +49,7 @@ const importCode =createCode(`
 <template>
     <w-div p="40" bg="white" :flex="['col','1','g-20']">
         <CodePreview title="安装" :text="createCode('nmp i -D nostyleui\n','bash\n')" :show="true">
-            <Notice class="mt-5" title="警告" msg='因为目前阶段还在开发调试阶段，写得比较随缘也不全面，也没做版本管理，我就写一点往上面发布一点，所以目前非常不建议投入生产。如果你对项目规范很严格的话，明确告诉你里面有些许变量和方法定义了却没有被使用，所以目前打包的时候会导致tsc检查无法通过。' type="danger"></Notice>
+            <Notice class="mt-5" title="警告" msg='因为目前还在开发调试阶段，写得比较随缘也不全面，碎片化时间更新，也没做版本管理，我写一点往上面发布一点。所以目前非常不建议投入生产。' type="danger"></Notice>
 
         </CodePreview>
         <CodePreview  title="全局引入" :text="allCode" :show="true"></CodePreview>

@@ -21,7 +21,7 @@ const fuCode = createCode(`
 <w-div flex="g-10">
     <w-group radius="p50" w="100" h="100" flex="center" :bg="[as.head,'s-fill']" c="red">
         <w-div c="green" f="24" fw="800">举</w-div>
-        <w-div :bg="['y-top','s-cover','w-50']">世</w-div>
+        <w-div :bg="['top','s-cover','w-50']">世</w-div>
         <w-div bg="black" flex="i-end">无</w-div>
         <w-div>双</w-div>
     </w-group>
@@ -65,7 +65,7 @@ const cusCode = createCode(`
     <w-div class="flex-1" bg="white" p="40">
         <w-div p="20">
             <h1>WGroup 属性容器</h1>
-            <notice class="mt-10" title="作用" :msg="`它不产生任何DOM结构，WGroup只负责装载一级子元素的共有属性。它同样完全继承WDiv的一切属性，可以参考 <a class='mx-5' href='${path('/#/docs/div')}' >WDiv文档</a>查阅`"></notice>
+            <notice class="mt-10" title="作用" :msg="`它不产生任何DOM结构，WGroup只负责装载一级子元素的共有属性。它同样完全继承WDom的一切属性，可以参考 <a class='mx-5' href='${path('/#/docs/div')}' >WDom文档</a>查阅`"></notice>
         </w-div>
         <w-div :flex="['wrap','j-evenly']">
             <w-div w="p48">
@@ -113,7 +113,7 @@ const cusCode = createCode(`
                     <w-div flex="g-10">
                         <w-group radius="p50" w="100" h="100" flex="center" :bg="[as.head,'s-fill']" c="red">
                             <w-div c="green" f="24" fw="800">举</w-div>
-                            <w-div :bg="['y-top','s-cover','w-50']">世</w-div>
+                            <w-div :bg="['top','s-cover','w-50']">世</w-div>
                             <w-div bg="black" flex="i-end">无</w-div>
                             <w-div>双</w-div>
                         </w-group>
@@ -145,7 +145,7 @@ const cusCode = createCode(`
         <w-div p="20">
             <h1>Props</h1>
             <w-div mt="20">cusPorps?:[propName,propValue][]  自定义继承属性</w-div>
-            <w-div mt="20">其余属性样式与WDiv一致，请前往 <router-link class="mx-5" to="/docs/div" >WDiv文档</router-link>查阅 </w-div>
+            <w-div mt="20">其余属性样式与WDom一致，请前往 <router-link class="mx-5" to="/docs/div" >WDom文档</router-link>查阅 </w-div>
         </w-div>
 
     </w-div>

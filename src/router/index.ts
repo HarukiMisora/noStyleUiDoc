@@ -14,6 +14,10 @@ import SpanDoc from '../docs/spanDoc.vue'
 import GroupDoc from '../docs/groupDoc.vue'
 import ComingSoon from '../home/ComingSoon.vue'
 import Install from '../intall/install.vue'
+import BgDoc from '../docs/bgDoc.vue'
+import FlexDoc from '../docs/flexDoc.vue'
+import BdDoc from '../docs/bdDoc.vue'
+import HoverDoc from '../docs/hoverDoc.vue'
 
 const routes = [
   { path: '/home', component: HomeView,name:'home' },
@@ -39,11 +43,26 @@ const routes = [
           component:ButtonDoc,
           name:'wButton',
         },
-        // {
-        //   path:'/docs/var',
-        //   component:Var,
-        //   name:'wVar',
-        // },
+        {
+          path:'/docs/divBg',
+          component:BgDoc,
+          name:'divBg',
+        },
+        {
+          path:'/docs/flexDoc',
+          component:FlexDoc,
+          name:'flexDoc',
+        },
+        {
+          path:'/docs/bdDoc',
+          component:BdDoc,
+          name:'bdDoc',
+        },
+        {
+          path:'/docs/hoverDoc',
+          component:HoverDoc,
+          name:'hoverDoc',
+        },
         {
           path:'/docs/group',
           component:GroupDoc,

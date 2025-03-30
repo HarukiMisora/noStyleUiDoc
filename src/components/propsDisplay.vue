@@ -35,7 +35,7 @@ const w = computed(()=>{
             <w-div :flex="['col']" class="area">
                 <w-div flex="" style="justify-content: space-between;">
                     <w-group :w="`p${w}`" pr="20" py="5">
-                        <w-span  v-if="need.includes('prop')">属性名</w-span>
+                        <w-span  v-if="need.includes('prop')">前缀名/参数名</w-span>
                         <w-span  v-if="need.includes('text')">对应样式/说明</w-span>
                         <w-span  v-if="need.includes('type')">类型</w-span>
                         <w-span  v-if="need.includes('defalut')">默认值</w-span>

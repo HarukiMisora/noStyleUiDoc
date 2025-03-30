@@ -24,7 +24,7 @@
                     <w-div h="40" flex="i-center" pl="10" radius="2" c="gray">{{ item.label }}</w-div>
                     <router-link  v-for="child in item.children" :to="{name:child.name}" class="c-black w-p100" style="text-decoration: none;">
 
-                    <w-div h="40"  :flex="['i-center']"  :bg="child.name===router.currentRoute.value.name?'$#21a75580':''" pl="20" radius="2" my="2">
+                    <w-div h="40"  :flex="['i-center']"  :bg="child.name===router.currentRoute.value.name?'#21a75580':''" pl="20" radius="2" my="2">
                         <w-div c="black">
                                 {{ child.label }}
                         </w-div>
@@ -36,7 +36,7 @@
                 </w-div>
             </w-div>
             <w-div class="overflow"  :flex="['1','col']"  p="20px">
-                <img src="../../public/turn1.webp" style="position: absolute;z-index: 0;left: 50%;top: 50%;transform: translate(calc(-50% + 100px),calc(-50% - 30px));width: 30%;"  />
+                <img src="/turn1.webp" style="position: absolute;z-index: 0;left: 50%;top: 50%;transform: translate(calc(-50% + 100px),calc(-50% - 30px));width: 30%;"  />
                 <router-view v-slot="{Component}">
                   <transition name="ttt" mode="out-in">
                     <component :is="Component" style="z-index: 1;" />

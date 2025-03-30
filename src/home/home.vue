@@ -134,6 +134,7 @@ let mouseEnter = (index:number)=>{
     &:hover{
       top: -10px;
       // margin: 500px;
+      
     }
   }
 }
