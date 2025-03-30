@@ -272,18 +272,18 @@ const backgroundProps = ([
                         <w-div pb="20">只定义h时,宽度会自适应保持原图片比列</w-div>
                         <w-div :flex="['g-10', 'wrap']">
                             <w-group w="100" h="100" c="red" >
-                                <w-div bg="/img.png w-75" ></w-div>
-                                <w-div bg="/img.png h-75"></w-div>
+                                <w-div :bg="`${as.img} w-75`" ></w-div>
+                                <w-div :bg="`${as.img} h-75`"></w-div>
                                 <w-div :bg="`${img} w-75 h-75`">
                                     <w-div  :flex="['j-around']" pt="60">
                                         <w-button type="success" @click="img=as.img">图1</w-button>
                                         <w-button type="success" @click="img=as.head">图2</w-button>
                                     </w-div>
                                 </w-div>
-                                <w-div bg="/img.png w-p100" >
+                                <w-div :bg="`${as.img} w-p100`" >
                                     p100 = 100%
                                 </w-div>
-                                <w-div bg="/img.png h-v100">
+                                <w-div :bg="`${as.img} h-v100`">
                                     v100 = 100vh或者100vw
                                 </w-div>
                             </w-group>
@@ -294,7 +294,7 @@ const backgroundProps = ([
                             right-top和top-right、left-bottom和bottom-left是一个意思，并不要求你一定要把x方向或者y方向放在前面。但请不要键入left-right、bottom-top这种让计算机摸不着头脑的冲突语句。
                         </w-div>
                         <w-div :flex="['g-10', 'wrap']">
-                            <w-group w="$calc(95% / 3)" h="150" c="#fff" bg="green w-75 h-75 r-n /img.png" >
+                            <w-group w="$calc(95% / 3)" h="150" c="#fff" :bg="`green w-75 h-75 r-n ${as.img}`" >
                                 <w-div bg="left" >left</w-div>
                                 <w-div bg="top-center" >top-center</w-div>
                                 <w-div bg="right">right</w-div>
@@ -319,8 +319,8 @@ const backgroundProps = ([
                     <w-div pb="20">我去，随便找的背景图片原始尺寸有这么大的吗？</w-div>
                     <w-div :flex="['g-10', 'wrap']">
                         <w-group w="100" h="100" c="red" bg="center">
-                            <w-div bg="/img.png" >引入public目录下的图片</w-div>
-                            <w-div bg="/img.png">引入组件相对路径的图片</w-div>
+                            <w-div :bg="`${as.img}`" >引入public目录下的图片</w-div>
+                            <w-div :bg="`${as.img}`">引入组件相对路径的图片</w-div>
                             <w-div :bg="img">
                                 变量名动态引入
                                 <w-div  :flex="['j-around']" pt="20">
@@ -335,8 +335,8 @@ const backgroundProps = ([
                     <w-div :flex="['g-10', 'wrap']">
                                                     <!--绿色背景↓来自这里-->
                         <w-group w="100" h="100" c="#fff" bg="green" >
-                            <w-div bg="/img.png w-75 r-x" >r-x 横向填充</w-div>
-                            <w-div bg="/img.png h-75 r-y">r-y 竖向填充</w-div>
+                            <w-div :bg="`${as.img} w-75 r-x`" >r-x 横向填充</w-div>
+                            <w-div :bg="`${as.img} h-75 r-y`">r-y 竖向填充</w-div>
                             <w-div :bg="`${img} w-75 h-75 r-n`">
                                 r-n 不填充
                             </w-div>
