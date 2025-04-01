@@ -6,5 +6,6 @@ export function path(file:string){
 
 export const as = {
     img: path('/img.png'),
-    head: path('/head.png')
+    head: path('/head.png'),
+    turn0: path('/turn0.webp')
 }

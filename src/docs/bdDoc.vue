@@ -172,7 +172,7 @@ const  bdProps = ([
                       <w-div pb="5">
                         border和其它属性有点小区别，其它的标准格式是 prop-value。而border有着灵活的写法，color-borderStyle-color-number-color...不需用key告诉它要定义color或size，没顺序限制，输入你想要的value就行。比如1-solid-red；把它拆分成多条参数1 solid red同样生效。多个color混合不要求你连在一起，但我建议你最好把它们连在一起。
                       </w-div>
-                      <w-div flex="g-10">
+                      <w-div :flex="['g-10','wrap']">
                             <w-group radius="p50" w="100" h="100" flex="center" :bg="[as.head,'s-fill']" c="green">
                                 <w-div bd="solid-#f00"></w-div>
                                 <w-div bd="dashed-red"></w-div>
@@ -180,7 +180,7 @@ const  bdProps = ([
                                 <w-div bd="double-red-blue"></w-div>
                             </w-group>
                         </w-div>
-                        <w-div flex="g-10">
+                        <w-div :flex="['g-10','wrap']">
                             <w-group radius="p50" w="100" h="100" flex="center" :bg="[as.head,'s-fill']" c="green">
                                 <w-div bd="groove"></w-div>
                                 <w-div bd="outset-red"></w-div>

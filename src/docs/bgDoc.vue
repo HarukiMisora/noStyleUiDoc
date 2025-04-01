@@ -249,7 +249,7 @@ const backgroundProps = ([
             <h1>bg 属性集</h1>
             <notice class="mt-10" title="作用" msg="定义盒子的背景样式"></notice>
         </w-div>
-        <w-div :flex="['wrap','j-evenly']">
+        <w-div :flex="['wrap','j-evenly']" >
             <w-div w="p48">
                 <w-div :flex="['col','g-10']">
                     <codePreview  title="背景颜色 c" :text="bgCode">

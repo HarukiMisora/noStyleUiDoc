@@ -28,22 +28,22 @@ import { WDiv } from 'nostyleui';
 <style></style>
 `,'html');
 
-const importCode =createCode(`
-{
-  "extends": "@vue/tsconfig/tsconfig.json",
-  "compilerOptions": {
-    "incremental": true,
-    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
+// const importCode =createCode(`
+// {
+//   "extends": "@vue/tsconfig/tsconfig.json",
+//   "compilerOptions": {
+//     "incremental": true,
+//     "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
 
-    /* Linting */
-    "strict": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true
-  },
-  "include": ["./src/**/*.ts", "./src/**/*.tsx", "./src/**/*.vue" ,"node_modules/nostyleui/interface.d.ts"]
-}
-`,'json')
+//     /* Linting */
+//     "strict": true,
+//     "noUnusedLocals": true,
+//     "noUnusedParameters": true,
+//     "noFallthroughCasesInSwitch": true
+//   },
+//   "include": ["./src/**/*.ts", "./src/**/*.tsx", "./src/**/*.vue" ,"node_modules/nostyleui/interface.d.ts"]
+// }
+// `,'json')
 </script>
 
 <template>
@@ -56,9 +56,9 @@ const importCode =createCode(`
         <CodePreview  title="按需引入" :text="needCode" :show="true">
             直接引入到SFC单文件
         </CodePreview>
-        <CodePreview  title="关于IDEA和vscode的代码提示" :text="importCode" :show="true">
+        <!-- <CodePreview  title="关于IDEA和vscode的代码提示()" :text="importCode" :show="true">
             如果你想在你的编辑器中激活相应的代码提示，目前的话你需要手动在tsconfig.json 或者你的 tsconfig.xxx.json 加入 "node_modules/nostyleui/interface.d.ts",就像下面json这样做。
-        </CodePreview>
+        </CodePreview> -->
     </w-div>            
 </template>
 
