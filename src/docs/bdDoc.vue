@@ -25,7 +25,6 @@ const baseCode = createCode(`
 </w-div>
 `)
 const directionCode = createCode(`
-<w-div mb="5">直接输入1-solid-red默认是应用到4个方向。现在我们可以用前缀t、r、b、l、x、y去告诉它我要指定方向的样式</w-div>
 <w-div :flex="['g-10','wrap']" c="green">
         <w-group radius="p50" w="100" h="100" flex="center" :bg="[as.head,'s-fill']" >
             <w-div bd="l-solid t-dashed r-double b-dotted"></w-div>
