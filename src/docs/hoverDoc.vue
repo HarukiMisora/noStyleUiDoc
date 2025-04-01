@@ -8,38 +8,40 @@ import PropsDisplay from '../components/propsDisplay.vue';
 
 const baseCode = createCode(`
 <w-div flex="g-10">
-    <w-group radius="p50" w="100" h="100" flex="center" :bg="[as.head,'s-fill']" c="green">
-        <w-div bd="solid-#f00"></w-div>
-        <w-div bd="dashed-red"></w-div>
-        <w-div bd="dotted blue"></w-div>
-        <w-div bd="double-red-blue"></w-div>
+    <w-group flex="center"   >
+        <w-div hover="red">red</w-div>
+        <w-div hover="#0f0">#0f0</w-div>
+        <w-div hover="rgb(0,0,255)">rgb(0,0,255)</w-div>
+        <w-div hover="red-blue">red blue</w-div>
+    </w-group>
+</w-div> 
+<w-div flex="g-10" pt="10">
+    <w-group flex="center"  c="#fff" bg="red" >
+        <w-div hover="black bg-green">背景颜色</w-div>
+        <w-div hover="black bg-#0f0">背景颜色</w-div>
+        <w-div hover="red bg-rgb(0,0,0)">背景颜色</w-div>
+        <w-div hover="bg-rgba(0,0,0,0.5)-#fff">背景颜色</w-div>
     </w-group>
 </w-div>
-<w-div flex="g-10">
-    <w-group radius="p50" w="100" h="100" flex="center" :bg="[as.head,'s-fill']" c="green">
-        <w-div bd="groove"></w-div>
-        <w-div bd="outset-red"></w-div>
-        <w-div bd="inset blue"></w-div>
-        <w-div bd="ridge"></w-div>
-    </w-group>
+<w-div :bg="as.img+' w-60 center'" h="125" mt="20" hover="bg-w:p100" style="transition: all .2s ease;">
+    <w-span c="#fff" bg="#0008">transition将在下个发布版本加入，配合hover就可以实现一些像这样的过渡动画了。</w-span>
 </w-div>
 `)
 const directionCode = createCode(`
-<w-div mb="5">直接输入1-solid-red默认是应用到4个方向。现在我们可以用前缀t、r、b、l、x、y去告诉它我要指定方向的样式</w-div>
 <w-div :flex="['g-10','wrap']" c="green">
-        <w-group radius="p50" w="100" h="100" flex="center" :bg="[as.head,'s-fill']" >
-            <w-div bd="l-solid t-dashed r-double b-dotted"></w-div>
-            <w-div bd="dashed-red x-solid"></w-div>
-            <w-div bd="dotted blue y-red"></w-div>
-            <w-div bd="double r-solid-red-#fff"></w-div>
-        </w-group>
+    <w-group radius="p50" w="100" h="100" flex="center" :bg="[as.head,'fill']" :hover="as.img+' bg-cover'" >
+        <w-div bd="l-solid t-dashed r-double b-dotted" ></w-div>
+        <w-div bd="dashed-red x-solid"></w-div>
+        <w-div bd="dotted blue y-red" hover="bg-none"></w-div>
+        <w-div bd="double r-solid-red-#fff"></w-div>
+    </w-group>
 </w-div>
 <w-div :flex="['g-10','wrap']">
-    <w-group radius="p50" w="100" h="100" flex="center" :bg="[as.head,'s-fill']" c="green">
-        <w-div bd="t-groove"></w-div>
-        <w-div bd="r-outset-red"></w-div>
-        <w-div bd="b-inset blue"></w-div>
-        <w-div bd="l-ridge"></w-div>
+    <w-group radius="p50" w="100" h="100" flex="center" :bg="[as.head,'fill','r-n']" hover="bg-cover-w:50">
+        <w-div bd="t-groove" hover="bg-left"></w-div>
+        <w-div bd="r-outset-red" hover="bg-right"></w-div>
+        <w-div bd="b-inset blue" hover="bg-top-center"></w-div>
+        <w-div bd="l-ridge" hover="bg-bottom-center"></w-div>
     </w-group>
 </w-div>
 `)
@@ -126,9 +128,6 @@ const  bdProps = ([
             <w-div w="p48">
                 <w-div :flex="['col','g-10']">
                     <codePreview  title="基础用法" :text="baseCode">
-                        <w-div pb="5">
-                            字体颜色的混合
-                        </w-div>
                         <w-div flex="g-10">
                             <w-group flex="center"   >
                                 <w-div hover="red">red</w-div>
