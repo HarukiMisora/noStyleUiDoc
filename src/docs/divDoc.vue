@@ -132,21 +132,22 @@ const pxsText:{[key in typeof pxs[number]]:string} ={
     f:'font-size',
     fw:'font-weight',
     radius:'border-radius',
+    
     p:'padding',
     pt:'padding-top',
     pb:'padding-bottom',
     pl:'padding-left',
     pr:'padding-right',
-    px:'padding',
-    py:'padding',
+    px:'padding-left&padding-right',
+    py:'padding-top&padding-bottom',
     
     m:'margin',
     mt:'margin-top',
     mb:'margin-bottom',
     ml:'margin-left',
     mr:'margin-right',
-    mx:'margin',
-    my:'margin',
+    mx:'margin-left&margin-right',
+    my:'margin-top&margin-bottom',
 }
 const pxsProps = pxs.map((prop)=>{
     return  {

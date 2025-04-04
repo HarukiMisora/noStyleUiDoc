@@ -258,7 +258,7 @@ const effectCode =createCode(`
     <w-button type="error"   effect="small">small</w-button>
     <w-button type="tertiary"effect="rotate">rotate</w-button>
     <w-button type="primary" effect="rotate">长按</w-button>
-    <w-button type="none"    effect="none">none</w-button>
+    <w-button type="success" effect="none">none</w-button>
 </w-div>
 `)
 const abstractCode =createCode(`
