@@ -3,11 +3,15 @@
 
 
 <script lang='ts' setup>
-import { ref } from 'vue';
+import { computed, ref } from 'vue';
 
 
 const prop =defineProps<{text:string,title:string,show?:boolean}>()
 const showCode = ref(prop.show)
+const previewRef = ref<any>()
+const h = computed(()=>{
+	return (previewRef.value?.$el.clientHeight || 0)
+}) 
 </script>
 
 <template>
@@ -24,20 +28,34 @@ const showCode = ref(prop.show)
             </w-div>
      
         </w-div>
-        <w-div :h="showCode?'auto':0" style="overflow: hidden;" class="t" :class="{show:showCode}">
-            <v-md-preview :text="prop.text"></v-md-preview>
-        </w-div>
+        <transition name="slide-fade" mode="out-in">
+						<w-div v-if="showCode" :h="h" style="overflow: hidden;" w="p100">
+            	<v-md-preview :text="prop.text" ref="previewRef" ></v-md-preview>
+            </w-div>
+        </transition>
+
 
     </w-div>
 </template>
 
 <style lang='scss' scoped>
-.t{
-    opacity: 0;
-    transition: all .5s ease;
-    &.show{
-        opacity: 1;
-    }
+
+.slide-fade-enter-active{
+  transition: all 0.3s ease-out;
+}
+
+.slide-fade-leave-active {
+  transition: all 0.3s ease-out;
+}
+
+.slide-fade-enter-from{
+
+	height:  0;
+	opacity: 0;
+}
+.slide-fade-leave-to {
+	height:  0;
+	opacity: 0;
 }
 
 </style>
