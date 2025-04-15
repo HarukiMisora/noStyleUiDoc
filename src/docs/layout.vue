@@ -46,7 +46,7 @@ watchEffect(()=>{
     clearTimeout(timerClose)
     showTip.value = false
     const top = offsetTops[<string>router.currentRoute.value.name] || 0
-    console.log(offsetTops);
+    // console.log(offsetTops);
 
     //等待页面跳转动画结束后再滚动
     timer = setTimeout(()=>{
