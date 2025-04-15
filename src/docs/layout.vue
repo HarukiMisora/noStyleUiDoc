@@ -101,7 +101,7 @@ watchEffect(()=>{
                   </transition>
                 </router-view>
             </w-div>
-            <transition name="fade" mode="out-in">
+            <transition name="tip-fade" mode="out-in">
               <div class="tip" :style="{top:tipTop}"  v-if="showTip&&offsetTops[<string>router.currentRoute.value.name]">你之前浏览到了这里</div>
             </transition>
         </w-div>
@@ -120,13 +120,13 @@ transform: translateX(100%);
 .ttt-leave-to {
   transform: translateX(-100%);
 }
-.fade-enter-active,
-.fade-leave-active {
+.tip-fade-enter-active,
+.tip-fade-leave-active {
   transition: all 0.25s ease;
 }
 
-.fade-enter-from,
-.fade-leave-to {
+.tip-fade-enter-from,
+.tip-fade-leave-to {
 transform: translateX(100%);
 }
 
