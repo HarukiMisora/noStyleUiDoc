@@ -160,7 +160,7 @@ const  bdProps = ([
 </script>
 
 <template>
-    <w-div class="flex-1" bg="white" p="40">
+    <w-div class="flex-1" bg="white" p="40"  >
         <w-div p="20">
             <h1>bd 属性集</h1>
             <notice class="mt-10" title="作用" msg="定义盒子的border边框样式"></notice>

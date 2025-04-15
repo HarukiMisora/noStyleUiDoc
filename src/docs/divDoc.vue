@@ -1,6 +1,6 @@
 <template >
     <w-div class="flex-1" bg="white" p="20">
-        <w-div p="20" flex="col">
+        <w-div p="20" flex="col" >
             <w-h1 mb="10">WDom 盒子</w-h1>
             <NoTice title="作用" msg="它负责渲染一个普通的没有任何样式的原生盒子，比如\<w-div><\/w-div>将会渲染一个\<div><\/div>，不同的是，我将css样式 “属性化”了，我们可以通过属性去定义样式，这和直接定义class或者style有什么区别？我们可以往后看！"></NoTice>
         </w-div>
