@@ -4,9 +4,10 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "npm run getVer && vite",
     "build": "vue-tsc -b && vite build",
     "buildT": "vite build",
+    "getVer": "node script/getVer.js",
     "preview": "vite preview"
   },
   "dependencies": {

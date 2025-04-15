@@ -1,5 +1,20 @@
 
+<script lang="ts" setup>
+import { useRouter } from 'vue-router';
+import { menu } from '../router/menu';
+import {LogoGithub,Fish} from '@vicons/ionicons5'
+import version from '../version';
+const router = useRouter()
 
+const gotoGithub =()=>{
+    window.open('https://github.com/HarukiMisora/noStyleUi')
+}
+const gotoLilmonix3 =()=>{
+    window.open('https://www.iamwzc.com/')
+}
+
+
+</script>
 
 <template>
     <w-div bg="white" >
@@ -14,7 +29,7 @@
                 <w-button @click="gotoGithub">
                     <LogoGithub  class="w-18 mr-5"></LogoGithub>Github
                 </w-button>
-                <w-span style="user-select: none;" c="primary">0.2.19</w-span>
+                <w-span style="user-select: none;" c="primary">{{version}}</w-span>
             </w-div>
 
         </w-div>
@@ -46,25 +61,7 @@
         </w-div>
     </w-div>
 </template>
-<script lang="ts" setup>
-import { useRouter } from 'vue-router';
-import { menu } from '../router/menu';
-import {LogoGithub,Fish} from '@vicons/ionicons5'
-const router = useRouter()
 
-
-
-
-
-const gotoGithub =()=>{
-    window.open('https://github.com/HarukiMisora/noStyleUi')
-}
-const gotoLilmonix3 =()=>{
-    window.open('https://www.iamwzc.com/')
-}
-
-
-</script>
 <style lang="scss" scoped>
 .ttt-enter-active,
 .ttt-leave-active {

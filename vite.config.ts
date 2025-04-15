@@ -10,6 +10,11 @@ export default defineConfig(({mode})=>{
   const env = loadEnv(mode, process.cwd());
   return defineConfig({
       base:env.VITE_APP_PUBLIC_PATH,
+      build:{
+        rollupOptions:{
+          external:['script']
+        }
+      },
       plugins: [
         vue(),
         prismjsPlugin({

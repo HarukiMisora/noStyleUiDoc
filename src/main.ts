@@ -8,7 +8,4 @@ import router from './router'
 import {VMdPreview,VueMarkdownEditor} from '../lib/vMdMarker/vMdMarker.ts';
 
 
-
-
-
 createApp(App).use(nostyleui).use(VMdPreview).use(VueMarkdownEditor).use(router).mount('#app')
