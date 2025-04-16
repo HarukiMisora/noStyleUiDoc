@@ -4,10 +4,12 @@ import { useRouter } from 'vue-router';
 import { menu } from '../router/menu';
 import {LogoGithub,Fish} from '@vicons/ionicons5'
 import version from '../version';
-import { computed, ref, watchEffect } from 'vue';
+import { computed, provide, ref, watchEffect } from 'vue';
 import type { WDiv } from 'nostyleui/types/index.js';
 const router = useRouter()
-const scrollBoxRef = ref<InstanceType<typeof WDiv>|null>(null)
+const scrollBoxRef = ref<InstanceType<typeof WDiv>>()
+const gridMode = ref(false)
+provide('gridMode',gridMode)
 const gotoGithub =()=>{
     window.open('https://github.com/HarukiMisora/noStyleUi')
 }
@@ -60,6 +62,11 @@ watchEffect(()=>{
     },500)
   }
 })
+
+window.onresize = (e:Event)=>{
+  // console.log(gridMode.value,scrollBoxRef.value?.$el.clientWidth);
+  gridMode.value = scrollBoxRef.value?.$el.clientWidth < 1400
+}
 
 </script>
 
