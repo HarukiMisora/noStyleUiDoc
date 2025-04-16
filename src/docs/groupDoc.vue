@@ -26,11 +26,12 @@ const baseCode = createCode(`
 </w-div>
 `)
 const fuCode = createCode(`
+<w-div mb="5">有统一的，也有特殊的，子元素自有属性可以复写继承属性是理所当然的。注意：对于命令集的复写，目前默认是合并复写，绝对覆盖的设定参数会在后续版本中添加。</w-div>
 <w-div flex="g-10">
-    <w-group radius="p50" w="100" h="100" flex="center" :bg="[as.head,'s-fill']" c="red">
+    <w-group radius="p50" w="100" h="100" flex="center" :bg="[as.head,'fill']" c="red">
         <w-div c="green" f="24" fw="800">举</w-div>
-        <w-div :bg="['top','s-cover','w-50']">世</w-div>
-        <w-div bg="black" flex="i-end">无</w-div>
+        <w-div :bg="['top','cover','size-50']">世</w-div>
+        <w-div :bg="\`${as.head}  #000\`" flex="i-end">无</w-div>
         <w-div>双</w-div>
     </w-group>
 </w-div>
