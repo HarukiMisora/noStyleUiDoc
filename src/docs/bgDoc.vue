@@ -43,20 +43,22 @@ const img = as.img
 </template>
 `)
 const sizeCode = createCode(`
+<w-div>只定义w时,高度会自适应保持原图片比列</w-div>
+<w-div pb="20">只定义h时,宽度会自适应保持原图片比列</w-div>
 <w-div :flex="['g-10', 'wrap']">
-    <w-group w="100" h="100" c="red" >
-        <w-div bg="/img.png w-75" ></w-div>
-        <w-div bg="/img.png h-75"></w-div>
-        <w-div :bg="\`\${img} w-75 h-75\`">
+    <w-group w="100" h="100" c="red"  >
+        <w-div :bg="\`${as.img} size-75\`" ></w-div>
+        <w-div :bg="\`${as.img} size--75\`"></w-div>
+        <w-div :bg="\`${img} size-75-75\`" transition>
             <w-div  :flex="['j-around']" pt="60">
                 <w-button type="success" @click="img=as.img">图1</w-button>
                 <w-button type="success" @click="img=as.head">图2</w-button>
             </w-div>
         </w-div>
-        <w-div bg="/img.png w-p100" >
+        <w-div :bg="\`${as.img} size-100%\`" >
             p100 = 100%
         </w-div>
-        <w-div bg="/img.png h-v100">
+        <w-div :bg="\`${as.img} size-100vh\`">
             v100 = 100vh或者100vw
         </w-div>
     </w-group>
@@ -264,8 +266,7 @@ const backgroundProps = ([
                         </w-div>
                     </codePreview>
                     <codePreview  title="背景图片大小 w h" :text="sizeCode">
-                        <w-div>只定义w时,高度会自适应保持原图片比列</w-div>
-                        <w-div pb="20">只定义h时,宽度会自适应保持原图片比列</w-div>
+                        <w-div>0.3.x版本开始，我移除了w和h参数。使用size代替，size可以同时设置图片的宽高，也可以单独设置宽高 size-w-h、size-w、size--h</w-div>
                         <w-div :flex="['g-10', 'wrap']">
                             <w-group w="100" h="100" c="red"  >
                                 <w-div :bg="`${as.img} size-75`" ></w-div>
