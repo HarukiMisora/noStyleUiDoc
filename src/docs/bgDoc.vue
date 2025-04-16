@@ -11,14 +11,12 @@ const bgCode = createCode(`
 <w-div flex="g-10">
     <w-group w="30" h="30">
         <w-div bg="red"></w-div>
-        <w-div bg="c-red"></w-div>
         <w-div bg="green"></w-div>
-        <w-div bg="c-green"></w-div>
         <w-div bg="#00F"></w-div>
-        <w-div bg="#0000FF"></w-div>
-        <w-div bg="rgb(255,255,0)"></w-div>
+        <w-div bg="#FFFF00"></w-div>
+        <w-div bg="#ffa500ff"></w-div>
         <w-div bg="rgba(255,255,0,0.5)"></w-div>
-        <w-div bg="red-green-#00f-rgba(255,255,0,0.5)"></w-div>
+        <w-div bg="red+green+#00f+rgba(255,255,0,0.5)"></w-div>
     </w-group>
 </w-div>
 `)
@@ -256,14 +254,12 @@ const backgroundProps = ([
                         <w-div flex="g-10">
                             <w-group w="30" h="30">
                                 <w-div bg="red"></w-div>
-                                <w-div bg="c-red"></w-div>
                                 <w-div bg="green"></w-div>
-                                <w-div bg="c-green"></w-div>
                                 <w-div bg="#00F"></w-div>
-                                <w-div bg="#0000FF"></w-div>
-                                <w-div bg="rgb(255,255,0)"></w-div>
+                                <w-div bg="#FFFF00"></w-div>
+                                <w-div bg="#ffa500ff"></w-div>
                                 <w-div bg="rgba(255,255,0,0.5)"></w-div>
-                                <w-div bg="red-green-#00f-rgba(255,255,0,0.5)"></w-div>
+                                <w-div bg="red+green+#00f+rgba(255,255,0,0.5)"></w-div>
                             </w-group>
                         </w-div>
                     </codePreview>
@@ -271,19 +267,19 @@ const backgroundProps = ([
                         <w-div>只定义w时,高度会自适应保持原图片比列</w-div>
                         <w-div pb="20">只定义h时,宽度会自适应保持原图片比列</w-div>
                         <w-div :flex="['g-10', 'wrap']">
-                            <w-group w="100" h="100" c="red" >
-                                <w-div :bg="`${as.img} w-75`" ></w-div>
-                                <w-div :bg="`${as.img} h-75`"></w-div>
-                                <w-div :bg="`${img} w-75 h-75`">
+                            <w-group w="100" h="100" c="red"  >
+                                <w-div :bg="`${as.img} size-75`" ></w-div>
+                                <w-div :bg="`${as.img} size--75`"></w-div>
+                                <w-div :bg="`${img} size-75-75`" transition>
                                     <w-div  :flex="['j-around']" pt="60">
                                         <w-button type="success" @click="img=as.img">图1</w-button>
                                         <w-button type="success" @click="img=as.head">图2</w-button>
                                     </w-div>
                                 </w-div>
-                                <w-div :bg="`${as.img} w-p100`" >
+                                <w-div :bg="`${as.img} size-100%`" >
                                     p100 = 100%
                                 </w-div>
-                                <w-div :bg="`${as.img} h-v100`">
+                                <w-div :bg="`${as.img} size-100vh`">
                                     v100 = 100vh或者100vw
                                 </w-div>
                             </w-group>
@@ -291,22 +287,24 @@ const backgroundProps = ([
                     </codePreview>
                 <codePreview  title="背景图片位置 x y" :text="positionCode">
                         <w-div pb="20">
-                            right-top和top-right、left-bottom和bottom-left是一个意思，并不要求你一定要把x方向或者y方向放在前面。但请不要键入left-right、bottom-top这种让计算机摸不着头脑的冲突语句。
+                            在上一个发布版本[0.2.19]中，我们可以像 right-top和top-right、left-bottom和bottom-left 这样书写以加强联系性。
+                            但在本版本中，我移除了这个做法，直接使用分开的left top bottom right来表示位置。
+                            因为在这个版本我加入一套规范、标准以及概念来解决过去版本中的的一些用法混乱的问题，详情可以看WDom的文档。
                         </w-div>
                         <w-div :flex="['g-10', 'wrap']">
-                            <w-group w="$calc(95% / 3)" h="150" c="#fff" :bg="`green w-75 h-75 r-n ${as.img}`" >
+                            <w-group w="$calc(95% / 3)" h="150" c="#fff" :bg="`green size-75-75 r-n ${as.img}`" >
                                 <w-div bg="left" >left</w-div>
-                                <w-div bg="top-center" >top-center</w-div>
+                                <w-div bg="top center" >top center</w-div>
                                 <w-div bg="right">right</w-div>
-                                <w-div bg="left-center">left-center</w-div>
-                                <w-div :bg="`${img} center`">center</w-div>
-                                <w-div bg="right-center">right-center</w-div>
-                                <w-div bg="bottom-left">bottom-left</w-div>
-                                <w-div bg="center-bottom">center-bottom</w-div>
-                                <w-div bg="right-bottom">right-bottom</w-div>
-                                <w-div bg="x-100">x-100 距离左边100px</w-div>
-                                <w-div bg="x-p50">x-p50 距离左边50%(position) </w-div>
-                                <w-div bg="x-100 y-p100">x-100 y-p100 距离左边100px，距离顶边100% </w-div>
+                                <w-div bg="left center">left center</w-div>
+                                <w-div :bg="`${img} center`" transition>center</w-div>
+                                <w-div bg="right center">right center</w-div>
+                                <w-div bg="bottom left">bottom left</w-div>
+                                <w-div bg="center bottom">center bottom</w-div>
+                                <w-div bg="right bottom">right bottom</w-div>
+                                <w-div bg="p-100">x-100 距离左边100px</w-div>
+                                <w-div bg="p-50%">x-p50 距离左边50%(position) </w-div>
+                                <w-div bg="p-100-100%">x-100 y-p100 距离左边100px，距离顶边100% </w-div>
                             </w-group>
                         </w-div>
                 </codePreview>
@@ -321,7 +319,7 @@ const backgroundProps = ([
                         <w-group w="100" h="100" c="red" bg="center">
                             <w-div :bg="`${as.img}`" >引入public目录下的图片</w-div>
                             <w-div :bg="`${as.img}`">引入组件相对路径的图片</w-div>
-                            <w-div :bg="img">
+                            <w-div :bg="img" transition>
                                 变量名动态引入
                                 <w-div  :flex="['j-around']" pt="20">
                                     <w-button type="success" @click="img=as.img">图1</w-button>
@@ -335,20 +333,20 @@ const backgroundProps = ([
                     <w-div :flex="['g-10', 'wrap']">
                                                     <!--绿色背景↓来自这里-->
                         <w-group w="100" h="100" c="#fff" bg="green" >
-                            <w-div :bg="`${as.img} w-75 r-x`" >r-x 横向填充</w-div>
-                            <w-div :bg="`${as.img} h-75 r-y`">r-y 竖向填充</w-div>
-                            <w-div :bg="`${img} w-75 h-75 r-n`">
+                            <w-div :bg="`${as.img} size-75 r-x`" >r-x 横向填充</w-div>
+                            <w-div :bg="`${as.img} size--75 r-y`">r-y 竖向填充</w-div>
+                            <w-div :bg="`${img} size-75-75 r-n`" transition>
                                 r-n 不填充
                             </w-div>
                         </w-group>
                     </w-div>
                 </codePreview>
-                <codePreview  title="智能填充 模拟 img 的objcet-fill" :text="fillCode">
+                <codePreview  title="智能填充 模拟 img 的objcet-fill" :text="fillCode" >
                         <w-div pb="20">
                             right-top和top-right、left-bottom和bottom-left是一个意思，并不要求你一定要把x方向或者y方向放在前面。
                         </w-div>
                         <w-div :flex="['g-10', 'wrap']">
-                            <w-group w="200" h="200" c="white" :bg="`green r-n ${img}`" >
+                            <w-group w="200" h="200" c="white" :bg="`green r-n ${img}`" transition>
                                 <w-div  style="position: relative;">默认没设置的情况{{img==='/head.png'?';图2宽高一模一样，所以fill、contain、cover从视觉表现上一模一样的，但样式表上它们是有区别的。':""}}
                                     <w-div w="p100"  :flex="['j-around']" pb="20" style="position: absolute;bottom: 0;">
                                         <w-button type="success" @click="img=as.img">图1</w-button>
