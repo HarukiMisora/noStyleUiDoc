@@ -39,7 +39,7 @@ const w = computed(()=>{
                         <w-span  v-if="need.includes('text')">对应样式/说明</w-span>
                         <w-span  v-if="need.includes('type')">类型</w-span>
                         <w-span  v-if="need.includes('defalut')">默认值</w-span>
-                        <w-span  v-if="need.includes('units')">支持的单位符</w-span>
+                        <w-span  v-if="need.includes('units')">支持的单位符(即将弃用)</w-span>
                     </w-group>
                 </w-div>
                 <w-div :flex="['j-between']"  v-for="i in props.props" :key="i.prop" class="group">
