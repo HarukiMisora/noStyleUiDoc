@@ -66,29 +66,28 @@ const sizeCode = createCode(`
 `)
 const positionCode = createCode(`
 <w-div :flex="['g-10', 'wrap']">
-    <w-group w="$calc(95% / 3)" h="150" c="#fff" bg="green w-75 h-75 r-n /img.png" >
+    <w-group w="$calc(95% / 3)" h="150" c="#fff" :bg="\`green size-75-75 r-n ${as.img}\`" >
         <w-div bg="left" >left</w-div>
-        <w-div bg="top-center" >top-center</w-div>
+        <w-div bg="top center" >top center</w-div>
         <w-div bg="right">right</w-div>
-        <w-div bg="left-center">left-center</w-div>
-        <w-div :bg="\`\${img} center\`">center</w-div>
-        <w-div bg="right-center">right-center</w-div>
-        <w-div bg="bottom-left">bottom-left</w-div>
-        <w-div bg="center-bottom">center-bottom</w-div>
-        <w-div bg="right-bottom">right-bottom</w-div>
-        <w-div bg="x-100">x-100 距离左边100px</w-div>
-        <w-div bg="x-p50">x-p50 距离左边50%(position) </w-div>
-        <w-div bg="x-100 y-p100">x-100 y-p100 距离左边100px，距离顶边100% </w-div>
+        <w-div bg="left center">left center</w-div>
+        <w-div :bg="\`${img} center\`" transition>center</w-div>
+        <w-div bg="right center">right center</w-div>
+        <w-div bg="bottom left">bottom left</w-div>
+        <w-div bg="center bottom">center bottom</w-div>
+        <w-div bg="right bottom">right bottom</w-div>
+        <w-div bg="p-100">p-100 距离左边100px</w-div>
+        <w-div bg="p-50%">p-50% 距离左边50%(position) </w-div>
+        <w-div bg="p-100-100%">p-100-100% 距离左边100px，距离顶边100% </w-div>
     </w-group>
 </w-div>
 `)
 const repeatCode = createCode(`
 <w-div :flex="['g-10', 'wrap']">
-                                <!--绿色背景↓来自这里-->
     <w-group w="100" h="100" c="#fff" bg="green" >
-        <w-div bg="/img.png w-75 r-x" >r-x 横向填充</w-div>
-        <w-div bg="/img.png h-75 r-y">r-y 竖向填充</w-div>
-        <w-div :bg="\`\${img} w-75 h-75 r-n\`">
+        <w-div :bg="\`${as.img} size-75 r-x\`" >r-x 横向填充</w-div>
+        <w-div :bg="\`${as.img} size--75 r-y\`">r-y 竖向填充</w-div>
+        <w-div :bg="\`${img} size-75-75 r-n\`" transition>
             r-n 不填充
         </w-div>
     </w-group>
@@ -96,7 +95,7 @@ const repeatCode = createCode(`
 `)
 const fillCode = createCode(`
 <w-div :flex="['g-10', 'wrap']">
-    <w-group w="200" h="200" c="white" :bg="\`green r-n \${img}\`" >
+    <w-group w="200" h="200" c="white" :bg="\`green r-n ${img}\`" transition>
         <w-div  style="position: relative;">默认没设置的情况{{img==='/head.png'?';图2宽高一模一样，所以fill、contain、cover从视觉表现上一模一样的，但样式表上它们是有区别的。':""}}
             <w-div w="p100"  :flex="['j-around']" pb="20" style="position: absolute;bottom: 0;">
                 <w-button type="success" @click="img=as.img">图1</w-button>
@@ -303,9 +302,9 @@ const backgroundProps = ([
                                 <w-div bg="bottom left">bottom left</w-div>
                                 <w-div bg="center bottom">center bottom</w-div>
                                 <w-div bg="right bottom">right bottom</w-div>
-                                <w-div bg="p-100">x-100 距离左边100px</w-div>
-                                <w-div bg="p-50%">x-p50 距离左边50%(position) </w-div>
-                                <w-div bg="p-100-100%">x-100 y-p100 距离左边100px，距离顶边100% </w-div>
+                                <w-div bg="p-100">p-100 距离左边100px</w-div>
+                                <w-div bg="p-50%">p-50% 距离左边50%(position) </w-div>
+                                <w-div bg="p-100-100%">p-100-100% 距离左边100px，距离顶边100% </w-div>
                             </w-group>
                         </w-div>
                 </codePreview>
@@ -332,7 +331,6 @@ const backgroundProps = ([
                 </codePreview>
                 <codePreview  title="背景图片重复填充 r" :text="repeatCode">
                     <w-div :flex="['g-10', 'wrap']">
-                                                    <!--绿色背景↓来自这里-->
                         <w-group w="100" h="100" c="#fff" bg="green" >
                             <w-div :bg="`${as.img} size-75 r-x`" >r-x 横向填充</w-div>
                             <w-div :bg="`${as.img} size--75 r-y`">r-y 竖向填充</w-div>
