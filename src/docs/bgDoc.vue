@@ -264,7 +264,7 @@ const backgroundProps = ([
                             </w-group>
                         </w-div>
                     </codePreview>
-                    <codePreview  title="背景图片大小 w h" :text="sizeCode">
+                    <codePreview  title="背景图片大小 size" :text="sizeCode">
                         <w-div>0.3.x版本开始，我移除了w和h参数。使用size代替，size可以同时设置图片的宽高，也可以单独设置宽高 size-w-h、size-w、size--h</w-div>
                         <w-div :flex="['g-10', 'wrap']">
                             <w-group w="100" h="100" c="red"  >
