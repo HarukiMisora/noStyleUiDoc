@@ -31,7 +31,7 @@ const fuCode = createCode(`
     <w-group radius="p50" w="100" h="100" flex="center" :bg="[as.head,'fill']" c="red">
         <w-div c="green" f="24" fw="800">举</w-div>
         <w-div :bg="['top','cover','size-50']">世</w-div>
-        <w-div :bg="\`${as.head}  #000\`" flex="i-end">无</w-div>
+        <w-div :bg="\`${as.head}  black\`" flex="i-end">无</w-div>
         <w-div>双</w-div>
     </w-group>
 </w-div>
@@ -119,7 +119,7 @@ const cusCode = createCode(`
                         <w-group radius="p50" w="100" h="100" flex="center" :bg="[as.head,'fill']" c="red">
                             <w-div c="green" f="24" fw="800">举</w-div>
                             <w-div :bg="['top','cover','size-50']">世</w-div>
-                            <w-div :bg="`${as.head}  #000`" flex="i-end">无</w-div>
+                            <w-div :bg="`${as.head}  black`" flex="i-end">无</w-div>
                             <w-div>双</w-div>
                         </w-group>
                     </w-div>
