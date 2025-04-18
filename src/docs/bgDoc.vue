@@ -5,8 +5,9 @@ import codePreview from '../components/codePreview.vue';
 import propsDisplay from '../components/propsDisplay.vue';
 import { createCode } from '../components/createCode';
 import { as } from '../assets/assets';
-import { ref } from 'vue';
+import { inject, ref } from 'vue';
 const img = ref(as.img)
+const gridMode = inject<boolean>('gridMode')
 const bgCode = createCode(`
 <w-div flex="g-10">
     <w-group w="30" h="30">
@@ -245,46 +246,45 @@ const backgroundProps = ([
 <template>
     <w-div class="flex-1" bg="white" p="40">
         <w-div p="20">
-            <h1>bg 属性集</h1>
+            <h1>bg 属性集{{ gridMode }}</h1>
             <notice class="mt-10" title="作用" msg="定义盒子的背景样式"></notice>
         </w-div>
-        <w-div :flex="['wrap','j-evenly']" >
-            <w-div w="p48">
-                <w-div :flex="['col','g-10']">
-                    <codePreview  title="背景颜色 c" :text="bgCode">
-                        <w-div flex="g-10">
-                            <w-group w="30" h="30">
-                                <w-div bg="red"></w-div>
-                                <w-div bg="green"></w-div>
-                                <w-div bg="#00F"></w-div>
-                                <w-div bg="#FFFF00"></w-div>
-                                <w-div bg="#ffa500ff"></w-div>
-                                <w-div bg="rgba(255,255,0,0.5)"></w-div>
-                                <w-div bg="red+green+#00f+rgba(255,255,0,0.5)"></w-div>
-                            </w-group>
-                        </w-div>
-                    </codePreview>
-                    <codePreview  title="背景图片大小 size" :text="sizeCode">
-                        <w-div>0.3.x版本开始，我移除了w和h参数。使用size代替，size可以同时设置图片的宽高，也可以单独设置宽高 size-w-h、size-w、size--h</w-div>
-                        <w-div :flex="['g-10', 'wrap']">
-                            <w-group w="100" h="100" c="red"  >
-                                <w-div :bg="`${as.img} size-75`" ></w-div>
-                                <w-div :bg="`${as.img} size--75`"></w-div>
-                                <w-div :bg="`${img} size-75-75`" transition>
-                                    <w-div  :flex="['j-around']" pt="60">
-                                        <w-button type="success" @click="img=as.img">图1</w-button>
-                                        <w-button type="success" @click="img=as.head">图2</w-button>
-                                    </w-div>
+        <w-div grid="g-20 col--650" >
+            <w-ghost :ghost="gridMode" flex="g-20 col">
+                <codePreview  title="背景颜色 c" :text="bgCode">
+                    <w-div flex="g-10">
+                        <w-group w="30" h="30">
+                            <w-div bg="red"></w-div>
+                            <w-div bg="green"></w-div>
+                            <w-div bg="#00F"></w-div>
+                            <w-div bg="#FFFF00"></w-div>
+                            <w-div bg="#ffa500ff"></w-div>
+                            <w-div bg="rgba(255,255,0,0.5)"></w-div>
+                            <w-div bg="red+green+#00f+rgba(255,255,0,0.5)"></w-div>
+                        </w-group>
+                    </w-div>
+                </codePreview>
+                <codePreview  title="背景图片大小 size" :text="sizeCode">
+                    <w-div>0.3.x版本开始，我移除了w和h参数。使用size代替，size可以同时设置图片的宽高，也可以单独设置宽高 size-w-h、size-w、size--h</w-div>
+                    <w-div :flex="['g-10', 'wrap']">
+                        <w-group w="100" h="100" c="red"  >
+                            <w-div :bg="`${as.img} size-75`" ></w-div>
+                            <w-div :bg="`${as.img} size--75`"></w-div>
+                            <w-div :bg="`${img} size-75-75`" transition>
+                                <w-div  :flex="['j-around']" pt="60">
+                                    <w-button type="success" @click="img=as.img">图1</w-button>
+                                    <w-button type="success" @click="img=as.head">图2</w-button>
                                 </w-div>
-                                <w-div :bg="`${as.img} size-100%`" >
-                                    p100 = 100%
-                                </w-div>
-                                <w-div :bg="`${as.img} size-100vh`">
-                                    v100 = 100vh或者100vw
-                                </w-div>
-                            </w-group>
-                        </w-div>
-                    </codePreview>
+                            </w-div>
+                            <w-div :bg="`${as.img} size-100%`" >
+                                p100 = 100%
+                            </w-div>
+                            <w-div :bg="`${as.img} size-100vh`">
+                                v100 = 100vh或者100vw
+                            </w-div>
+                        </w-group>
+                    </w-div>
+                </codePreview>
                 <codePreview  title="背景图片位置 x y" :text="positionCode">
                         <w-div pb="20">
                             在上一个发布版本[0.2.19]中，我们可以像 right-top和top-right、left-bottom和bottom-left 这样书写以加强联系性。
@@ -308,12 +308,9 @@ const backgroundProps = ([
                             </w-group>
                         </w-div>
                 </codePreview>
-                </w-div>
-                
-
-            </w-div>
-            <w-div w="p48" :flex="['col','g-10']">
-                <codePreview  title="背景图片" :text="imgCode">
+            </w-ghost>
+            <w-ghost :ghost="gridMode" flex="g-20 col">
+                <codePreview  title="背景图片" grid="item grow-2-3" :text="imgCode">
                     <w-div pb="20">我去，随便找的背景图片原始尺寸有这么大的吗？</w-div>
                     <w-div :flex="['g-10', 'wrap']">
                         <w-group w="100" h="100" c="red" bg="center">
@@ -329,7 +326,7 @@ const backgroundProps = ([
                         </w-group>
                     </w-div>
                 </codePreview>
-                <codePreview  title="背景图片重复填充 r" :text="repeatCode">
+                <codePreview  title="背景图片重复填充 r" :text="repeatCode" grid="item grow-4-5">
                     <w-div :flex="['g-10', 'wrap']">
                         <w-group w="100" h="100" c="#fff" bg="green" >
                             <w-div :bg="`${as.img} size-75 r-x`" >r-x 横向填充</w-div>
@@ -359,7 +356,7 @@ const backgroundProps = ([
                             </w-group>
                         </w-div>
                 </codePreview>
-            </w-div>
+            </w-ghost>
             
  
         </w-div>
