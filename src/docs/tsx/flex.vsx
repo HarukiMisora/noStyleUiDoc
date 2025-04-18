@@ -1,8 +1,6 @@
 
-<script>
-  const msg = 'hello world';
+const msg = 'hello world';
 
-</script>
 
 template test = {
   <div>
@@ -17,7 +15,6 @@ export template test2 = {
     ((test))
   </div>
 };
-
 
 
 
