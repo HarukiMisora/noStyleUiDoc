@@ -246,7 +246,7 @@ const backgroundProps = ([
 <template>
     <w-div class="flex-1" bg="white" p="40">
         <w-div p="20">
-            <h1>bg 属性集{{ gridMode }}</h1>
+            <h1>bg 属性集</h1>
             <notice class="mt-10" title="作用" msg="定义盒子的背景样式"></notice>
         </w-div>
         <w-div grid="g-20 col--650" >
