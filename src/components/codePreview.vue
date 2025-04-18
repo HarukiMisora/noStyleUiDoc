@@ -3,7 +3,7 @@
 
 
 <script lang='ts' setup>
-import { computed, ref } from 'vue';
+import { computed, ref, compile ,createApp, onMounted} from 'vue';
 
 
 const prop =defineProps<{text:string,title:string,show?:boolean}>()
@@ -12,6 +12,27 @@ const previewRef = ref<any>()
 const h = computed(()=>{
 	return (previewRef.value?.$el.clientHeight || 0)
 }) 
+
+import nostyleui, { WDiv } from 'nostyleui';
+
+const contentRef = ref<any>()
+
+onMounted(()=>{
+    // 编译字符串模板为渲染函数
+    const render = compile(prop.text.replace(/^.*```.*$/gm,''));
+    // 手动创建并挂载组件
+    const app = createApp({
+        render,
+    });
+    app.use(nostyleui).mount(contentRef.value.$el);
+})
+
+
+
+
+
+
+
 </script>
 
 <template>
@@ -23,10 +44,13 @@ const h = computed(()=>{
                     <w-button type="primary" @click="showCode=!showCode">{{showCode?'收起代码':'展开代码'}}</w-button>
                 </w-div>
             </w-div>
-            <w-div>
+            <div>
                 <slot></slot>
-            </w-div>
-     
+                <w-div ref="contentRef" id="test" >
+                </w-div>
+            </div>
+
+            
         </w-div>
         <transition name="slide-fade" mode="out-in">
 						<w-div v-if="showCode" :h="h" style="overflow: hidden;" w="p100">
