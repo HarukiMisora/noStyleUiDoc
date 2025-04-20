@@ -1,33 +1,23 @@
 
+<script>
+  const msg = 'hello world';
 
-const test = (
-  <w-group w="30" h="30">
-    <w-div bg="red"></w-div>
-    <w-div bg="green"></w-div>
-    <w-div bg="#00F"></w-div>
-    <w-div bg="#FFFF00"></w-div>
-    <w-div bg="#ffa500ff"></w-div>
-    <w-div bg="rgba(255,255,0,0.5)"></w-div>
-    <w-div bg="red+green+#00f+rgba(255,255,0,0.5)"></w-div>
-  </w-group>
-);
-const test2 = (
-  <w-group w="30" h="30">
-    <w-div bg="red"></w-div>
-    <w-div bg="green"></w-div>
-    <w-div bg="#00F"></w-div>
-    <w-div bg="#FFFF00"></w-div>
-    <w-div bg="#ffa500ff"></w-div>
-    <w-div bg="rgba(255,255,0,0.5)"></w-div>
-    <w-div bg="red+green+#00f+rgba(255,255,0,0.5)"></w-div>
-  </w-group>
-);
+</script>
 
-baseFlex:{
-  <w-div flex="g-10">
-
-  </w-div>
+template test = {
+  <div>
+    ((msg))
+  </div>
 };
+
+
+export template test2 = {
+  <div>
+    aasdasd
+    ((test))
+  </div>
+};
+
 
 
 

@@ -20,9 +20,11 @@
     "vue-router": "^4.5.0"
   },
   "devDependencies": {
+    "@types/babel__core": "^7.20.5",
     "@vicons/ionicons5": "^0.13.0",
     "@vitejs/plugin-vue": "^5.2.1",
     "@vue/tsconfig": "^0.7.0",
+    "peggy": "^4.2.0",
     "typescript": "~5.7.2",
     "vite": "^6.1.0",
     "vue-tsc": "^2.2.0"
