@@ -16,18 +16,11 @@ export default defineConfig(({mode})=>{
       plugins: [
         vue(),
         myStrTsxPlugin(),
-        myStrTsxPlugin(),
         prismjsPlugin({
           languages: ['json','html','ts','js','bash'],
         }),
     
       ],
-      resolve: {
-        alias: {
-          // 关键配置：指向含编译器的 Vue 构建版本
-          vue: 'vue/dist/vue.esm-bundler.js'
-        },
-      }
       resolve: {
         alias: {
           // 关键配置：指向含编译器的 Vue 构建版本

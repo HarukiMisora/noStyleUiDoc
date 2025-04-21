@@ -1,18 +1,17 @@
 
-const msg = 'hello world';
-
+string msg = 'hello world';
 
 template test = {
   <div>
-    ((msg))
+    {msg:string} 
+    {{test}}
   </div>
 };
 
 
 export template test2 = {
   <div>
-    aasdasd
-    ((test))
+    
   </div>
 };
 
