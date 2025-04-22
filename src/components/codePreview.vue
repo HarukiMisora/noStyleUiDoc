@@ -4,7 +4,7 @@
 
 <script lang='ts' setup>
 import { computed, ref, compile ,createApp, onMounted} from 'vue';
-
+import { createCode } from './createCode';
 
 const prop =defineProps<{text:string,title:string,show?:boolean}>()
 const showCode = ref(prop.show)
@@ -18,12 +18,15 @@ import nostyleui, { WDiv } from 'nostyleui';
 const contentRef = ref<any>()
 
 onMounted(()=>{
-    // 编译字符串模板为渲染函数
-    const render = compile(prop.text.replace(/^.*```.*$/gm,''));
+
+    
+    const render = compile(prop.text);
     // 手动创建并挂载组件
     const app = createApp({
         render,
     });
+    console.log(app);
+    
     app.use(nostyleui).mount(contentRef.value.$el);
 })
 
@@ -46,7 +49,7 @@ onMounted(()=>{
             </w-div>
             <div>
                 <slot></slot>
-                <w-div ref="contentRef" id="test" >
+                <w-div ref="contentRef"  >
                 </w-div>
             </div>
 
@@ -54,7 +57,7 @@ onMounted(()=>{
         </w-div>
         <transition name="slide-fade" mode="out-in">
 						<w-div v-if="showCode" :h="h" style="overflow: hidden;" w="p100">
-            	<v-md-preview :text="prop.text" ref="previewRef" ></v-md-preview>
+            	<v-md-preview :text="createCode(prop.text)" ref="previewRef" ></v-md-preview>
             </w-div>
         </transition>
 

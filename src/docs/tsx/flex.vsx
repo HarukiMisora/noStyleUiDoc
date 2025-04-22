@@ -2,18 +2,24 @@
 string msg = 'hello world';
 
 template test = {
-  <div>
+  <w-div bg='red'>
     {msg:string} 
-    {{test}}
-  </div>
+  </w-div>
 };
 
 
-export template test2 = {
+template test2 = {
   <div>
-    
+    {test:template}
+    哈哈哈
+    {test:template}
   </div>
 };
+
+export {
+  test2
+};
+
 
 
 

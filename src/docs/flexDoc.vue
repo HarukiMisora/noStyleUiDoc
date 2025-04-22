@@ -6,8 +6,9 @@ import propsDisplay from '../components/propsDisplay.vue';
 import { createCode } from '../components/createCode';
 
 import  flexCode  from './tsx/flex.vsx';``
+console.log(flexCode.test2);
 
-const baseCode = createCode(flexCode.baseFlex)
+const baseCode = flexCode.test2
 const imgCode = createCode(flexCode.directionFlex)
 const gCode = createCode(`
 <w-div flex="g-10">
@@ -171,7 +172,7 @@ const flexProps = ([
         <w-div grid="col--650 g-20">
             <w-ghost :flex="['col','g-20']">
                 <codePreview  title="基础用法 " :text="baseCode" >
-                    <w-div pb="5">flex可以是一个布尔属性</w-div>
+                    <!-- <w-div pb="5">flex可以是一个布尔属性</w-div> -->
                 </codePreview>
                 <codePreview  title="间距 g-number" :text="gCode"></codePreview>
                 <codePreview  title="分布 i" :text="itemsCode"></codePreview>
