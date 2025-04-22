@@ -52,11 +52,9 @@ export default function myStrTsxPlugin(): Plugin {
             const value = line.slice(index+3,-1);
             console.log(keyAndValue); 
             
-            console.log([key],'key----',value,'----value');
+            console.log(['key',key],value,'----value');
             const newCode = value.trimStart().replace(/\{([^:]+):[^}]+\}/g, (match, key) => {
-              // console.log(match);
-              
-              return getVars(match) ?? match; // 若找不到键，保留原内容
+              return getVars(match) ?? void 0; // 若找不到键，返回void 0
             });
             vars.TEMPLATE[key] = newCode;
             console.log('newCode =>',[newCode,key]); 

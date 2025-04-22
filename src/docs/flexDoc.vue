@@ -3,79 +3,9 @@
 import notice from '../components/notice.vue';
 import codePreview from '../components/codePreview.vue';
 import propsDisplay from '../components/propsDisplay.vue';
-import { createCode } from '../components/createCode';
+
 
 import  flexCode  from './tsx/flex.vsx';``
-console.log(flexCode.test2);
-
-const baseCode = flexCode.test2
-const imgCode = createCode(flexCode.directionFlex)
-const gCode = createCode(`
-<w-div flex="g-10">
-    <w-group w="30" h="30">
-        <w-div bg="red"></w-div>
-        <w-div bg="c-red"></w-div>
-        <w-div bg="green"></w-div>
-        <w-div bg="c-green"></w-div>
-        <w-div bg="#00F"></w-div>
-        <w-div bg="#0000FF"></w-div>
-        <w-div bg="rgb(255,255,0)"></w-div>
-        <w-div bg="rgba(255,255,0,0.5)"></w-div>
-        <w-div bg="red-green-#00f-rgba(255,255,0,0.5)"></w-div>
-    </w-group>
-</w-div>
-<w-div :flex="['g-10','col']">
-    <w-group w="30" h="30">
-        <w-div bg="red"></w-div>
-        <w-div bg="c-red"></w-div>
-        <w-div bg="green"></w-div>
-        <w-div bg="c-green"></w-div>
-    </w-group>
-</w-div>
-`)
-const itemsCode = createCode(`
-<w-div flex h="150" c="#fff" bg="green" >
-    <w-group flex="1" bd="solid red 1">
-        <w-div bd="r-0" :flex="['i-start']" >i-start</w-div>
-        <w-div bd="r-0" :flex="['i-center']" >i-center</w-div>
-        <w-div  :flex="['i-end']" >i-end</w-div>
-    </w-group>
-</w-div>
-`)
-const justifyCode = createCode(`
-<w-div flex h="150" c="#fff" bg="green" >
-    <w-group flex="1" bd="solid red 1">
-        <w-div  :flex="['i-start','j-end']" >
-            <w-div>i-start </w-div>
-            <w-div>j-end </w-div>
-        </w-div>
-        <w-div  :flex="['i-center','j-center']" >
-            <w-div>i-center </w-div>
-            <w-div>j-center </w-div>
-        </w-div>
-        <w-div  :flex="['i-end', 'j-start']" >
-            <w-div>i-end </w-div>
-            <w-div>j-start </w-div>
-        </w-div>
-    </w-group>
-</w-div>
-<w-div flex h="150" c="#fff" bg="green" >
-    <w-group flex="1" bd="solid red 1">
-        <w-div  :flex="['i-start','j-around']" >
-            <w-div>i-start </w-div>
-            <w-div>j-around </w-div>
-        </w-div>
-        <w-div  :flex="['i-center','j-between']" >
-            <w-div>i-center </w-div>
-            <w-div>j-between </w-div>
-        </w-div>
-        <w-div  :flex="['i-end', 'j-evenly']" >
-            <w-div>i-end </w-div>
-            <w-div>j-start </w-div>
-        </w-div>
-    </w-group>
-</w-div>
-`)
 
 
 const flexProps = ([
@@ -171,15 +101,15 @@ const flexProps = ([
         </w-div>
         <w-div grid="col--650 g-20">
             <w-ghost :flex="['col','g-20']">
-                <codePreview  title="基础用法 " :text="baseCode" >
+                <codePreview  title="基础用法 " :text="flexCode.baseCode" >
                     <!-- <w-div pb="5">flex可以是一个布尔属性</w-div> -->
                 </codePreview>
-                <codePreview  title="间距 g-number" :text="gCode"></codePreview>
-                <codePreview  title="分布 i" :text="itemsCode"></codePreview>
+                <codePreview  title="间距 g-number" :text="flexCode.gapCode"></codePreview>
+                <codePreview  title="分布 i" :text="flexCode.itemsCode"></codePreview>
             </w-ghost>
             <w-ghost :flex="['col','g-20']">
-                <codePreview  title="方向 col row col-r row-r" :text="imgCode"></codePreview>
-                <codePreview  title="分布 j" :text="justifyCode"></codePreview>
+                <codePreview  title="方向 col row col-r row-r" :text="flexCode.direction"></codePreview>
+                <codePreview  title="分布 j" :text="flexCode.justifyCode"></codePreview>
             </w-ghost>
         </w-div>
         <propsDisplay  :props="flexProps">
