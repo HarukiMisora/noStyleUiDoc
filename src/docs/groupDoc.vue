@@ -2,71 +2,13 @@
 <script lang='ts' setup>
 import notice from '../components/notice.vue';
 import codePreview from '../components/codePreview.vue';
-import { createCode } from '../components/createCode';
-import { as,path } from '../assets/assets';
-import { inject } from 'vue';
 
+import { path } from '../assets/assets';
+import { inject } from 'vue';
+import groupCode from './tsx/group.vsx'
 
 const gridMode = inject<boolean>('gridMode')
 
-
-const baseCode = createCode(`
-<w-div mb="5">
-    这四个盒子本身并没有添加任何的属性与样式，它们的属性样式完全继承WGroup装载的属性样式。继承只对一级子元素有效，不会破坏子元素的子元素的样式，比如这最后一个元素里的“雁”。
-</w-div>
-<w-div flex="g-10">
-    <w-group radius="p50" w="100" h="100" flex="center" :bg="\`${as.head} fill\`" c="red">
-        <w-div>沉</w-div>
-        <w-div>鱼</w-div>
-        <w-div>落</w-div>
-        <w-div>
-            <w-div bg="green">雁</w-div>
-        </w-div>
-    </w-group>
-</w-div>
-`)
-const fuCode = createCode(`
-<w-div mb="5">有统一的，也有特殊的，子元素自有属性可以复写继承属性是理所当然的。注意：对于命令集的复写，目前默认是合并复写，绝对覆盖的设定参数会在后续版本中添加。</w-div>
-<w-div flex="g-10">
-    <w-group radius="p50" w="100" h="100" flex="center" :bg="[as.head,'fill']" c="red">
-        <w-div c="green" f="24" fw="800">举</w-div>
-        <w-div :bg="['top','cover','size-50']">世</w-div>
-        <w-div :bg="\`${as.head}  black\`" flex="i-end">无</w-div>
-        <w-div>双</w-div>
-    </w-group>
-</w-div>
-`)
-const loopCode = createCode(`
-<w-div flex>
-    <w-group radius="p50" w="100" h="100" flex="center" :bg="[as.head,'s-fill']" c="red">
-        <w-group>
-            <w-div>沉</w-div>
-            <w-div>鱼</w-div>
-        </w-group>
-        <w-group radius="p25"  :bg="['x-50']">
-            <w-div>落</w-div>
-            <w-div>雁</w-div>
-        </w-group>
-    </w-group>
-</w-div>
-`)
-const cusCode = createCode(`
-<w-div flex="g-10">
-    <w-group :cus-props="[['type','primary'],['effect','text']]">
-        <w-button>沉</w-button>
-        <w-button>鱼</w-button>
-        <w-button>落</w-button>
-        <w-button>雁</w-button>
-    </w-group>
-    <w-button type="error" effect="biger">，</w-button>
-    <w-group :cus-props="[['type','success']]">
-        <w-button>举</w-button>
-        <w-button>世</w-button>
-        <w-button>无</w-button>
-        <w-button>双</w-button>
-    </w-group>
-</w-div>
-`)
 
 </script>
 
@@ -78,69 +20,24 @@ const cusCode = createCode(`
         </w-div>
         <w-div grid="col--650px g-20 " ref="previewRef">
             <w-ghost flex="g-20 col" :ghost="gridMode">
-                <codePreview  title="基础用法-装载与继承" :text="baseCode">
+                <codePreview  title="基础用法-装载与继承" :text="groupCode.baseCode">
                     <w-div mb="5">
                         这四个盒子本身并没有添加任何的属性与样式，它们的属性样式完全继承WGroup装载的属性样式。继承只对一级子元素有效，不会破坏子元素的子元素的样式，比如这最后一个元素里的“雁”。
                     </w-div>
-                    <w-div flex="g-10">
-                        <w-group radius="p50" w="100" h="100" flex="center" :bg="`${as.head} fill`" c="red">
-                            <w-div>沉</w-div>
-                            <w-div>鱼</w-div>
-                            <w-div>落</w-div>
-                            <w-div>
-                                <w-div bg="green">雁</w-div>
-                            </w-div>
-                        </w-group>
-                    </w-div>
                 </codePreview>
-                <codePreview  title="嵌套继承" :text="loopCode">
+                <codePreview  title="嵌套继承" :text="groupCode.loopCode">
                     <w-div mb="5">
                         WGroup同样可以继承上级WGroup的属性，然后分发给下级盒子继承。同样下级的WGroup也可以再自己的作用域里复写上级WGroup的属性。
                     </w-div>
-                    <w-div flex="">
-                        <w-group radius="p50" w="100" h="100" flex="center" :bg="[as.head,'fill']" c="red">
-                            <w-group>
-                                <w-div>沉</w-div>
-                                <w-div>鱼</w-div>
-                            </w-group>
-                            <w-group radius="p25"  :bg="['p-50']">
-                                <w-div>落</w-div>
-                                <w-div>雁</w-div>
-                            </w-group>
-                        </w-group>
-                    </w-div>
-                    
+
                 </codePreview>
             </w-ghost>
             <w-ghost flex="g-20 col" :ghost="gridMode">
-                <codePreview  title="复写" grid="item grow-2-3" :text="fuCode">
+                <codePreview  title="复写" grid="item grow-2-3" :text="groupCode.fuCode">
                     <w-div mb="5">有统一的，也有特殊的，子元素自有属性可以复写继承属性是理所当然的。注意：对于命令集的复写，目前默认是合并复写，绝对覆盖的设定参数会在后续版本中添加。</w-div>
-                    <w-div flex="g-10">
-                        <w-group radius="p50" w="100" h="100" flex="center" :bg="[as.head,'fill']" c="red">
-                            <w-div c="green" f="24" fw="800">举</w-div>
-                            <w-div :bg="['top','cover','size-50']">世</w-div>
-                            <w-div :bg="`${as.head}  black`" flex="i-end">无</w-div>
-                            <w-div>双</w-div>
-                        </w-group>
-                    </w-div>
                 </codePreview>
-                <codePreview  title="自定义继承" :text="cusCode">
+                <codePreview  title="自定义继承" :text="groupCode.cusCode">
                     <w-div mb="5">除了自带的属性样式可以装载和继承，WGroup还允许你针对自己的自定义组件的属性进行装载与继承。</w-div>
-                    <w-div flex="g-10">
-                        <w-group :cus-props="[['type','primary'],['effect','text']]">
-                            <w-button>沉</w-button>
-                            <w-button>鱼</w-button>
-                            <w-button>落</w-button>
-                            <w-button>雁</w-button>
-                        </w-group>
-                        <w-button type="error" effect="biger">，</w-button>
-                        <w-group :cus-props="[['type','success']]">
-                            <w-button>举</w-button>
-                            <w-button>世</w-button>
-                            <w-button>无</w-button>
-                            <w-button>双</w-button>
-                        </w-group>
-                    </w-div>
                 </codePreview>
             </w-ghost>
 

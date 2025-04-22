@@ -24,8 +24,9 @@ export default function myStrTsxPlugin(): Plugin {
       if (id.endsWith('.vsx')) {
         const vars:varsT = {
           STRING:{},
-          TEMPLATE:{}
+          TEMPLATE:{},
         }
+        const imports = []
         function getVars(match:string){
           const keys = match.replace(/{|}/g,'').split(':')
           
@@ -36,6 +37,11 @@ export default function myStrTsxPlugin(): Plugin {
         let resCode = 'export default {}'; 
         for (let i = 0; i < codes.length; i++) {
           const line = codes[i];
+          if(line.trimStart().startsWith('import ')||line.trimStart().startsWith('console.')){
+            console.log(['line',line])
+            imports.push(line)
+            continue
+          }
           if(line.trimStart().startsWith('string ')){
             const keyAndValue = line.split(' ');
             const key = keyAndValue[1]
@@ -64,18 +70,18 @@ export default function myStrTsxPlugin(): Plugin {
             const keyAndValue = line.replace(/export |{|}|\s/g,'').split(',');
             console.log(keyAndValue);
             resCode = `export default {${keyAndValue.map(key => {
-              const value = vars.STRING[key] ?? vars.TEMPLATE[key] ?? key;
+              const value = vars.STRING[key] ?? vars.TEMPLATE[key] ?? void 0;
               return `${key}:\`${value}\``
             }).join(',')}}`
-            console.log(resCode);
             
           }
           
  
         }
   
-        
 
+        resCode =imports.toString().replace(/,/g,';')+';\r\n'+resCode
+        console.log(resCode);
 
         // 返回转换后的代码和 Source Map
         return {

@@ -1,6 +1,4 @@
 
-string msg = 'hello world';
-
 template test = {
       <w-div bg="red"></w-div>
       <w-div bg="green"></w-div>
