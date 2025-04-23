@@ -42,7 +42,7 @@ const w = computed(()=>{
                         <w-span  v-if="need.includes('units')">支持的单位符(即将弃用)</w-span>
                     </w-group>
                 </w-div>
-                <w-div :flex="['j-between']"  v-for="i in props.props" :key="i.prop" class="group">
+                <w-div :flex="['j-between']"  v-for="i in props.props" :key="i.prop" class="group" hover="bg=gray" transition=".2s">
                     <w-group :w="`p${w}`" pr="20" py="5">
                         <w-span  v-if="need.includes('prop')">{{i.prop}}</w-span>
                         <w-span  v-if="need.includes('text')">{{i.text}}</w-span>
@@ -64,9 +64,6 @@ const w = computed(()=>{
     border-top: 1px solid #99999930;
     display: flex;
     align-items: center;
-}
-.group:hover{
-    background-color: #ccc;
 }
 
 </style>

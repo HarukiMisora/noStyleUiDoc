@@ -4,7 +4,7 @@ import { useRouter } from 'vue-router';
 import { menu } from '../router/menu';
 import {LogoGithub,Fish} from '@vicons/ionicons5'
 import version from '../version';
-import { computed, provide, ref, watchEffect } from 'vue';
+import { computed, onMounted, provide, ref, watchEffect } from 'vue';
 import type { WDiv } from 'nostyleui/types/index.js';
 const router = useRouter()
 const scrollBoxRef = ref<InstanceType<typeof WDiv>>()
@@ -62,11 +62,14 @@ watchEffect(()=>{
     },500)
   }
 })
-
-window.onresize = (e:Event)=>{
-  // console.log(gridMode.value,scrollBoxRef.value?.$el.clientWidth);
+const resize = ()=>{
   gridMode.value = scrollBoxRef.value?.$el.clientWidth < 1400
+
 }
+onMounted(()=>{
+  resize()
+})
+window.onresize = resize
 
 </script>
 
