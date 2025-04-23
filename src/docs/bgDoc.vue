@@ -3,7 +3,6 @@
 import notice from '../components/notice.vue';
 import codePreview from '../components/codePreview.vue';
 import propsDisplay from '../components/propsDisplay.vue';
-import { createCode } from '../components/createCode';
 import { as } from '../assets/assets';
 import { inject, ref } from 'vue';
 const img = ref(as.img)
