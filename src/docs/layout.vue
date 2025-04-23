@@ -66,6 +66,18 @@ const resize = ()=>{
   gridMode.value = scrollBoxRef.value?.$el.clientWidth < 1400
 
 }
+
+const selectVersion = ref(version)
+const lastVersions = ['0.2.19','0.2.12','0.1.0']
+const goToLastVersion = (e:any)=>{
+  const ver = e.target?.value
+  if(version !== ver){
+    window.open(`https://www.iamwzc.com/TMXK/noStyleUiDoc/index${ver}.html`)
+  }
+  return ver
+}
+
+
 onMounted(()=>{
   resize()
 })
@@ -86,7 +98,10 @@ window.onresize = resize
                 <w-button @click="gotoGithub">
                     <LogoGithub  class="w-18 mr-5"></LogoGithub>Github
                 </w-button>
-                <w-span style="user-select: none;" c="primary">{{version}}</w-span>
+                <select style="user-select: none;padding: 5px;" @change="goToLastVersion"  v-model="selectVersion" >
+                  <option :value="version">⚡ {{version}}</option>
+                  <option v-for="i in lastVersions" :key="i" :value="i">⚡ {{ i }}</option>
+                </select>
             </w-div>
         </w-div>
         <w-div  w="p100" h="$calc(100vh - 60px)" flex=""   >
