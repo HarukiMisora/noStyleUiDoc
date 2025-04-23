@@ -106,6 +106,16 @@
                 <w-div w="100" h="100" p="20" radius="8" f="24" fw="600"  bg="red">title</w-div>
             </CodePreview>
         </PropsDisplay>
+
+
+        <PropsDisplay>
+            <CodePreview title="过渡动画">
+                <w-group>
+                    <w-div mb="5">transition属性直接支持原生css的transition样式，可以设置盒子的过渡动画，它可以设置过渡的属性，持续时间，动画曲线等。如果transition没有任何值时，默认是all .5s ease</w-div>
+                    <w-div transition  h="100" radius="5" :bg="as.head+' size--100 r-n #0008' " hover="bg=#000;p-100%"></w-div>
+                </w-group>
+            </CodePreview>
+        </PropsDisplay>
     
 
     
@@ -147,6 +157,7 @@ const pxsText:{[key in typeof pxs[number]]:string} ={
     mr:'margin-right',
     mx:'margin-left&margin-right',
     my:'margin-top&margin-bottom',
+
 }
 const pxsProps = pxs.map((prop)=>{
     return  {

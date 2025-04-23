@@ -37,7 +37,7 @@ function formatHTML(html, indentSize = 2) {
         // 预判是否单行结构：当前标签后紧跟文本和闭标签
         const nextText = parts[i+1]?.trim()
         const nextTag = parts[i+2]?.trim()
-        console.log([nextText,nextTag]);
+        // console.log([nextText,nextTag]);
         
         const isSingleLine = nextText&&nextTag?.startsWith('</')||nextTag === '' && !nextText.includes('\n')
 
