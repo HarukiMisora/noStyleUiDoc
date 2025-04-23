@@ -6,7 +6,7 @@
 import { computed, ref , onMounted} from 'vue';
 import { createCode } from './createCode';
 
-const prop =defineProps<{text?:string,title:string,show?:boolean}>()
+const prop =defineProps<{text?:string,title:string,show?:boolean,lang?:string}>()
 const showCode = ref(prop.show)
 const previewRef = ref<any>()
 const h = computed(()=>{
@@ -51,8 +51,8 @@ onMounted(()=>{
             
         </w-div>
         <transition name="slide-fade" mode="out-in">
-						<w-div v-if="showCode" :h="h" style="overflow: hidden;" w="p100">
-            	<v-md-preview :text="createCode(prop.text)" ref="previewRef" ></v-md-preview>
+            <w-div v-if="showCode" :h="h" style="overflow: hidden;" w="p100">
+            	<v-md-preview :text="createCode(prop.text,lang)" ref="previewRef" ></v-md-preview>
             </w-div>
         </transition>
 

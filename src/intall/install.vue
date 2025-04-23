@@ -5,18 +5,19 @@
 
 <script lang='ts' setup>
 import CodePreview from '../components/codePreview.vue';
-import { createCode } from '../components/createCode';
+
 import Notice from '../components/notice.vue';
 
-const allCode = createCode(`
+const allCode = `
 import { createApp } from 'vue'
 import App from './App.vue'
+
 import nostyleui from 'nostyleui/index'
 import 'nostyleui/style'
 
-createApp(App).use(nostyleui).mount('#app')
-`,'ts')
-const needCode = createCode(`
+createApp(App).use(nostyleui).mount('#app')`;
+
+const needCode = `
 \<script lang="ts" setup>
 import { WDiv } from 'nostyleui';
 
@@ -26,8 +27,7 @@ import { WDiv } from 'nostyleui';
     <w-div></w-div>
 </template>
 
-<style></style>
-`,'html');
+<style></style>`;
 
 // const importCode =createCode(`
 // {
@@ -49,20 +49,17 @@ import { WDiv } from 'nostyleui';
 
 <template>
     <w-div p="40" bg="white" :flex="['col','1','g-20']">
-        <CodePreview title="安装" :text="createCode('nmp i -D nostyleui\n','bash\n')" :show="true">
-            <Notice class="mt-5" title="警告" msg='因为目前还在开发调试阶段，写得比较随缘也不全面，碎片化时间更新，也没做版本管理，我写一点往上面发布一点。所以目前非常不建议投入生产。' type="danger"></Notice>
+        <code-preview title="安装" text="nmp i -D nostyleui" lang="bash" :show="true">
+            <notice class="mt-5" title="警告" msg='因为目前还在开发调试阶段，写得比较随缘也不全面，碎片化时间更新，也没做版本管理，我写一点往上面发布一点。所以目前非常不建议投入生产。' type="danger"></notice>
 
-        </CodePreview>
-        <CodePreview  title="全局引入" :text="allCode" :show="true">
+        </code-preview>
+        <CodePreview  title="全局引入" :text="allCode" lang="ts" :show="true">
             
         </CodePreview>
         <CodePreview  title="按需引入" :text="needCode" :show="true">
             <Notice class="mt-5" title="注意" msg='目前按需引入还是需要在main.ts中引入全局css。这是因为所有组件都依赖于这个全局css' type="warning"></Notice>
 
         </CodePreview>
-        <!-- <CodePreview  title="关于IDEA和vscode的代码提示()" :text="importCode" :show="true">
-            如果你想在你的编辑器中激活相应的代码提示，目前的话你需要手动在tsconfig.json 或者你的 tsconfig.xxx.json 加入 "node_modules/nostyleui/interface.d.ts",就像下面json这样做。
-        </CodePreview> -->
     </w-div>            
 </template>
 
