@@ -127,7 +127,7 @@ const  bdProps = ([
         <w-div :flex="['wrap','j-evenly']">
             <w-div w="p48">
                 <w-div :flex="['col','g-10']">
-                    <codePreview  title="基础用法" :text="baseCode">
+                    <codePreview  title="基础用法" >
                         <w-div flex="g-10">
                             <w-group flex="center"   >
                                 <w-div hover="red">red</w-div>
@@ -152,7 +152,7 @@ const  bdProps = ([
 
             </w-div>
             <w-div w="p48" :flex="['col','g-10']">
-                <codePreview  title="背景图片" :text="directionCode">
+                <codePreview  title="背景图片" >
                     <w-div :flex="['g-10','wrap']" c="green">
                         <w-group radius="p50" w="100" h="100" flex="center" :bg="[as.head,'fill']" :hover="as.img+' bg-cover'" >
                             <w-div bd="l-solid t-dashed r-double b-dotted" ></w-div>
