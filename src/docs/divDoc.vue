@@ -119,7 +119,6 @@
 import PropsDisplay from '../components/propsDisplay.vue';
 import CodePreview from '../components/codePreview.vue';
 import NoTice from '../components/notice.vue';
-import {createCode} from '../components/createCode'
 
 import { as } from '../assets/assets';
 
