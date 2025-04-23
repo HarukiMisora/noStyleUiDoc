@@ -5,7 +5,7 @@ import codePreview from '../components/codePreview.vue';
 
 import { as } from '../assets/assets';
 import PropsDisplay from '../components/propsDisplay.vue';
-import { inject } from 'vue';
+
 import GridMode from '../components/gridMode.vue';
 
 
