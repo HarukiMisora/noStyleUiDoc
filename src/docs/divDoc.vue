@@ -65,7 +65,7 @@
             <w-div>注意：上面这些$、p、v单位符，我认为我有非常大的概率会删除并弃用这些东西，我可能会让程序自动的去操作，当然这个想法还有待争议，会暂且保留一段时间，不过即便要保留，我也会换个更优雅的方式，总之目前的方案，一定会被弃用。</w-div>
         </w-div>
         <w-div pb="20">
-            <CodePreview title="常见的布局案例" :text='baseCode'>
+            <CodePreview title="常见的布局案例" >
                 <w-div flex bg="$#e1e1e1" bd="solid 1">
                     <w-div h="300" w="200" bg="gray" p="20" :flex="['g-10','col']">
                         <w-group flex hover="c=red bg=blue" transition>
@@ -101,7 +101,7 @@
 
  
         <PropsDisplay :props="pxsProps">
-            <CodePreview title="像素Porps" :text='`\`\`\`html\n<w-div w="100" h="100" p="20" radius="8" f="24" fw="600"  bg="red">title</w-div>\n\`\`\``'>
+            <CodePreview title="像素Porps" >
                 <w-div mb="10">通过w、h、p、m、radius等属性定义盒子的宽高以及内外边距</w-div>
                 <w-div w="100" h="100" p="20" radius="8" f="24" fw="600"  bg="red">title</w-div>
             </CodePreview>
@@ -158,48 +158,6 @@ const pxsProps = pxs.map((prop)=>{
         units:'p，v，$'
     }
 })
-
-
-const baseCode = createCode(`
-\<script>
-    import { path } from '你的路径处理函数'
-    const as = {
-        img: path('/img.png'),
-        head: path('/head.png')
-    }
-<\/script>
-<template>
-    <w-div flex bg="$#e1e1e1" bd="solid 1">
-        <w-div h="300" w="200" bg="gray" p="20" :flex="['g-10','col']">
-            <w-group flex hover="c=red bg=blue" transition>
-                <w-span >举世无双</w-span>
-                <w-span >聪明绝顶</w-span>
-                <w-span >沉鱼落雁</w-span>
-                <w-span hover="c=red+blue+black bg=rgb(0,0,0)">hover字体的颜色也可以混合。</w-span>
-            </w-group>
-        </w-div>
-        <w-div  flex="1 col">
-            <w-group p="20" :bg="\`${as.img} cover size--100% r-n center\`" h="$calc(100% / 4)" bd="b-1-solid-#0f0" transition>
-                <w-div bg="right">
-                    WGrop的作用是装载共有样式然后分发给子盒子,当然子盒自身的属性优先生效。
-                </w-div>
-                <w-div bg="red+blue+green" >
-                    多个颜色拼接可以混合颜色，red+blue+green 就是这个背景色。
-                    
-                </w-div>
-                <w-div bg="red+green+blue right" >
-                    颜色混合的顺序是从左到右混合。red+green+blue 会是这个背景色
-                </w-div>
-                <w-div  :hover="\`${as.head} bg=right c=red\`" bd="none"  >
-                    <w-span hover="c=blue">
-                        hover属性可以直接便捷的创建hover的样式,这里有红色(父)和蓝色(子)两种hover样式。
-                    </w-span>
-                </w-div>
-            </w-group>
-        </w-div>
-    </w-div>
-</template>
-`)
 
 
 

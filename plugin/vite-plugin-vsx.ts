@@ -73,7 +73,15 @@ function transformCodePreview(html) {
       // 构建新标签，保留原有属性并添加 code
       return `<codePreview${attrs} text="${formatHTML(escapedCode.trimStart())}">${content}</codePreview>`;
     }
-  );
+  ).replace(
+    /<CodePreview(\b[^>]*)>([\s\S]*?)<\/CodePreview>/g,
+    (match, attrs, content) => {
+      // 转义内容中的双引号为 HTML 实体
+      const escapedCode = content.replace(/"/g, '&quot;');
+      // 构建新标签，保留原有属性并添加 code
+      return `<CodePreview${attrs} text="${formatHTML(escapedCode.trimStart())}">${content}</CodePreview>`;
+    }
+  )
 }
 
 
