@@ -31,18 +31,11 @@ const backgroundProps = ([
         units:'-'
     },
     {
-        prop:'w',
+        prop:'size',
         text:'background-size',
         type:'string|number',
         default:'-',
-        units:'p，v'
-    },
-    {
-        prop:'h',
-        text:'background-size',
-        type:'string|number',
-        default:'-',
-        units:'p，v'
+        units:''
     },
     {
         prop:'s',
@@ -80,18 +73,11 @@ const backgroundProps = ([
         units:'-'
     },
     {
-        prop:'x',
-        text:'background-position-x',
+        prop:'p',
+        text:'background-position',
         type:`string|number|'right'|'left'|'center'`,
         default:'-',
-        units:'p，v'
-    },
-    {
-        prop:'y',
-        text:'background-position-y',
-        type:`string|number|'top'|'bottom'|'center'`,
-        default:'-',
-        units:'p，v'
+        units:''
     },
     {
         prop:'left',
