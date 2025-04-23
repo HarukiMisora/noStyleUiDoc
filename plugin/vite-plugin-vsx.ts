@@ -10,7 +10,71 @@ interface varsT {
     [key:string]:string;
   }
 }
+function formatHTML(html, indentSize = 2) {
+  let indentLevel = 0
+  const output:string[] = []
+  const tagRegex = /(<[^>]+>)/g
+  const parts = html.split(tagRegex).filter(p => p) // 过滤空片段
 
+  const getIndent = () => ' '.repeat(indentLevel * indentSize)
+
+  for (let i = 0; i < parts.length; i++) {
+    const part = parts[i]
+    
+    // 处理标签
+    if (part.startsWith('<')) {
+      const trimmedTag = part.trim()
+      const isClosing = trimmedTag.startsWith('</')
+      const isSelfClosing = trimmedTag.endsWith('/>')
+
+      // 闭标签处理
+      if (isClosing) {
+        indentLevel = Math.max(indentLevel - 1, 0)
+        output.push(getIndent() + trimmedTag)
+      } 
+      // 开标签处理
+      else {
+        // 预判是否单行结构：当前标签后紧跟文本和闭标签
+        const nextText = parts[i+1]?.trim()
+        const nextTag = parts[i+2]?.trim()
+        console.log([nextText,nextTag]);
+        
+        const isSingleLine = nextText&&nextTag?.startsWith('</')||nextTag === '' && !nextText.includes('\n')
+
+        if (isSingleLine) {
+          // 合并单行结构：<tag>text</tag>
+          output.push(getIndent() + `${trimmedTag}${nextText}${nextTag}`)
+          i += 2 // 跳过已处理的text和闭标签
+        } else {
+          output.push(getIndent() + trimmedTag)
+          if (!isSelfClosing) indentLevel++
+        }
+      }
+    }
+    // 处理文本内容（未被单行结构合并的文本）
+    else {
+      const lines = part.split('\n')
+      for (const line of lines) {
+        const trimmedLine = line.trim()
+        if (trimmedLine) output.push(getIndent() + trimmedLine)
+      }
+    }
+  }
+
+  return output.join('\n')
+}
+
+function transformCodePreview(html) {
+  return html.replace(
+    /<codePreview(\b[^>]*)>([\s\S]*?)<\/codePreview>/g,
+    (match, attrs, content) => {
+      // 转义内容中的双引号为 HTML 实体
+      const escapedCode = content.replace(/"/g, '&quot;');
+      // 构建新标签，保留原有属性并添加 code
+      return `<codePreview${attrs} text="${formatHTML(escapedCode.trimStart())}">${content}</codePreview>`;
+    }
+  );
+}
 
 
 export default function myStrTsxPlugin(): Plugin {
@@ -21,71 +85,17 @@ export default function myStrTsxPlugin(): Plugin {
     // 核心钩子：拦截文件内容
     transform(code, id) {
       // 只处理 .tsx 文件
-      if (id.endsWith('.vsx')) {
-        const vars:varsT = {
-          STRING:{},
-          TEMPLATE:{},
-        }
-        const imports = []
-        function getVars(match:string){
-          const keys = match.replace(/{|}/g,'').split(':')
-          
-          return vars[<keyof varsT>keys[1].toUpperCase()][keys[0]]
-        }
-        const codes = code.replace(/萨德勒/g,'').split(';');
-        console.log(codes);
-        let resCode = 'export default {}'; 
-        for (let i = 0; i < codes.length; i++) {
-          const line = codes[i];
-          if(line.trimStart().startsWith('import ')||line.trimStart().startsWith('console.')){
-            console.log(['line',line])
-            imports.push(line)
-            continue
-          }
-          if(line.trimStart().startsWith('string ')){
-            const keyAndValue = line.split(' ');
-            const key = keyAndValue[1]
-            const center = keyAndValue[2]
-            const value = line.split(center)[1].replace(/'/g, '').replace(/"/g, '');
-            vars.STRING[key] = value
-            console.log(key, center, value); 
-            continue
-          }
-          if(line.trimStart().startsWith('template ')){
-            const index = line.indexOf('=');
-            const keyAndValue = line.split('=');
-            const key = line.slice(0,index).trimStart().replace(/template| /g,'')
-            const value = line.slice(index+3,-1);
-            console.log(keyAndValue); 
-            
-            console.log(['key',key],value,'----value');
-            const newCode = value.trimStart().replace(/\{([^:]+):[^}]+\}/g, (match, key) => {
-              return getVars(match) ?? void 0; // 若找不到键，返回void 0
-            });
-            vars.TEMPLATE[key] = newCode;
-            console.log('newCode =>',[newCode,key]); 
-            continue 
-          }  
-          if(line.trimStart().startsWith('export ')){
-            const keyAndValue = line.replace(/export |{|}|\s/g,'').split(',');
-            console.log(keyAndValue);
-            resCode = `export default {${keyAndValue.map(key => {
-              const value = vars.STRING[key] ?? vars.TEMPLATE[key] ?? void 0;
-              return `${key}:\`${value}\``
-            }).join(',')}}`
-            
-          }
-          
+      if (id.endsWith('flexDoc.vue')) {
+        console.log('处理文件：', id);
+        const resCode = transformCodePreview(code);
+        // console.log(resCode);
+        
  
-        }
-  
-
-        resCode =imports.toString().replace(/,/g,';')+';\r\n'+resCode
-        console.log(resCode);
+        
 
         // 返回转换后的代码和 Source Map
         return {
-          code: resCode,
+          code:resCode,
           map: ''
         };
       }

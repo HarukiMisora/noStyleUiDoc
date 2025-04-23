@@ -3,31 +3,28 @@
 
 
 <script lang='ts' setup>
-import { computed, ref, compile ,createApp, onMounted} from 'vue';
+import { computed, ref , onMounted} from 'vue';
 import { createCode } from './createCode';
 
-const prop =defineProps<{text:string,title:string,show?:boolean}>()
+const prop =defineProps<{text?:string,title:string,show?:boolean}>()
 const showCode = ref(prop.show)
 const previewRef = ref<any>()
 const h = computed(()=>{
 	return (previewRef.value?.$el.clientHeight || 0)
 }) 
 
-import nostyleui, { WDiv } from 'nostyleui';
-
-const contentRef = ref<any>()
 
 onMounted(()=>{
 
     
-    const render = compile(prop.text);
-    // 手动创建并挂载组件
-    const app = createApp({
-        render,
-    });
-    console.log(app);
+    // const render = compile(prop.text);
+    // // 手动创建并挂载组件
+    // const app = createApp({
+    //     render,
+    // });
+    // console.log(app);
     
-    app.use(nostyleui).mount(contentRef.value.$el);
+    // app.use(nostyleui).mount(contentRef.value.$el);
 })
 
 
@@ -49,8 +46,6 @@ onMounted(()=>{
             </w-div>
             <div>
                 <slot></slot>
-                <w-div ref="contentRef"  >
-                </w-div>
             </div>
 
             

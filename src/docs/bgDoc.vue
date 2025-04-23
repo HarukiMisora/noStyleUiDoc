@@ -18,7 +18,7 @@ const bgCode = createCode(`
         <w-div bg="#ffa500ff"></w-div>
         <w-div bg="rgba(255,255,0,0.5)"></w-div>
         <w-div bg="red+green+#00f+rgba(255,255,0,0.5)"></w-div>
-    </w-group>
+    </w-group> 
 </w-div>
 `)
 const imgCode = createCode(`
