@@ -46,7 +46,7 @@ const  bdProps = ([
                         <w-div hover="c=red">red</w-div>
                         <w-div hover="c=#0f0">#0f0</w-div>
                         <w-div hover="c=rgb(0,0,255)">rgb(0,0,255)</w-div>
-                        <w-div hover="c=red+blue">red blue</w-div>
+                        <w-div hover="c=red+blue">red+blue</w-div>
                     </w-group>
                 </w-div> 
                 <w-div flex="g-10" pt="10">
