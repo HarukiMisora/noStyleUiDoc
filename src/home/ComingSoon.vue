@@ -11,7 +11,7 @@ import { as } from '../assets/assets';
         <w-h1>
             THE NEXT → + ts命令集(过渡动画)、hover拓展、hover命令盒子(暂未确定)、flex整改
         </w-h1>
-        <w-div my="10" p="20" radius="12" :bg="[as.img,'s-cover','r-n']" flex="1">
+        <w-div my="10" p="20" radius="12" :bg="[as.img,'cover','r-n']" flex="1">
 
         </w-div>
 
