@@ -79,13 +79,13 @@ function transformCodePreview(html) {
 
 export default function myStrTsxPlugin(): Plugin {
   return {
-    name: 'vsx',
+    name: 'vue',
     enforce: 'pre',
 
     // 核心钩子：拦截文件内容
     transform(code, id) {
       // 只处理 .tsx 文件
-      if (id.endsWith('flexDoc.vue')) {
+      if (id.endsWith('Doc.vue')) {
         console.log('处理文件：', id);
         const resCode = transformCodePreview(code);
         // console.log(resCode);
@@ -96,7 +96,7 @@ export default function myStrTsxPlugin(): Plugin {
         // 返回转换后的代码和 Source Map
         return {
           code:resCode,
-          map: ''
+          // map: ''
         };
       }
     }
