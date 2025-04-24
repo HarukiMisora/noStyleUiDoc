@@ -20,7 +20,7 @@ const router = useRouter()
 const start =()=>{
   mouseEnter(-1)
   // setTimeout(()=>{
-    router.push('/docs')
+    router.push('/brief')
   // },1350)
 }
 const words =[
@@ -78,7 +78,7 @@ const words =[
 ]
 let wordsIndex =0
 
-const title = 'No Style Ui ~~~~~!';
+const title = 'Prop Style !';
 const l = title.length
 const ups = ref(new Array(l).fill(false))
 let times:number =0
