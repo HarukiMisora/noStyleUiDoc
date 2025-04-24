@@ -18,6 +18,7 @@ import BgDoc from '../docs/bgDoc.vue'
 import FlexDoc from '../docs/flexDoc.vue'
 import BdDoc from '../docs/bdDoc.vue'
 import HoverDoc from '../docs/hoverDoc.vue'
+import Introduction from '../brief/introductionDoc.vue'
 
 const routes = [
   { path: '/home', component: HomeView,name:'home' },
@@ -78,6 +79,18 @@ const routes = [
           component:Install,
           name:'Install',
         },
+    ]
+  },
+  {
+    path:'/brief/',
+    component:Layout,
+    redirect:'/brief/introduction',
+    children:[
+      {
+        path:'/brief/introduction',
+        component:Introduction,
+        name:'introduction',
+      },
     ]
   }
 ]

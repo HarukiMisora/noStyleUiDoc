@@ -1,7 +1,7 @@
 
 <script lang="ts" setup>
 import { useRouter } from 'vue-router';
-import { menu } from '../router/menu';
+import { menuData } from '../router/menu';
 import {LogoGithub,Fish} from '@vicons/ionicons5'
 import version from '../version';
 import { computed, onMounted, provide, ref, watchEffect } from 'vue';
@@ -10,6 +10,15 @@ const router = useRouter()
 const scrollBoxRef = ref<InstanceType<typeof WDiv>>()
 const gridMode = ref(false)
 provide('gridMode',gridMode)
+const menuType = ref<'API'|'BRIEF'>('BRIEF')
+
+const menus = computed(()=>{
+  return menuData[menuType.value]
+})
+
+
+
+
 const gotoGithub =()=>{
     window.open('https://github.com/HarukiMisora/noStyleUi')
 }
@@ -89,7 +98,7 @@ window.onresize = resize
     <w-div bg="white" >
         <w-div  w="p100" h="60" :flex="['j-between','i-center']" style="border-bottom: 1px solid #99999980;">
             <w-div flex="center" pl="20" c="primary">
-                <w-span  @click="router.push('/home')" f="28" fw="600">No Style Ui</w-span>
+                <w-span  @click="router.push('/home')" f="28" fw="600">Prop Style</w-span>
             </w-div>
             <w-div p="20" :flex="['g-20','i-center']">
                 <w-button @click="gotoLilmonix3">
@@ -106,17 +115,24 @@ window.onresize = resize
         </w-div>
         <w-div  w="p100" h="$calc(100vh - 60px)" flex=""   >
             <w-div  w="200" style="border-right: 1px solid #99999980;" pt="10" c="primary" px="5">
-                <w-div v-for="item in menu"  >
-                    <w-div h="40" flex="i-center" pl="10" radius="2" c="gray">{{ item.label }}</w-div>
-                    <router-link @click="goToNextPage" v-for="child in item.children" :to="{name:child.name}" class="c-black w-p100" style="text-decoration: none;">
-
-                    <w-div h="40"  :flex="['i-center']"  :bg="child.name===router.currentRoute.value.name?'#21a75580':''" pl="20" radius="2" my="2">
-                        <w-div c="black">
-                                {{ child.label }}
-                        </w-div>
-                    </w-div>
-                    </router-link>
-                </w-div>
+              <w-button @click="menuType = menuType==='API'?'BRIEF':'API'" :ml="menuType==='API'?0:120">
+                {{menuType==='API'?'简介':'API'}}
+                <template #icon>
+                  GO
+                </template>
+              </w-button>
+              <TransitionGroup name="list">
+              <w-div v-for="item in menus" :key="item.label"  >
+                <w-div h="40" flex="i-center" pl="10" radius="2" c="gray">{{ item.label }}</w-div>
+                <router-link @click="goToNextPage" v-for="child in item.children" :to="{name:child.name}" class="c-black w-p100" style="text-decoration: none;">
+                  <w-div h="40"  :flex="['i-center']"  :bg="child.name===router.currentRoute.value.name?'#21a75580':''" pl="20" radius="2" my="2">
+                      <w-div c="black">
+                              {{ child.label }}
+                      </w-div>
+                  </w-div>
+                </router-link>
+              </w-div>
+              </TransitionGroup>
             </w-div>
             <w-div class="overflow"  :flex="['1','col']"  p="20px" ref="scrollBoxRef">
                 <img src="/turn1.webp" style="position: absolute;z-index: 0;left: 50%;top: 50%;transform: translate(calc(-50% + 100px),calc(-50% - 30px));width: 30%;"  />
@@ -154,6 +170,20 @@ transform: translateX(100%);
 .tip-fade-leave-to {
 transform: translateX(100%);
 }
+
+
+
+.list-enter-active{
+  transition: all .5s ease;
+
+}
+.list-enter-from{
+  opacity: 0;
+  transform: translateY(-100%);
+  
+}
+
+
 
 .overflow{
     overflow-y: auto;
