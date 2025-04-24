@@ -38,13 +38,6 @@ const backgroundProps = ([
         units:''
     },
     {
-        prop:'s',
-        text:'模仿 object-fit 的效果',
-        type:'fill|contain|cover|none',
-        default:'-',
-        units:'-'
-    },
-    {
         prop:'fill',
         text:'模仿 object-fit:fill 的效果',
         type:'-',
