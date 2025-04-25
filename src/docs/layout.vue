@@ -10,7 +10,21 @@ const router = useRouter()
 const scrollBoxRef = ref<InstanceType<typeof WDiv>>()
 const gridMode = ref(false)
 provide('gridMode',gridMode)
-const menuType = ref<'API'|'BRIEF'>('BRIEF')
+
+
+const getStartMenuType = ()=>{
+  const arr = menuData.BRIEF.map((item)=>{
+    return item.children.map((child)=>{
+      return child.name
+    })
+  }).join(',')
+  if(arr.includes(<string>router.currentRoute.value.name)){
+    return 'BRIEF'
+  }
+  return 'API'
+}
+
+const menuType = ref<'API'|'BRIEF'>(getStartMenuType())
 
 const menus = computed(()=>{
   return menuData[menuType.value]
