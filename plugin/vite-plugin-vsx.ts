@@ -69,7 +69,7 @@ function transformCodePreview(html) {
     /<codePreview(\b[^>]*)>([\s\S]*?)<\/codePreview>/g,
     (match, attrs, content) => {
       // 转义内容中的双引号为 HTML 实体
-      const escapedCode = content.replace(/"/g, '&quot;');
+      const escapedCode = content.replace(/"/g, '&quot;').replace(/<CodePreviewTip(\b[^>]*)>([\s\S]*?)<\/CodePreviewTip>/g,'');
       // 构建新标签，保留原有属性并添加 code
       return `<codePreview${attrs} text="${formatHTML(escapedCode.trimStart())}">${content}</codePreview>`;
     }
@@ -77,7 +77,7 @@ function transformCodePreview(html) {
     /<CodePreview(\b[^>]*)>([\s\S]*?)<\/CodePreview>/g,
     (match, attrs, content) => {
       // 转义内容中的双引号为 HTML 实体
-      const escapedCode = content.replace(/"/g, '&quot;');
+      const escapedCode = content.replace(/"/g, '&quot;').replace(/<CodePreviewTip(\b[^>]*)>([\s\S]*?)<\/CodePreviewTip>/g,'');
       // 构建新标签，保留原有属性并添加 code
       return `<CodePreview${attrs} text="${formatHTML(escapedCode.trimStart())}">${content}</CodePreview>`;
     }
