@@ -37,7 +37,7 @@ const gotoGithub =()=>{
     window.open('https://github.com/HarukiMisora/noStyleUi')
 }
 const gotoLilmonix3 =()=>{
-    window.open('https://www.iamwzc.com/')
+    window.location.href =('https://www.iamwzc.com/')
 }
 const offsetTops:{[key:string]:number} = {}
 
