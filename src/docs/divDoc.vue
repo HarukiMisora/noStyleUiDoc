@@ -108,10 +108,10 @@
         </PropsDisplay>
 
 
-        <PropsDisplay>
+        <PropsDisplay :props="transitionProps">
             <CodePreview title="过渡动画">
                 <w-group>
-                    <w-div mb="5">transition属性直接支持原生css的transition样式，可以设置盒子的过渡动画，它可以设置过渡的属性，持续时间，动画曲线等。如果transition没有任何值时，默认是all .5s ease</w-div>
+                    <w-div mb="5">transition属性直接支持原生css的transition样式，可以设置盒子的过渡动画，它可以设置过渡的属性，持续时间，动画曲线等。如果有transition属性，但没有任何值时，默认是all .5s ease</w-div>
                     <w-div transition  h="100" radius="5" :bg="as.head+' size--100 r-n #0008' " hover="bg=#000;p-100%"></w-div>
                 </w-group>
             </CodePreview>
@@ -168,6 +168,15 @@ const pxsProps = pxs.map((prop)=>{
         units:'p，v，$'
     }
 })
+const transitionProps = [
+{
+        prop:'transition',
+        text:'css原生transition写法',
+        type:'typeof style.transition',
+        default:'-',
+        units:'-'
+    },
+]
 
 
 
