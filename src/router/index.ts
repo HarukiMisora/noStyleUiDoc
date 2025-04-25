@@ -19,6 +19,7 @@ import FlexDoc from '../docs/flexDoc.vue'
 import BdDoc from '../docs/bdDoc.vue'
 import HoverDoc from '../docs/hoverDoc.vue'
 import Introduction from '../brief/introductionDoc.vue'
+import GridDoc from '../docs/gridDoc.vue'
 
 const routes = [
   { path: '/home', component: HomeView,name:'home' },
@@ -79,6 +80,11 @@ const routes = [
           component:Install,
           name:'Install',
         },
+        {
+          path:'/docs/gridDoc',
+          component:GridDoc,
+          name:'gridDoc',
+        }
     ]
   },
   {
