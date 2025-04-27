@@ -37,7 +37,7 @@ const  bdProps = ([
     <w-div class="flex-1" bg="white" p="40">
         <w-div p="20">
             <h1>hover 属性集</h1>
-            <notice class="mt-10" title="作用" msg="定义盒子的鼠标 hover 样式;hover属性集一条参数的前缀是其它属性集的名称，比如你想实现hover更换背景色，应该是hover='bg-red'。<br/>而对子参数的前缀与值，比如你想实现hover改变图片的backgroundPosition属性,你可以参考bg属性，bg='x-50'，要在hover里面实现这个效果应该是hover='bg-x:10'<br/>多条子参数连接起来应该是hover='bg-red-x:50-w:500-fill'"></notice>
+            <notice class="mt-10" title="作用" msg="定义盒子的鼠标 hover 样式;hover属性集一条参数的前缀是其它属性集的名称，比如你想实现hover更换背景色，应该是hover='bg=red'。<br/>而对子参数的前缀与值，比如你想实现hover改变图片的backgroundPosition属性,你可以参考bg属性，bg='size-50'，要在hover里面实现这个效果应该是hover='bg=x-10'<br/>多条子参数连接起来应该是hover='bg=red;p-50;w-500;fill'"></notice>
         </w-div>
         <GridMode>
             <codePreview  title="基础用法" >
