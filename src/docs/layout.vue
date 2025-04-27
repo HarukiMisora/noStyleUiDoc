@@ -154,13 +154,11 @@ window.onresize = resize
             <w-div class="overflow"  :flex="['1','col']"  style=""  p="20px" ref="scrollBoxRef">
               <img src="/turn1.webp" style="position: absolute;z-index: 0;left: 50%;top: 50%;transform: translate(calc(-50% + 100px),calc(-50% - 30px));width: 30%;"  />
               
-                <div style="will-change: transform;transform: translateZ(0);position: relative;">
                   <router-view v-slot="{Component}">
                     <transition name="ttt" mode="out-in" >
-                      <component :is="Component"   />
+                      <component :is="Component" style="z-index: 1;will-change: transform;"  />
                     </transition>
                   </router-view>
-                </div>
 
             </w-div>
             <transition name="tip-fade" mode="out-in">
@@ -177,10 +175,10 @@ window.onresize = resize
 }
 
 .ttt-enter-from{
-transform: translateX(100%);
+transform: translateX(100%) translateZ(0);
 }
 .ttt-leave-to {
-  transform: translateX(-100%);
+  transform: translateX(-100%) translateZ(0);
 }
 .tip-fade-enter-active,
 .tip-fade-leave-active {

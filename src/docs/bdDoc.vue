@@ -84,7 +84,7 @@ const  bdProps = ([
                 在上一个发布版本[0.2.19]中bd属性的 颜色混合 不要求你将所有颜色连在一起，但从现在版本开始，所有的颜色混合都必须要用+号将要混合的颜色连接起来。
                 </w-div>
                 <w-div :flex="['g-10','wrap']">
-                    <w-group radius="p50" w="100" h="100" flex="center" :bg="[as.head,'fill']" c="green">
+                    <w-group radius="p50" w="100" h="100" flex="center" :bg="[as.head,'fill']" c="green" >
                         <w-div bd="solid #f00"></w-div>
                         <w-div bd="dashed red"></w-div>
                         <w-div bd="dotted blue"></w-div>
