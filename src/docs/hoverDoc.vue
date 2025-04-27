@@ -83,7 +83,7 @@ const  bdProps = ([
                     <w-group  radius="p50" w="100" h="100" flex="center" :bg="[as.head,'fill']" hover="bd=gray;" >
                         <w-div bd="l-solid t-dashed r-double b-dotted" ></w-div>
                         <w-div bd="dashed red x-solid"></w-div>
-                        <w-div bd="dotted blue y-red" hover="bg-none"></w-div>
+                        <w-div bd="dotted blue y-red" hover="bd=none"></w-div>
                         <w-div bd="double r-solid-red+#fff"></w-div>
                     </w-group>
                 </w-div>
