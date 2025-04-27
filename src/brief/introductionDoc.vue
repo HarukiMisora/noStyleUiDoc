@@ -6,6 +6,7 @@ import { as } from '../assets/assets';
 import CodePreview from '../components/codePreview.vue';
 
 import {ref} from 'vue';
+import CodePreviewTip from '../components/codePreviewTip.vue';
 const color = ref('#000')
 </script>
 
@@ -50,6 +51,32 @@ const color = ref('#000')
             <br/>后续我会把部分解析放在node环境，凡是没有用到变量的静态的样式，我会再node环境拦截它直接解析生成对应的样式，避免它往vue的prop流程里面走一遭的同时对于非VUE组件的原生盒子也将有效！</w-ol>
         </w-ul>
     </w-div>
+    <w-div p="20">
+      <w-h1 mb="10">基本概念</w-h1>
+      <w-group  mb="10" :cus-props="[['show',true]]">
+        <CodePreview title="普通的属性/prop" >
+          <CodePreviewTip>{组件的属性，或者说prop} = "value"的写法是最简单的写法，普通的属性只支持一个值。</CodePreviewTip>
+          <w-div w="50" h="50" bg="red+blue"></w-div>
+        </CodePreview>
+
+        <CodePreview title="属性集" >
+          <CodePreviewTip>属性集是指多个参数样式的集合属性，它可以声明多个样式组合，通过空格符分隔，比如 :bg="`red+blue &nbsp;&nbsp;${as.head}`"同时声明背景颜色与背景图片。</CodePreviewTip>
+          <w-div w="50" h="50" :bg="`red+blue ${as.head} fill`"></w-div>
+          <CodePreviewTip>属性集也支持数组的形式</CodePreviewTip>
+          <w-div w="50" h="50" :bg="['red+blue',as.head,'fill']"></w-div>
+        </CodePreview>
+
+        <CodePreview title="属性集 隐式参数与显示参数" >
+          <CodePreviewTip>
+            属性集的显示参数写法应该是 prop="key-value key2-value"，比如bg里面size-50% &nbsp; r-n <br/>
+            而隐式参数，是没有参数名/key的，它只有参数值，比如bg="颜色 &nbsp;图片地址&nbsp; center" 
+          </CodePreviewTip>
+          <w-div w="150" h="150" :bg="`red+blue ${as.head} center size-50% r-n `"></w-div>
+        </CodePreview>
+      </w-group>
+    </w-div>
+
+
   </w-div>
   
 </template>
