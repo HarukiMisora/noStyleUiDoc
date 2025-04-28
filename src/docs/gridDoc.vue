@@ -3,12 +3,11 @@
 import notice from '../components/notice.vue';
 import codePreview from '../components/codePreview.vue';
 
-import { as } from '../assets/assets';
 import PropsDisplay from '../components/propsDisplay.vue';
 
 import GridMode from '../components/gridMode.vue';
 import CodePreviewTip from '../components/codePreviewTip.vue';
-import { ref, toValue } from 'vue';
+import { ref } from 'vue';
 const min = ref('10')
 const max = ref('')
 

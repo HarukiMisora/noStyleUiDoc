@@ -1,20 +1,12 @@
 
 import type { Plugin } from 'vite';
-import babel from '@babel/core';
 
-interface varsT {
-  STRING: {
-    [key:string]:string;
-  }
-  TEMPLATE: {
-    [key:string]:string;
-  }
-}
-function formatHTML(html, indentSize = 2) {
+
+function formatHTML(html:string, indentSize = 2) {
   let indentLevel = 0
   const output:string[] = []
   const tagRegex = /(<[^>]+>)/g
-  const parts = html.split(tagRegex).filter(p => p) // 过滤空片段
+  const parts = html.split(tagRegex).filter((p:string) => p) // 过滤空片段
 
   const getIndent = () => ' '.repeat(indentLevel * indentSize)
 
@@ -64,10 +56,10 @@ function formatHTML(html, indentSize = 2) {
   return output.join('\n')
 }
 
-function transformCodePreview(html) {
+function transformCodePreview(html: string) {
   return html.replace(
     /<codePreview(\b[^>]*)>([\s\S]*?)<\/codePreview>/g,
-    (match, attrs, content) => {
+    (_match, attrs:string, content:string) => {
       // 转义内容中的双引号为 HTML 实体
       const escapedCode = content.replace(/"/g, '&quot;').replace(/<CodePreviewTip(\b[^>]*)>([\s\S]*?)<\/CodePreviewTip>/g,'');
       // 构建新标签，保留原有属性并添加 code
@@ -75,7 +67,7 @@ function transformCodePreview(html) {
     }
   ).replace(
     /<CodePreview(\b[^>]*)>([\s\S]*?)<\/CodePreview>/g,
-    (match, attrs, content) => {
+    (_match, attrs:string, content:string) => {
       // 转义内容中的双引号为 HTML 实体
       const escapedCode = content.replace(/"/g, '&quot;').replace(/<CodePreviewTip(\b[^>]*)>([\s\S]*?)<\/CodePreviewTip>/g,'');
       // 构建新标签，保留原有属性并添加 code

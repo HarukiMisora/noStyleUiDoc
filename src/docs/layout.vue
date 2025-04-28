@@ -86,7 +86,7 @@ watchEffect(()=>{
   }
 })
 const resize = ()=>{
-  console.log(1111);
+  // console.log(1111);
   
   gridMode.value = scrollBoxRef.value?.$el.clientWidth < 1400
 
