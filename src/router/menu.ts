@@ -69,6 +69,10 @@ export const menuData = {
           name:'introduction'
         },
         {
+          label:'构建选项',
+          name:'BuildingDoc'
+        },
+        {
           label:'安装',
           name:'Install',
         }

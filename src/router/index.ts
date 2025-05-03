@@ -20,6 +20,7 @@ import BdDoc from '../docs/bdDoc.vue'
 import HoverDoc from '../docs/hoverDoc.vue'
 import Introduction from '../brief/introductionDoc.vue'
 import GridDoc from '../docs/gridDoc.vue'
+import BuildingDoc from '../brief/buildingDoc.vue'
 
 const routes = [
   { path: '/home', component: HomeView,name:'home' },
@@ -71,20 +72,13 @@ const routes = [
           name:'wGroup',
         },
         {
-          path:'/docs/comingSoon',
-          component:ComingSoon,
-          name:'ComingSoon',
-        },
-        {
-          path:'/docs/install',
-          component:Install,
-          name:'Install',
-        },
-        {
           path:'/docs/gridDoc',
           component:GridDoc,
           name:'gridDoc',
-        }
+        },
+
+
+
     ]
   },
   {
@@ -96,6 +90,21 @@ const routes = [
         path:'/brief/introduction',
         component:Introduction,
         name:'introduction',
+      },
+      {
+        path:'/brief/BuildingDoc',
+        component:BuildingDoc,
+        name:'BuildingDoc',
+      },
+      {
+        path:'/brief/comingSoon',
+        component:ComingSoon,
+        name:'ComingSoon',
+      },
+      {
+        path:'/brief/install',
+        component:Install,
+        name:'Install',
       },
     ]
   }

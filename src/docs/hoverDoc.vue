@@ -62,7 +62,7 @@ const  bdProps = ([
 
             <codePreview  title="背景图片" >
                 <w-div :flex="['g-10','wrap']" c="green">
-                    <w-group transition radius="p50" w="100" h="100" flex="center" :bg="[as.head,'fill']" :hover="`bg=${as.img};cover`" >
+                    <w-group transition radius="50%" w="100" h="100" flex="center" :bg="[as.head,'fill']" :hover="`bg=${as.img};cover`" >
                         <w-div bd="l-solid t-dashed r-double b-dotted" ></w-div>
                         <w-div bd="dashed red x-solid"></w-div>
                         <w-div bd="dotted blue y-red" hover="bg-none"></w-div>
@@ -70,7 +70,7 @@ const  bdProps = ([
                     </w-group>
                 </w-div>
                 <w-div :flex="['g-10','wrap']">
-                    <w-group transition radius="p50" w="100" h="100" flex="center" :bg="[as.head,'fill','r-n']" hover="bg=cover;size-50">
+                    <w-group transition radius="50%" w="100" h="100" flex="center" :bg="[as.head,'fill','r-n']" hover="bg=cover;size-50">
                         <w-div bd="t-groove" hover="bg=left"></w-div>
                         <w-div bd="r-outset-red" hover="bg=right"></w-div>
                         <w-div bd="b-inset blue" hover="bg=top;center"></w-div>
@@ -80,7 +80,7 @@ const  bdProps = ([
             </codePreview>
             <codePreview  title="边框" >
                 <w-div :flex="['g-10','wrap']" c="green">
-                    <w-group  radius="p50" w="100" h="100" flex="center" :bg="[as.head,'fill']" hover="bd=gray;" >
+                    <w-group  radius="50%" w="100" h="100" flex="center" :bg="[as.head,'fill']" hover="bd=gray;" >
                         <w-div bd="l-solid t-dashed r-double b-dotted" ></w-div>
                         <w-div bd="y-dashed black x-solid-red"></w-div>
                         <w-div bd="dotted blue y-red" hover="bd=black"></w-div>
@@ -88,7 +88,7 @@ const  bdProps = ([
                     </w-group>
                 </w-div>
                 <w-div :flex="['g-10','wrap']">
-                    <w-group transition=".1s" radius="p50" w="100" h="100" flex="center" :bg="[as.head,'fill','r-n']" hover="bd=solid;10">
+                    <w-group transition=".1s" radius="50%" w="100" h="100" flex="center" :bg="[as.head,'fill','r-n']" hover="bd=solid;10">
                         <w-div bd="t-groove" ></w-div>
                         <w-div bd="r-outset-red" ></w-div>
                         <w-div bd="b-inset blue" ></w-div>

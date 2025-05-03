@@ -1,7 +1,7 @@
 
 
 <template >
-   <w-div  h="v100" :flex="['col','i-center','j-center']" class="main" radius="25" style="opacity: 0.9;">
+   <w-div  h="100vh" :flex="['col','i-center','j-center']" class="main" radius="25" style="opacity: 0.9;">
     <w-div class="title" f="80" fw="800" c="primary"  style="text-align: center;" >
       <w-span @mouseenter="mouseEnter(index)"  class="word" :class="{up:ups[index]}" v-for="(i,index) in title" :key="i">{{ i }}</w-span>
     </w-div>

@@ -112,7 +112,7 @@ window.onresize = resize
 
 <template>
     <w-div bg="white" >
-        <w-div  w="p100" h="60" :flex="['j-between','i-center']" style="border-bottom: 1px solid #99999980;">
+        <w-div   h="60" :flex="['j-between','i-center']" style="border-bottom: 1px solid #99999980;">
             <w-div flex="center" pl="20" c="primary">
                 <w-span  @click="router.push('/home')" f="28" fw="600">Prop Style</w-span>
             </w-div>
@@ -129,7 +129,7 @@ window.onresize = resize
                 </select>
             </w-div>
         </w-div>
-        <w-div  w="p100" h="$calc(100vh - 60px)" flex=""   >
+        <w-div  w="100%" h="calc(100vh - 60px)" flex   >
             <w-div  w="200" style="border-right: 1px solid #99999980;" pt="10" c="primary" px="5">
               <w-button @click="menuType = menuType==='API'?'BRIEF':'API'" :ml="menuType==='API'?0:120">
                 {{menuType==='API'?'简介':'API'}}
@@ -138,20 +138,20 @@ window.onresize = resize
                 </template>
               </w-button>
               <TransitionGroup name="list">
-              <w-div v-for="item in menus" :key="item.label"  >
-                <w-div h="40" flex="i-center" pl="10" radius="2" c="gray">{{ item.label }}</w-div>
-                <router-link @click="goToNextPage" v-for="child in item.children" :to="{name:child.name}" class="c-black w-p100" style="text-decoration: none;">
-                  <w-div h="40"  :flex="['i-center']"  :bg="child.name===router.currentRoute.value.name?'#21a75580':''" pl="20" radius="2" my="2">
-                      <w-div c="black">
-                              {{ child.label }}
-                      </w-div>
-                  </w-div>
-                </router-link>
-              </w-div>
+                <w-div v-for="item in menus" :key="item.label"  >
+                  <w-div h="40" flex="i-center" pl="10" radius="2" c="gray">{{ item.label }}</w-div>
+                  <router-link @click="goToNextPage" v-for="child in item.children" :to="{name:child.name}" class="c-black" style="text-decoration: none;">
+                    <w-div h="40"  :flex="['i-center']"  :bg="child.name===router.currentRoute.value.name?'#21a75580':''" pl="20" radius="2" my="2">
+                        <w-div c="black">
+                                {{ child.label }}
+                        </w-div>
+                    </w-div>
+                  </router-link>
+                </w-div>
               </TransitionGroup>
             </w-div>
 
-            <w-div class="overflow"  :flex="['1','col']"  style=""  p="20px" ref="scrollBoxRef">
+            <w-div class="overflow"  :flex="['1','col']"  style=""  ref="scrollBoxRef">
               <img src="/turn1.webp" style="position: absolute;z-index: 0;left: 50%;top: 50%;transform: translate(calc(-50% + 100px),calc(-50% - 30px));width: 30%;"  />
               
                   <router-view v-slot="{Component}">
@@ -166,7 +166,12 @@ window.onresize = resize
             </transition>
         </w-div>
     </w-div>
+
+    
+
 </template>
+
+
 
 <style lang="scss" scoped>
 .ttt-enter-active,

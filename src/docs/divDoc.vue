@@ -66,7 +66,7 @@
         </w-div>
         <w-div pb="20">
             <CodePreview title="常见的布局案例" >
-                <w-div flex bg="$#e1e1e1" bd="solid 1">
+                <w-div flex bg="#e1e1e1" bd="solid 1">
                     <w-div h="300" w="200" bg="gray" p="20" :flex="['g-10','col']">
                         <w-group flex hover="c=red bg=blue" transition>
                             <w-span >举世无双</w-span>
@@ -76,7 +76,7 @@
                         </w-group>
                     </w-div>
                     <w-div  flex="1 col">
-                        <w-group p="20" :bg="`${as.img} cover size--100% r-n center`" h="$calc(100% / 4)" bd="b-1-solid-#0f0" transition>
+                        <w-group p="20" :bg="`${as.img} cover size--100% r-n center`" h="calc(100% / 4)" bd="b-1-solid-#0f0" transition>
                             <w-div bg="right">
                                 WGrop的作用是装载共有样式然后分发给子盒子,当然子盒自身的属性优先生效。
                             </w-div>

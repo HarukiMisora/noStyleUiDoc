@@ -45,7 +45,7 @@ onMounted(()=>{
                 </w-div>
             </w-div>
             <div>
-                <slot></slot>
+                <slot v-if="lang==='html'||lang === void 0"></slot>
             </div>
 
             

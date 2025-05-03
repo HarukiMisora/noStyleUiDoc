@@ -29,22 +29,7 @@ import { WDiv } from 'nostyleui';
 
 <style></style>`;
 
-// const importCode =createCode(`
-// {
-//   "extends": "@vue/tsconfig/tsconfig.json",
-//   "compilerOptions": {
-//     "incremental": true,
-//     "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
 
-//     /* Linting */
-//     "strict": true,
-//     "noUnusedLocals": true,
-//     "noUnusedParameters": true,
-//     "noFallthroughCasesInSwitch": true
-//   },
-//   "include": ["./src/**/*.ts", "./src/**/*.tsx", "./src/**/*.vue" ,"node_modules/nostyleui/interface.d.ts"]
-// }
-// `,'json')
 </script>
 
 <template>
@@ -56,10 +41,7 @@ import { WDiv } from 'nostyleui';
         <CodePreview  title="全局引入" :text="allCode" lang="ts" :show="true">
             
         </CodePreview>
-        <CodePreview  title="按需引入" :text="needCode" :show="true">
-            <Notice class="mt-5" title="注意" msg='目前按需引入还是需要在main.ts中引入全局css。这是因为所有组件都依赖于这个全局css' type="warning"></Notice>
 
-        </CodePreview>
     </w-div>            
 </template>
 

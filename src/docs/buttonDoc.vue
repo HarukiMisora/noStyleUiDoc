@@ -84,7 +84,7 @@
             <CodePreview  title="继承WDiv 属性 - 自定义样式" dir="left" >
                 <w-div :flex="['g-15','wrap']">
                     <w-button type="default" w="200">lang...default</w-button>
-                    <w-button type="primary" bg="$#a150df">#a150df primary</w-button>
+                    <w-button type="primary" bg="#a150df">#a150df primary</w-button>
                     <w-button type="success" :bg="[as.head,'cover']" c="red" fw="800">沉鱼落雁</w-button>
                     <w-button type="warning" h="100" f="25" effect="biger" >
                         <w-div :bg="[as.img,'cover']">送给你</w-div>
@@ -116,7 +116,7 @@
                 </w-div>
                 <w-div :flex="['g-15','wrap']">
                     <w-button disabled type="default" w="200">lang...default</w-button>
-                    <w-button disabled type="primary" bg="$#a150df">#a150df primary</w-button>
+                    <w-button disabled type="primary" bg="#a150df">#a150df primary</w-button>
                     <w-button disabled type="success" :bg="[as.head,'cover']" c="red" fw="800">沉鱼落雁</w-button>
                     <w-button disabled type="warning" h="100" f="25" effect="biger">
                         <w-div :bg="[as.img,'cover']">送给你</w-div>
@@ -144,7 +144,7 @@
                 </w-div>
                 <w-div :flex="['g-15','wrap']">
                     <w-button loading type="default" w="200">lang...default</w-button>
-                    <w-button loading type="primary" bg="$#a150df">#a150df primary</w-button>
+                    <w-button loading type="primary" bg="#a150df">#a150df primary</w-button>
                     <w-button loading type="success" :bg="[as.head,'cover']" c="red" fw="800">沉鱼落雁</w-button>
                     <w-button loading type="warning" h="100" f="25" effect="biger">
                         <w-div :bg="[as.img,'cover']">送给你</w-div>

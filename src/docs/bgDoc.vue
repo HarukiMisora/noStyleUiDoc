@@ -193,7 +193,7 @@ const backgroundProps = ([
                         因为在这个版本我加入一套规范、标准以及概念来解决过去版本中的的一些用法混乱的问题，详情可以看WDom的文档。
                     </w-div>
                     <w-div :flex="['g-10', 'wrap']">
-                        <w-group w="$calc(95% / 3)" h="150" c="#fff" :bg="`green size-75-75 r-n ${as.img}`" >
+                        <w-group w="calc(95% / 3)" h="150" c="#fff" :bg="`green size-75-75 r-n ${as.img}`" >
                             <w-div bg="left" >left</w-div>
                             <w-div bg="top center" >top center</w-div>
                             <w-div bg="right">right</w-div>
@@ -218,7 +218,7 @@ const backgroundProps = ([
                     <w-div :flex="['g-10', 'wrap']">
                         <w-group w="200" h="200" c="white" :bg="`green r-n ${img}`" transition>
                             <w-div  style="position: relative;">默认没设置的情况{{img==='/head.png'?';图2宽高一模一样，所以fill、contain、cover从视觉表现上一模一样的，但样式表上它们是有区别的。':""}}
-                                <w-div w="p100"  :flex="['j-around']" pb="20" style="position: absolute;bottom: 0;">
+                                <w-div w="100%"  :flex="['j-around']" pb="20" style="position: absolute;bottom: 0;">
                                     <w-button type="success" @click="img=as.img">图1</w-button>
                                     <w-button type="success" @click="img=as.head">图2</w-button>
                                 </w-div>
