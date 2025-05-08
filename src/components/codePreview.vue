@@ -6,7 +6,7 @@
 import { computed, ref , onMounted} from 'vue';
 import { createCode } from './createCode';
 
-const prop =defineProps<{text?:string,title:string,show?:boolean,lang?:string}>()
+const prop =defineProps<{text?:string,title:string,show?:boolean,lang?:string,absShow?:boolean}>()
 const showCode = ref(prop.show)
 const previewRef = ref<any>()
 const h = computed(()=>{
@@ -45,7 +45,7 @@ onMounted(()=>{
                 </w-div>
             </w-div>
             <div>
-                <slot v-if="lang==='html'||lang === void 0"></slot>
+                <slot v-if="lang==='html'||lang === void 0||absShow"></slot>
             </div>
 
             
