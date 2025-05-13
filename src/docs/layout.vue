@@ -93,7 +93,7 @@ const resize = ()=>{
 }
 
 const selectVersion = ref(version)
-const lastVersions = ['0.2.19','0.2.12','0.1.0']
+const lastVersions = ['0.3.11','0.2.19','0.2.12','0.1.0']
 const goToLastVersion = (e:any)=>{
   const ver = e.target?.value
   if(version !== ver){
