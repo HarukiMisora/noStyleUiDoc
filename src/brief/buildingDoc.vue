@@ -5,6 +5,35 @@
 import CodePreview from '../components/codePreview.vue';
 
 
+const code= `//vite.config.ts
+import { propStyleCompile } from 'nostyleui'
+
+export default defineConfig({
+  ...
+  plugins: [ 
+    vue(), //在vue插件之后
+    propStyleCompile({    
+      //不建议开启debug，我的垃圾log太多了。
+      debug: false, 
+
+      //只在构建阶段生效，不影响开发环境。但是在build前，最好在开发跑一下这个插件看看有没有样式编译错误的地方。如果有
+      justForBuild: true,  
+
+      //log?:(...args:any[])=>void,日志输出方法，你可以自定义输出的内容，我会把一堆 垃圾日志 通过这个函数打印出来
+
+      //WGroup用到过的别名 => 如果你对WGroup组件使用了你自定义的别名，这会导致插件无法认识WGroup组件，所以我需要你来告诉我你用过哪些别名
+      //wGroupSpecialName?: string[];
+
+    })
+  ],
+  ...
+})
+
+
+
+`
+
+
 </script>
 
 <template>
@@ -20,9 +49,7 @@ import CodePreview from '../components/codePreview.vue';
           </w-div>
       </w-div>
       <w-div p="20">
-        <CodePreview  title="使用方法" lang="ts">
-          const ts = ``;
-          asd
+        <CodePreview  title="使用方法" lang="ts" :text="code" :show="true">
         </CodePreview>
 
       </w-div>
