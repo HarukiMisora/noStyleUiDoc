@@ -5,6 +5,8 @@ import { menuData } from '../router/menu';
 import {LogoGithub,Fish} from '@vicons/ionicons5'
 import version from '../version';
 import { computed, onMounted, provide, ref, watchEffect } from 'vue';
+import codePreview from '../components/codePreview.vue';
+
 import type { WDiv } from 'nostyleui/types/index.js';
 const router = useRouter()
 const scrollBoxRef = ref<InstanceType<typeof WDiv>>()
@@ -42,6 +44,7 @@ const gotoLilmonix3 =()=>{
 const offsetTops:{[key:string]:number} = {}
 
 const goToNextPage = ()=>{
+  
   offsetTops[<string>router.currentRoute.value.name] = scrollBoxRef.value?.$el.scrollTop
 }
 const showTip = ref(false)
@@ -134,7 +137,7 @@ window.onresize = resize
               <w-button @click="menuType = menuType==='API'?'BRIEF':'API'" :ml="menuType==='API'?0:120">
                 {{menuType==='API'?'简介':'API'}}
                 <template #icon>
-                  GO
+                  GO 
                 </template>
               </w-button>
               <TransitionGroup name="list">
@@ -166,8 +169,6 @@ window.onresize = resize
             </transition>
         </w-div>
     </w-div>
-
-    
 
 </template>
 

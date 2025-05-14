@@ -16,14 +16,13 @@ export default defineConfig(({mode})=>{
       plugins: [
         vue(),
 
+ 
+        myStrTsxPlugin(), 
+
         propStyleCompile({
           debug:false,
           justForBuild:false,
-          // entity:'all'
         }),
-        myStrTsxPlugin(), 
-
-
         prismjsPlugin({ 
           languages: ['json','html','ts','js','bash'],
         }),
