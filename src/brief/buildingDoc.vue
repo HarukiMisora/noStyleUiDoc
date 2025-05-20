@@ -2,6 +2,10 @@
 
 
 <script lang='ts' setup>
+/**
+ * @desc 编译选项
+ * @groupName 快速上手
+ */
 import CodePreview from '../components/codePreview.vue';
 
 

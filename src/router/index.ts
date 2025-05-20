@@ -1,115 +1,106 @@
 
-
-
-
-
 import { createRouter, createWebHashHistory } from 'vue-router'
 
 import HomeView from '../home/home.vue'
 import Layout from '../docs/layout.vue'
-
-import DivDoc from '../docs/divDoc.vue'
-import ButtonDoc from '../docs/buttonDoc.vue'
-import SpanDoc from '../docs/spanDoc.vue'
-import GroupDoc from '../docs/groupDoc.vue'
-import ComingSoon from '../home/ComingSoon.vue'
-import Install from '../intall/install.vue'
-import BgDoc from '../docs/bgDoc.vue'
-import FlexDoc from '../docs/flexDoc.vue'
-import BdDoc from '../docs/bdDoc.vue'
-import HoverDoc from '../docs/hoverDoc.vue'
-import Introduction from '../brief/introductionDoc.vue'
-import GridDoc from '../docs/gridDoc.vue'
-import BuildingDoc from '../brief/buildingDoc.vue'
+import divDoc from '../docs/dom.divDoc.vue'
+import groupDoc from '../docs/eComDom.groupDoc.vue'
+import bdDoc from '../docs/props.bdDoc.vue'
+import bgDoc from '../docs/props.bgDoc.vue'
+import flexDoc from '../docs/props.flexDoc.vue'
+import gridDoc from '../docs/props.gridDoc.vue'
+import positionDoc from '../docs/props.positionDoc.vue'
+import hoverDoc from '../docs/props0.hoverDoc.vue'
+import buttonDoc from '../docs/ui.buttonDoc.vue'
+import buildingDoc from '../brief/buildingDoc.vue'
+import installDoc from '../brief/installDoc.vue'
+import introductionDoc from '../brief/introductionDoc.vue'
+import zcomingSoonDoc from '../brief/zcomingSoonDoc.vue'
 
 const routes = [
   { path: '/home', component: HomeView,name:'home' },
   { path: '/', redirect:'home' },
-  { path: '/:path(.*)', redirect:{name:'ComingSoon'} },
+  { path: '/:path(.*)', redirect:{name:'zcomingSoonDoc'} },
   { 
     path:'/docs/',
     component:Layout,
     redirect:'/docs/div',
     children:[
-        {
-            path:'/docs/div',
-            component:DivDoc,
-            name:'wDiv',
-        },
-        {
-          path:'/docs/span',
-          component:SpanDoc,
-          name:'wSpan',
-        },
-        {
-          path:'/docs/button',
-          component:ButtonDoc,
-          name:'wButton',
-        },
-        {
-          path:'/docs/divBg',
-          component:BgDoc,
-          name:'divBg',
-        },
-        {
-          path:'/docs/flexDoc',
-          component:FlexDoc,
-          name:'flexDoc',
-        },
-        {
-          path:'/docs/bdDoc',
-          component:BdDoc,
-          name:'bdDoc',
-        },
-        {
-          path:'/docs/hoverDoc',
-          component:HoverDoc,
-          name:'hoverDoc',
-        },
-        {
-          path:'/docs/group',
-          component:GroupDoc,
-          name:'wGroup',
-        },
-        {
-          path:'/docs/gridDoc',
-          component:GridDoc,
-          name:'gridDoc',
-        },
-
-
-
+      {
+        path:'/docs/div',
+        component:divDoc,
+        name:'divDoc',
+      },
+      {
+        path:'/docs/group',
+        component:groupDoc,
+        name:'groupDoc',
+      },
+      {
+        path:'/docs/bd',
+        component:bdDoc,
+        name:'bdDoc',
+      },
+      {
+        path:'/docs/bg',
+        component:bgDoc,
+        name:'bgDoc',
+      },
+      {
+        path:'/docs/flex',
+        component:flexDoc,
+        name:'flexDoc',
+      },
+      {
+        path:'/docs/grid',
+        component:gridDoc,
+        name:'gridDoc',
+      },
+      {
+        path:'/docs/position',
+        component:positionDoc,
+        name:'positionDoc',
+      },
+      {
+        path:'/docs/hover',
+        component:hoverDoc,
+        name:'hoverDoc',
+      },
+      {
+        path:'/docs/button',
+        component:buttonDoc,
+        name:'buttonDoc',
+      },
     ]
   },
-  {
+  { 
     path:'/brief/',
     component:Layout,
     redirect:'/brief/introduction',
     children:[
       {
-        path:'/brief/introduction',
-        component:Introduction,
-        name:'introduction',
+        path:'/docs/building',
+        component:buildingDoc,
+        name:'buildingDoc',
       },
       {
-        path:'/brief/BuildingDoc',
-        component:BuildingDoc,
-        name:'BuildingDoc',
+        path:'/docs/install',
+        component:installDoc,
+        name:'installDoc',
       },
       {
-        path:'/brief/comingSoon',
-        component:ComingSoon,
-        name:'ComingSoon',
+        path:'/docs/introduction',
+        component:introductionDoc,
+        name:'introductionDoc',
       },
       {
-        path:'/brief/install',
-        component:Install,
-        name:'Install',
+        path:'/docs/zcomingSoon',
+        component:zcomingSoonDoc,
+        name:'zcomingSoonDoc',
       },
     ]
-  }
+  },
 ]
-
 
 export default createRouter({
   history: createWebHashHistory(),

@@ -4,6 +4,10 @@
 
 
 <script lang='ts' setup>
+/** 
+* @desc 安装
+* @groupName 快速上手
+*/
 import CodePreview from '../components/codePreview.vue';
 
 import Notice from '../components/notice.vue';

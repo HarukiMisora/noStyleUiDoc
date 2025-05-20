@@ -1,5 +1,9 @@
 
 <script lang='ts' setup>
+/**
+ * @desc bg属性集
+ * @groupName props
+ */
 import notice from '../components/notice.vue';
 import codePreview from '../components/codePreview.vue';
 import propsDisplay from '../components/propsDisplay.vue';

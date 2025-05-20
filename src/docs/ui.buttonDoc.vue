@@ -232,6 +232,10 @@
 
 </template>
 <script lang="ts" setup>
+/**
+ * @desc WButton按钮
+ * @groupName 组件
+ */
 import CodePreview from '../components/codePreview.vue';
 import NoTice from '../components/notice.vue';
 import { as } from '../assets/assets';

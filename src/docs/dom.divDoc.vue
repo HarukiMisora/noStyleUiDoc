@@ -125,6 +125,10 @@
     </w-div>
 </template>
 <script lang="ts" setup>
+/**
+ * @desc WDom
+ * @groupName Dom盒子
+ */
 
 import PropsDisplay from '../components/propsDisplay.vue';
 import CodePreview from '../components/codePreview.vue';

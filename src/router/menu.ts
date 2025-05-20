@@ -1,92 +1,88 @@
-
 export const menuData = {
-  API:[
-    { 
-      label:'DOM盒子',
-      children:[
-        {
-          label:'WDom',
-          name:'wDiv'
-        },
-      ]
-    },
-    { 
-      label:'命令盒子',
-      children:[
-        {
-          label:'WGroup',
-          name:'wGroup'
-        },
-        // {
-        //   label:'WVar *',
-        //   name:'wVar'
-        // },
-      ]
-    },
+  API: [
     {
-      label:'props',
-      children:[
+      label: "Dom盒子",
+      children: [
         {
-          label:'bg属性集',
-          name:'divBg'
-        },
-        {
-          label:'bd属性集',
-          name:'bdDoc'
-        },
-        {
-          label:'flex属性集',
-          name:'flexDoc'
-        },
-        {
-          label:'hover属性集',
-          name:'hoverDoc'
-        },
-        {
-          label:'grid属性集',
-          name:'gridDoc'
-        },
-  
-      ]
-    },
-  
-    {
-      label:'组件',
-      children:[
-        {
-          label:'WButton 按钮',
-          name:'wButton',
+          label: "WDom",
+          name: "divDoc"
         }
       ]
     },
+    {
+      label: "命令盒子",
+      children: [
+        {
+          label: "WGroup",
+          name: "groupDoc"
+        }
+      ]
+    },
+    {
+      label: "props",
+      children: [
+        {
+          label: "bd属性集",
+          name: "bdDoc"
+        },
+        {
+          label: "bg属性集",
+          name: "bgDoc"
+        },
+        {
+          label: "flex属性集",
+          name: "flexDoc"
+        },
+        {
+          label: "grid属性集",
+          name: "gridDoc"
+        },
+        {
+          label: "position属性集",
+          name: "positionDoc"
+        },
+        {
+          label: "hover属性集",
+          name: "hoverDoc"
+        }
+      ]
+    },
+    {
+      label: "组件",
+      children: [
+        {
+          label: "WButton按钮",
+          name: "buttonDoc"
+        }
+      ]
+    }
   ],
-  BRIEF:[
+  BRIEF: [
     {
-      label:'快速上手',
-      children:[
+      label: "快速上手",
+      children: [
         {
-          label:'简介',
-          name:'introduction'
+          label: "编译选项",
+          name: "buildingDoc"
         },
         {
-          label:'构建选项',
-          name:'BuildingDoc'
+          label: "安装",
+          name: "installDoc"
         },
         {
-          label:'安装',
-          name:'Install',
+          label: "简介",
+          name: "introductionDoc"
         }
       ]
     },
     {
-      label:'...',
-      children:[
+      label: "...",
+      children: [
         {
-          label:'敬请期待',
-          name:'ComingSoon',
+          label: "敬请期待",
+          name: "zcomingSoonDoc"
         }
       ]
     }
   ]
-  
 }

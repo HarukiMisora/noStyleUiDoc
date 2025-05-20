@@ -1,5 +1,9 @@
 
 <script lang='ts' setup>
+/**
+ * @desc WGroup 
+ * @groupName 命令盒子
+ */
 import notice from '../components/notice.vue';
 import codePreview from '../components/codePreview.vue';
 import { path } from '../assets/assets';

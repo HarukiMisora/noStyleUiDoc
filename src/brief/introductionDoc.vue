@@ -2,6 +2,10 @@
 
 
 <script lang="ts" setup>
+/**
+ * @desc 简介
+ * @groupName 快速上手
+ */
 import { as } from '../assets/assets';
 import CodePreview from '../components/codePreview.vue';
 
