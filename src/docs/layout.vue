@@ -159,7 +159,7 @@ window.onresize = resize
               
                   <router-view v-slot="{Component}">
                     <transition name="ttt" mode="out-in" >
-                      <component :is="Component" style="z-index: 1;will-change: transform;"  />
+                      <component :is="Component" style="z-index: 1;"  />
                     </transition>
                   </router-view>
 
