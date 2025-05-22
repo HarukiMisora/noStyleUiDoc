@@ -12,9 +12,9 @@ import gridDoc from '../docs/props.gridDoc.vue'
 import positionDoc from '../docs/props.positionDoc.vue'
 import hoverDoc from '../docs/props0.hoverDoc.vue'
 import buttonDoc from '../docs/ui.buttonDoc.vue'
-import buildingDoc from '../brief/buildingDoc.vue'
-import installDoc from '../brief/installDoc.vue'
-import introductionDoc from '../brief/introductionDoc.vue'
+import introductionDoc from '../brief/0.introductionDoc.vue'
+import installDoc from '../brief/1.installDoc.vue'
+import buildingDoc from '../brief/2.buildingDoc.vue'
 import zcomingSoonDoc from '../brief/zcomingSoonDoc.vue'
 
 const routes = [
@@ -79,9 +79,9 @@ const routes = [
     redirect:'/brief/introduction',
     children:[
       {
-        path:'/docs/building',
-        component:buildingDoc,
-        name:'buildingDoc',
+        path:'/docs/introduction',
+        component:introductionDoc,
+        name:'introductionDoc',
       },
       {
         path:'/docs/install',
@@ -89,9 +89,9 @@ const routes = [
         name:'installDoc',
       },
       {
-        path:'/docs/introduction',
-        component:introductionDoc,
-        name:'introductionDoc',
+        path:'/docs/building',
+        component:buildingDoc,
+        name:'buildingDoc',
       },
       {
         path:'/docs/zcomingSoon',

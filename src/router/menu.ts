@@ -62,16 +62,16 @@ export const menuData = {
       label: "快速上手",
       children: [
         {
-          label: "编译选项",
-          name: "buildingDoc"
+          label: "简介",
+          name: "introductionDoc"
         },
         {
           label: "安装",
           name: "installDoc"
         },
         {
-          label: "简介",
-          name: "introductionDoc"
+          label: "编译选项",
+          name: "buildingDoc"
         }
       ]
     },
