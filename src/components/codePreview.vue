@@ -51,7 +51,7 @@ onMounted(()=>{
             
         </w-div>
         <transition name="slide-fade" mode="out-in">
-            <w-div v-if="showCode" :h="h" style="overflow: hidden;" w="p100" mx="20" mb="20">
+            <w-div v-if="showCode" :h="h" style="overflow: hidden;" w="100%" px="20" mb="20">
             	<v-md-preview :text="createCode(prop.text,lang)" ref="previewRef" ></v-md-preview>
             </w-div>
         </transition>

@@ -23,6 +23,7 @@ export default defineConfig(({mode})=>{
           debug:false,
           justForBuild:false,
         }),
+
         prismjsPlugin({ 
           languages: ['json','html','ts','js','bash'],
         }),

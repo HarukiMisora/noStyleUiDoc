@@ -14,5 +14,5 @@ import {VMdPreview,VueMarkdownEditor} from '../lib/vMdMarker/vMdMarker.ts';
 //   // console.log(entries);
 // });
 // observer.observe({ entryTypes: ['longtask'] });
-
+ 
 createApp(App).use(propStyle).use(VMdPreview).use(VueMarkdownEditor).use(router).mount('#app')

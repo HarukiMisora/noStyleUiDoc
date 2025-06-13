@@ -71,7 +71,7 @@ const  bdProps = ([
         text:'定义左边框样式',
         type:'边框样式|颜色|尺寸',
         default:'-',
-        units:'-'
+        units:'-'  
     },
    
 ])
@@ -79,10 +79,10 @@ const  bdProps = ([
 </script>
 
 <template>
-    <w-div class="flex-1" bg="white" p="40"  >
+    <w-div class="flex-1" bg="white" p="40"  > 
         <w-div p="20">
             <h1>grid 属性集</h1>
-            <notice class="mt-10" title="作用" msg="定义盒子的 grid布局 样式"></notice>
+            <notice class="mt-20" title="作用" msg="定义盒子的 grid布局 样式"></notice>
         </w-div>
         <GridMode >
             <codePreview  title="列 col-{列数}-{最小宽度}-{最大宽度}" >
@@ -139,7 +139,7 @@ const  bdProps = ([
                 <w-div :grid="`col--${min}-${max} g-5`" style="overflow-x: auto;">
                     <w-div v-for="i in 9" radius="4" :key="i" bg="#44567245" flex="center">{{ i }}</w-div>
                 </w-div>
-            </codePreview>
+            </codePreview>   
             <codePreview  title="row 行" dir="right">
                 <CodePreviewTip>它的用法和col一模一样，只不过它是控制行的。</CodePreviewTip>
                 <w-div mb="5">

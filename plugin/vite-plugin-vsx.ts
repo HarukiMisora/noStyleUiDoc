@@ -88,8 +88,8 @@ export default function myStrTsxPlugin(): Plugin {
       if (id.endsWith('Doc.vue')) {
         console.log('处理文件：', id);
         const resCode = transformCodePreview(code);
-        // console.log(resCode);
-        
+        console.log({code}); 
+         
  
         
 

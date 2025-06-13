@@ -6,7 +6,7 @@
 
 <template>
 
-<router-view v-slot="{ Component }">
+<router-view v-slot="{ Component }" grid>
   <transition name="fade">
     <component :is="Component" />
   </transition>

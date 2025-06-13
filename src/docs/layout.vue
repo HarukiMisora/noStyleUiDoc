@@ -142,7 +142,7 @@ window.onresize = resize
               </w-button>
               <TransitionGroup name="list">
                 <w-div v-for="item in menus" :key="item.label"  >
-                  <w-div h="40" flex="i-center" pl="10" radius="2" c="gray">{{ item.label }}</w-div>
+                  <w-div h="40px" flex="i-center" pl="10" radius="2" c="gray">{{ item.label }}</w-div>
                   <router-link @click="goToNextPage" v-for="child in item.children" :to="{name:child.name}" class="c-black" style="text-decoration: none;">
                     <w-div h="40"  :flex="['i-center']"  :bg="child.name===router.currentRoute.value.name?'#21a75580':''" pl="20" radius="2" my="2">
                         <w-div c="black">
@@ -221,7 +221,7 @@ transform: translateX(100%);
     }
     &::-webkit-scrollbar-thumb{
       border-radius: 5px;
-      background: var(--primary);
+      background: red;
       transition: 0.3s ease-in-out;
       cursor: move;
       &:hover{

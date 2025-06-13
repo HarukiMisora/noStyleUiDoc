@@ -41,7 +41,7 @@ export default defineConfig({
 </script>
 
 <template>
-    <w-div class="flex-1" bg="white" p="20">
+    <w-div   :flex="['col','1','g-20']" bg="white" p="20">
       <w-div p="20" flex="col" >
           <w-h1 mb="10">compile 静态样式编译插件</w-h1>
           <w-div>
