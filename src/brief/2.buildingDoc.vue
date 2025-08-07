@@ -11,30 +11,81 @@ import CodePreview from '../components/codePreview.vue';
 
 const code= `//vite.config.ts
 import { propStyleCompile } from 'nostyleui'
-
 export default defineConfig({
   ...
   plugins: [ 
-    vue(), //在vue插件之后
-    propStyleCompile({    
-      //不建议开启debug，我的垃圾log太多了。
-      debug: false, 
-
-      //只在构建阶段生效，不影响开发环境。但是在build前，最好在开发跑一下这个插件看看有没有样式编译错误的地方。如果有
-      justForBuild: true,  
-
-      //log?:(...args:any[])=>void,日志输出方法，你可以自定义输出的内容，我会把一堆 垃圾日志 通过这个函数打印出来
-
-      //WGroup用到过的别名 => 如果你对WGroup组件使用了你自定义的别名，这会导致插件无法认识WGroup组件，所以我需要你来告诉我你用过哪些别名
-      //wGroupSpecialName?: string[];
-
-    })
+    vue(), 
+    //在vue插件之后
+    propStyleCompile(),
   ],
   ...
 })
+`
+const code2= `//vite.config.ts
+import { propStyleCompile } from 'nostyleui'
+export default defineConfig({
+  ...
+  plugins: [ 
+    vue(), 
+    //在vue插件之后
+    propStyleCompile({    
+      //不建议开启debug，我的垃圾log太多了。
+      debug: false, 
+      /*
+      * justForBuild 只在构建阶段生效，不影响开发环境。但是在build前，最好在开发跑一下这个插件看看有没有样式编译错误的地方。
+      * {Boolean} 默认 false
+      */
+      justForBuild: false,  
 
+      /*
+      * wGroupSpecialName w-group组件的别名，如果你在项目中使用了别名，需要你手动告诉编译插件你用了哪些别名
+      * {string[]} 默认 []
+      */
+      wGroupSpecialName: ['myGroup'],
 
+      /*
+      * log 捕获我的垃圾日志输出,你可以通过传递一个function来决定要输出哪些日志。
+      * {Function} 默认 console.log
+      */
+      log: (...args)=>{
+        if(args....){
+          console.log('xxxxx':args[0])
+        }
+      },
 
+      /*
+      * indexFile 入口文件,这是一个function，插件会扫描你的scr目录，然后插件会把扫描到的文件路径传给这个方法，你需要返回一个boolean值来告诉插件哪一个文件是入口文件。
+      * {(url: string) => boolean} 默认读取src/main.ts或者src/main.js
+      */
+      indexFile: (url) =>{
+        //如果你的入口文件不是默认的main.ts，而是index.ts，你可以像这样指定入口文件。
+        return url.endsWith('src/index.ts')
+      },
+
+      /*
+      * includePath 要编译的文件夹，默认是src目录下的所以文件，但保不齐还有人会改成其它的目录。 
+      * {string[]} 默认 ['src/']
+      */
+      includePath: ['src/','src2/'];
+
+      /*
+      * excludePath 要排除的文件夹，默认为空,如果你不想某些文件夹下的文件被编译，你可以通过这个参数排除掉。
+      * {string[]} 默认 []
+      */
+      excludePath: ['src/noNeedCompile/'];
+
+      /*
+      * compileBefore 编译前的钩子函数，你可以在这里对代码进行预处理。
+      * {(code: string, id: string) => string} 默认 (code, id) => code
+      */
+      compileBefore:(code,id){
+         //在这里对代码进行预处理，比如添加一些注释，或者修改一些变量名。
+         return '/* 我是编译前的注释 */\\n' + code
+      }; 
+    }),
+  ],
+  ...
+})
 `
 
 
@@ -53,7 +104,9 @@ export default defineConfig({
           </w-div>
       </w-div>
       <w-div p="20">
-        <CodePreview  title="使用方法" lang="ts" :text="code" :show="true">
+        <CodePreview  title="基础使用方法" lang="ts" :text="code" :show="true">
+        </CodePreview>
+        <CodePreview  title="进阶参数配置" lang="ts" :text="code2" :show="true">
         </CodePreview>
 
       </w-div>
