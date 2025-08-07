@@ -9,7 +9,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const require = createRequire(import.meta.url);
-const version = require('../package.json').dependencies['nostyleui'].replace('^', '');
+const version = require('../package.json').dependencies['propstyle'].replace('^', '');
 
 // 写入版本文件
 fs.writeFileSync(

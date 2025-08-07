@@ -5,9 +5,10 @@ import { menuData } from '../router/menu';
 import {LogoGithub,Fish} from '@vicons/ionicons5'
 import version from '../version';
 import { computed, onMounted, provide, ref, watchEffect } from 'vue';
-import codePreview from '../components/codePreview.vue';
+// import codePreview from '../components/codePreview.vue';
 
-import type { WDiv } from 'nostyleui/types/index.js';
+import {  type WDiv } from 'propstyle/types/index.js';
+import {useClass} from 'propstyle'
 const router = useRouter()
 const scrollBoxRef = ref<InstanceType<typeof WDiv>>()
 const gridMode = ref(false)
@@ -102,10 +103,10 @@ const goToLastVersion = (e:any)=>{
   if(version !== ver){
     window.open(`https://www.iamwzc.com/TMXK/noStyleUiDoc/index${ver}.html`)
   }
-  return ver
+  return selectVersion.value=version
 }
 
-
+useClass('flex','centerr')
 onMounted(()=>{
   resize()
 })
@@ -221,7 +222,7 @@ transform: translateX(100%);
     }
     &::-webkit-scrollbar-thumb{
       border-radius: 5px;
-      background: red;
+      background: #1e1e1e;
       transition: 0.3s ease-in-out;
       cursor: move;
       &:hover{

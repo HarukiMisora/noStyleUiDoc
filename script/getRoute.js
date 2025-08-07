@@ -91,7 +91,7 @@ fs.writeFileSync(
  * */ 
 async function listFiles(dirPath,type='docs') {
   try {
-  console.log('读取目录:', {dirPath:path.resolve('E:/KF/github/noStyleUiDoc/src/docs')},typeof dirPath);
+  console.log('读取目录:', {dirPath},typeof dirPath);
 
     const files = await fs.promises.readdir(dirPath,{withFileTypes: true});
     let string = `[\n`

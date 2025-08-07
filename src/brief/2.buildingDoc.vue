@@ -6,11 +6,12 @@
  * @desc 编译选项
  * @groupName 快速上手
  */
+import { as } from '../assets/assets';
 import CodePreview from '../components/codePreview.vue';
 
 
 const code= `//vite.config.ts
-import { propStyleCompile } from 'nostyleui'
+import { propStyleCompile } from 'propstyle'
 export default defineConfig({
   ...
   plugins: [ 
@@ -22,7 +23,7 @@ export default defineConfig({
 })
 `
 const code2= `//vite.config.ts
-import { propStyleCompile } from 'nostyleui'
+import { propStyleCompile } from 'propstyle'
 export default defineConfig({
   ...
   plugins: [ 
@@ -88,6 +89,15 @@ export default defineConfig({
 })
 `
 
+const codeBuild =`<div class="c-red">hello world</div>
+<w-div 
+  :bg="as.img"
+  class="transition-all-0-3s-ease bs-cover bd-s-solid
+  w-100p h-200 flex flex-center hover-100p-auto 
+  hover-c0008 hover-50 hover-bd-l-c-cfff8 hover-bd-r-c-cfff8 
+  hover-bd-l-15vw hover-bd-r-15vw hover-bd-s-solid">
+</w-div>`
+
 
 </script>
 
@@ -96,14 +106,38 @@ export default defineConfig({
       <w-div p="20" flex="col" >
           <w-h1 mb="10">compile 静态样式编译插件</w-h1>
           <w-div>
-            <w-p>它是用来将.vue文件中的静态prop style编译成对应css样式的插件。这样做有什么好处？</w-p>
-            <w-p mt="5">帮助prop style在编译阶段就将样式注入到组件中，避免在用户浏览器环境中注入一堆prop然后跑vue组件里面解析prop style的规则最后生成样式的过程。</w-p>
-            <w-p mt="5">也就是说，它可以提高我们的组件渲染性能，减少浏览器的内存占用。</w-p>
-            <w-p mt="5">同时，因为解析prop style规则的过程脱离了vue的环境，所以我也有了让它对你自定义的组件以及HTML原生盒子也能生效的能力。</w-p>
-            <w-p mt="5">同样的，我也可以让它对react组件也支持，但我目前还并没有这么做。</w-p>
+            <w-p>它是用来将*.vue文件中的静态prop style编译成对应css样式的插件。这样做有什么好处？</w-p>
+            <w-p mt="5">帮助prop style在编译阶段就将样式注入到组件中，避免在用户浏览器环境中去解析prop style的规则。</w-p>
+            <w-p mt="5">同时也会智能收集并生成对应的样式表，无需再引入全局样式，减少不必要的css样式。</w-p>
+            <w-p mt="5">也就是说，它可以提高我们的组件渲染性能，减少浏览器的内存占用，</w-p>
+            <w-p mt="5">而且，因为解析prop style规则的过程也脱离了vue的环境，所以我也有了让它对你自定义的组件以及HTML原生盒子也能生效的能力。</w-p>
+            <!-- <w-p mt="5">同样的，我也可以让它对react组件也支持，但我目前还没有兼容react的打算，因为太麻烦了。</w-p> -->
           </w-div>
       </w-div>
+
+        <h2 pl="40">直观感受编译插件的作用，将propStyle转为class样式的过程放到了预编译阶段。</h2>
       <w-div p="20">
+        <w-div flex="g-20 i-center">
+          <codePreview  flex="1 item" title="编译前"   :show="true" hideButton>
+<div c="red">hello world</div>
+<w-div 
+  transition 
+  :bg="as.img"
+  s.-bg="cover"
+  bd="solid" w="100%" h="200" flex="center"
+  hover="bg=size-100% bd=50;solid;#0008;x-15vw-#fff8">
+</w-div>
+
+          </codePreview>
+          =>
+          
+          <Code-Preview flex="1 item" title="编译后"  :text="codeBuild"   :show="true" hideButton>
+            <div class="c-red">hello world</div>
+            <div class="transition-all-0-3s-ease bs-cover bd-s-solid w-100p h-200 flex flex-center hover-100p-auto hover-c0008 hover-50 hover-bd-l-c-cfff8 hover-bd-r-c-cfff8 hover-bd-l-15vw hover-bd-r-15vw hover-bd-s-solid" style="background-image: url(&quot;/img.png&quot;);"></div>
+          </Code-Preview>
+        </w-div>
+
+
         <CodePreview  title="基础使用方法" lang="ts" :text="code" :show="true">
         </CodePreview>
         <CodePreview  title="进阶参数配置" lang="ts" :text="code2" :show="true">

@@ -6,7 +6,7 @@
 import { computed, ref , onMounted} from 'vue'; 
 import { createCode } from './createCode';
 
-const prop =defineProps<{text?:string,title:string,show?:boolean,lang?:string,absShow?:boolean}>()
+const prop =defineProps<{text?:string,title:string,show?:boolean,lang?:string,absShow?:boolean,hideButton?:boolean}>()
 const showCode = ref(prop.show)
 const previewRef = ref<any>()
 const h = computed(()=>{ 
@@ -33,7 +33,7 @@ onMounted(()=>{
         <w-div  radius="8" p="20" >
             <w-div pb="10"  flex="j-between">
                 <h1>{{ title }}</h1>
-                <w-div class="flex">
+                <w-div class="flex" v-if="!hideButton">
                     <w-button type="primary" @click="showCode=!showCode">{{showCode?'收起代码':'展开代码'}}</w-button>
                 </w-div>
             </w-div>
