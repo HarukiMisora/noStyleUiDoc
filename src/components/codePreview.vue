@@ -10,21 +10,14 @@ const prop =defineProps<{text?:string,title:string,show?:boolean,lang?:string,ab
 const showCode = ref(prop.show)
 const previewRef = ref<any>()
 const h = computed(()=>{ 
-	return (previewRef.value?.$el.clientHeight || 0)
+	return (previewRef.value?.$el.clientHeight || 0)+'px'
 }) 
 
 
 onMounted(()=>{
 
     
-    // const render = compile(prop.text);
-    // // 手动创建并挂载组件
-    // const app = createApp({
-    //     render,
-    // });
-    // console.log(app);
-    
-    // app.use(nostyleui).mount(contentRef.value.$el);
+
 })
 
 
@@ -51,9 +44,9 @@ onMounted(()=>{
             
         </w-div>
         <transition name="slide-fade" mode="out-in">
-            <w-div v-if="showCode" :h="h" style="overflow: hidden;" w="100%" px="20" mb="20">
+            <div v-if="showCode" :class="{ 'h-full': true }"   style="overflow: hidden;" w="100%" px="20" mb="20">
             	<v-md-preview :text="createCode(prop.text,lang)" ref="previewRef" ></v-md-preview>
-            </w-div>
+            </div>
         </transition>
 
 
@@ -61,7 +54,9 @@ onMounted(()=>{
 </template>
 
 <style lang='scss' scoped>
-
+.h-full{
+    height: v-bind(h);
+}
 .slide-fade-enter-active{
   transition: all 0.3s ease-out;
 }
@@ -71,7 +66,6 @@ onMounted(()=>{
 }
 
 .slide-fade-enter-from{
-
 	height:  0;
 	opacity: 0;
 }
