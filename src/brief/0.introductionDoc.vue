@@ -41,7 +41,7 @@ const color = ref('#000')
           <w-div my="5">
             color = {{ color }}
           </w-div>
-          <w-div h="100" :bg="`${as.head} ${color} contain p-0 r-n`" transition hover="bg=p-50%"></w-div>
+          <w-div h="100" :bg="`${as.head} ${color} contain p-0 r-n`" transition hover="bg=p-5"></w-div>
           <w-div>上面的所有效果实现一共写了{ 0 } 行css代码 与 { 0 } 行style内联样式！ 是不是很方便？</w-div>
         </CodePreview>
     </w-div>

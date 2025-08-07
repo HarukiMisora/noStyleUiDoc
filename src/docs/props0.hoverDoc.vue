@@ -58,23 +58,23 @@ const  bdProps = ([
                         <w-div hover="c=black bg=green">背景颜色</w-div>
                         <w-div hover="c=black bg=#0f0">背景颜色</w-div>
                         <w-div hover="c=red bg=rgb(0,0,0)">背景颜色</w-div>
-                        <w-div hover="bg=rgba(0,0,0,0.5)-#fff">背景颜色</w-div>
+                        <w-div hover="bg=rgba(0,0,0,0.5)+#fff">背景颜色</w-div>
                     </w-group>
                 </w-div>
-                <w-div :bg="as.img+' size-50% center'" h="125" mt="20" hover="bg=size-100%" transition=".2s"></w-div>
+                <w-div :bg="as.img" s.-bg="size-50% center" h="125" mt="20" hover="bg=size-100%" transition=".2s"></w-div>
             </codePreview>
 
             <codePreview  title="背景图片" >
-                <w-div :flex="['g-10','wrap']" c="green">
-                    <w-group transition radius="50%" w="100" h="100" flex="center" :bg="[as.head,'fill']" :hover="`bg=${as.img};cover`" >
+                <w-div flex="g-10 wrap" c="green">
+                    <w-group transition radius="50%" w="100" h="100" flex="center" :bg="as.head" s.-bg="fill" :hover="`bg=${as.img}`" s.-hover="bg=cover" >
                         <w-div bd="l-solid t-dashed r-double b-dotted" ></w-div>
                         <w-div bd="dashed red x-solid"></w-div>
                         <w-div bd="dotted blue y-red" hover="bg-none"></w-div>
                         <w-div bd="double r-solid-red+#fff"></w-div>
                     </w-group>
                 </w-div>
-                <w-div :flex="['g-10','wrap']">
-                    <w-group transition radius="50%" w="100" h="100" flex="center" :bg="[as.head,'fill','r-n']" hover="bg=cover;size-50">
+                <w-div flex="g-10 wrap">
+                    <w-group transition radius="50%" w="100" h="100" flex="center" :bg="as.head" s.-bg="fill r-n" hover="bg=cover;size-50-50">
                         <w-div bd="t-groove" hover="bg=left"></w-div>
                         <w-div bd="r-outset-red" hover="bg=right"></w-div>
                         <w-div bd="b-inset blue" hover="bg=top;center"></w-div>
@@ -83,16 +83,16 @@ const  bdProps = ([
                 </w-div>
             </codePreview>
             <codePreview  title="边框" >
-                <w-div :flex="['g-10','wrap']" c="green">
-                    <w-group  radius="50%" w="100" h="100" flex="center" :bg="[as.head,'fill']" hover="bd=gray;" >
+                <w-div flex="g-10 wrap" c="green">
+                    <w-group  radius="50%" w="100" h="100" flex="center" :bg="as.head" s.-bg="fill" hover="bd=gray;" >
                         <w-div bd="l-solid t-dashed r-double b-dotted" ></w-div>
                         <w-div bd="y-dashed black x-solid-red"></w-div>
                         <w-div bd="dotted blue y-red" hover="bd=black"></w-div>
                         <w-div bd="double r-solid-red+#fff"></w-div>
                     </w-group>
                 </w-div>
-                <w-div :flex="['g-10','wrap']">
-                    <w-group transition=".1s" radius="50%" w="100" h="100" flex="center" :bg="[as.head,'fill','r-n']" hover="bd=solid;10">
+                <w-div flex="g-10 wrap">
+                    <w-group transition=".1s" radius="50%" w="100" h="100" flex="center" :bg="as.head" s.-bg="fill r-n" hover="bd=solid;10">
                         <w-div bd="t-groove" ></w-div>
                         <w-div bd="r-outset-red" ></w-div>
                         <w-div bd="b-inset blue" ></w-div>
@@ -103,9 +103,10 @@ const  bdProps = ([
             <codePreview  title="组合样式" >
                 <w-div 
     transition 
-    :bg="as.img+' cover '"
+    :bg="as.img"
+    s.-bg="cover"
     bd="solid" w="100%" h="200" flex="center"
-    hover="bg=size-100% bd=50;solid;#0008;x-15vw-#fff8 ">
+    hover="bg=size-100% bd=50;solid;#0008;x-15vw-#fff8">
                 </w-div>
             </codePreview>
 

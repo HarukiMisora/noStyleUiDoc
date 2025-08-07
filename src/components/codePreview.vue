@@ -1,15 +1,15 @@
 
 
 
-
+ 
 <script lang='ts' setup>
-import { computed, ref , onMounted} from 'vue';
+import { computed, ref , onMounted} from 'vue'; 
 import { createCode } from './createCode';
 
 const prop =defineProps<{text?:string,title:string,show?:boolean,lang?:string,absShow?:boolean}>()
 const showCode = ref(prop.show)
 const previewRef = ref<any>()
-const h = computed(()=>{
+const h = computed(()=>{ 
 	return (previewRef.value?.$el.clientHeight || 0)
 }) 
 
@@ -36,7 +36,7 @@ onMounted(()=>{
 </script>
 
 <template>
-    <w-div style="border: 1px solid #99999930;">
+    <w-div style="border: 1px solid #99999930;" mb="10">
         <w-div  radius="8" p="20" >
             <w-div pb="10"  flex="j-between">
                 <h1>{{ title }}</h1>

@@ -129,7 +129,7 @@ const backgroundProps = ([
             <notice class="mt-10" title="作用" msg="定义盒子的背景样式"></notice>
         </w-div>
         <GridMode  >
-            <!-- <codePreview  title="背景颜色 c" >
+            <codePreview  title="背景颜色 c" >
                 <w-div flex="g-10">
                     <w-group w="30" h="30">
                         <w-div bg="red"></w-div>
@@ -157,8 +157,8 @@ const backgroundProps = ([
                         </w-div>
                     </w-group>
                 </w-div>
-            </codePreview> -->
-            <!-- <codePreview  title="背景图片大小 size" >
+            </codePreview>
+            <codePreview  title="背景图片大小 size" >
                 <w-div>0.3.x版本开始，我移除了w和h参数。使用size代替，size可以同时设置图片的宽高，也可以单独设置宽高 size-w-h、size-w、size--h</w-div>
                 <w-div flex="g-10 wrap">
                     <w-group w="100" h="100" c="red"  >
@@ -178,8 +178,8 @@ const backgroundProps = ([
                         </w-div>
                     </w-group>
                 </w-div>
-            </codePreview> -->
-            <!-- <codePreview  title="背景图片重复填充 r"  grid="item grow-4-5">
+            </codePreview>
+            <codePreview  title="背景图片重复填充 r"  grid="item grow-4-5">
                 <w-div flex="g-10 wrap">
                     <w-group w="100" h="100" c="#fff" bg="green" >
                         <w-div :bg="`${as.img} size-75 r-x`" >r-x 横向填充</w-div>
@@ -189,8 +189,8 @@ const backgroundProps = ([
                         </w-div>
                     </w-group>
                 </w-div>
-            </codePreview> -->
-            <!-- <codePreview  title="背景图片位置 p" >
+            </codePreview>
+            <codePreview  title="背景图片位置 p" >
                     <w-div pb="20">
                         在上一个发布版本[0.2.19]中，我们可以像 right-top和top-right、left-bottom和bottom-left 这样书写以加强联系性。
                         但在本版本中，我移除了这个做法，直接使用分开的left top bottom right来表示位置。
@@ -212,10 +212,10 @@ const backgroundProps = ([
                             <w-div bg="p-100-100%">p-100-100% 距离左边100px，距离顶边100% </w-div>
                         </w-group>
                     </w-div>
-            </codePreview> -->
+            </codePreview>
 
 
-            <!-- <codePreview  title="智能填充 模拟 img 的objcet-fill"  >
+            <codePreview  title="智能填充 模拟 img 的objcet-fill"  >
                     <w-div pb="20">
                         right-top和top-right、left-bottom和bottom-left是一个意思，并不要求你一定要把x方向或者y方向放在前面。
                     </w-div>
@@ -233,7 +233,7 @@ const backgroundProps = ([
                             <w-div bg="none">none 其实 = center</w-div>
                         </w-group>
                     </w-div>
-            </codePreview> -->
+            </codePreview>
         </GridMode>
 
 

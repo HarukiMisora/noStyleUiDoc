@@ -8,14 +8,14 @@
     "build": "vue-tsc -b && vite build",
     "buildT": "vite build",
     "getVer": "node script/getVer.js",
-    "getRoute":"node script/getRoute.js",
+    "getRoute": "node script/getRoute.js",
     "preview": "vite preview"
   },
   "dependencies": {
     "@babel/core": "^7.26.10",
     "@kangc/v-md-editor": "^2.3.15",
     "@vitejs/plugin-vue-jsx": "^4.1.2",
-    "nostyleui": "^0.4.0-beta.24",
+    "nostyleui": "^0.4.0-beta.32",
     "vite-plugin-prismjs": "0.0.8",
     "vue": "^3.5.13",
     "vue-router": "^4.5.0"

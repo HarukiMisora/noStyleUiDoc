@@ -56,7 +56,7 @@ function formatHTML(html:string, indentSize = 2) {
   return output.join('\n')
 }
 
-function transformCodePreview(html: string) {
+export function transformCodePreview(html: string) {
   return html.replace(
     /<codePreview(\b[^>]*)>([\s\S]*?)<\/codePreview>/g,
     (_match, attrs:string, content:string) => {

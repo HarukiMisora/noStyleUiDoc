@@ -136,7 +136,7 @@ const flexProps = ([
                         <w-div bg="red+green+#00f+rgba(255,255,0,0.5)"></w-div>
                     </w-group>
                 </w-div>
-                <w-div :flex="['row-r']">
+                <w-div flex="row-r">
                     <w-group w="30" h="30">
                         row-r
                         <w-div bg="red"></w-div>
@@ -164,7 +164,7 @@ const flexProps = ([
                         <w-div bg="red+green+#00f+rgba(255,255,0,0.5)"></w-div>
                     </w-group>
                 </w-div>
-                <w-div :flex="['col-r']">
+                <w-div flex="col-r">
                     <w-group w="30" h="30">
                         col-r
                         <w-div bg="red"></w-div>
@@ -192,7 +192,7 @@ const flexProps = ([
                         <w-div bg="red+green+#00f+rgba(255,255,0,0.5)"></w-div>
                     </w-group>
                 </w-div>
-                <w-div :flex="['g-10','col']" mt="10">
+                <w-div flex="g-10 col" mt="10">
                     <w-group w="30" h="30">
                     <w-div bg="green"></w-div>
                     <w-div bg="blue"></w-div>
@@ -209,44 +209,44 @@ const flexProps = ([
             <codePreview  title="分布 j" >
                 <w-div flex h="150" c="#fff" bg="green" >
                     <w-group flex="1" bd="solid red 1">
-                        <w-div  :flex="['i-start','j-end']" >
-                            <w-div>i-start </w-div>
-                            <w-div>j-end </w-div>
+                        <w-div  flex="i-start j-end" >
+                        <w-div>i-start</w-div>
+                        <w-div>j-end</w-div>
                         </w-div>
-                        <w-div  :flex="['i-center','j-center']" >
-                            <w-div>i-center </w-div>
-                            <w-div>j-center </w-div>
+                        <w-div  flex="i-center j-center" >
+                        <w-div>i-center</w-div>
+                        <w-div>j-center</w-div>
                         </w-div>
-                        <w-div  :flex="['i-end', 'j-start']" >
-                            <w-div>i-end </w-div>
-                            <w-div>j-start </w-div>
+                        <w-div  flex="i-end j-start" >
+                        <w-div>i-end</w-div>
+                        <w-div>j-start</w-div>
                         </w-div>
                     </w-group>
-                </w-div>
-                <w-div flex h="150" c="#fff" bg="green" >
+                    </w-div>
+                    <w-div flex h="150" c="#fff" bg="green" >
                     <w-group flex="1" bd="solid red 1">
-                        <w-div  :flex="['i-start','j-around']" >
-                            <w-div>i-start </w-div>
-                            <w-div>j-around </w-div>
+                        <w-div  flex="i-start j-around" >
+                        <w-div>i-start</w-div>
+                        <w-div>j-around</w-div>
                         </w-div>
-                        <w-div  :flex="['i-center','j-between']" >
-                            <w-div>i-center </w-div>
-                            <w-div>j-between </w-div>
+                        <w-div  flex="i-center j-between" >
+                        <w-div>i-center</w-div>
+                        <w-div>j-between</w-div>
                         </w-div>
-                        <w-div  :flex="['i-end', 'j-evenly']" >
-                            <w-div>i-end </w-div>
-                            <w-div>j-start </w-div>
+                        <w-div  flex="i-end j-evenly" >
+                        <w-div>i-end</w-div>
+                        <w-div>j-start</w-div>
                         </w-div>
                     </w-group>
-                </w-div>
+                </w-div>    
             </codePreview>
 
             <codePreview  title="分布 i" >
                 <w-div flex h="150" c="#fff" bg="green" >
                     <w-group flex="1" bd="solid red 1">
-                        <w-div bd="r-0" :flex="['i-start']" >i-start</w-div>
-                        <w-div bd="r-0" :flex="['i-center']" >i-center</w-div>
-                        <w-div  :flex="['i-end']" >i-end</w-div>
+                        <w-div bd="r-0" flex="i-start" >i-start</w-div>
+                        <w-div bd="r-0" flex="i-center" >i-center</w-div>
+                        <w-div  flex="i-end" >i-end</w-div>
                     </w-group>
                 </w-div>
             </codePreview>

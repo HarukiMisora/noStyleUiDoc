@@ -2,7 +2,7 @@ import { createApp } from 'vue'
 import './style.css'
 import App from './App.vue'
 import {propStyle} from 'nostyleui'
-import 'nostyleui/style'  
+import 'nostyleui/ui'  
 import router from './router'
 
 import {VMdPreview,VueMarkdownEditor} from '../lib/vMdMarker/vMdMarker.ts';

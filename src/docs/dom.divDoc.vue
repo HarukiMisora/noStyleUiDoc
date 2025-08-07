@@ -67,7 +67,7 @@
         <w-div pb="20">
             <CodePreview title="常见的布局案例" >
                 <w-div flex bg="#e1e1e1" bd="solid 1">
-                    <w-div h="300" w="200" bg="gray" p="20" :flex="['g-10','col']">
+                    <w-div h="300" w="200" bg="gray" p="20" flex="g-10 col">
                         <w-group flex hover="c=red bg=blue" transition>
                             <w-span >举世无双</w-span>
                             <w-span >聪明绝顶</w-span>

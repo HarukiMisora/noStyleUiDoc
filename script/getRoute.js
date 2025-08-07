@@ -3,7 +3,6 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename).replace('\\script', '');
 
@@ -91,16 +90,18 @@ fs.writeFileSync(
  * @param {string} type
  * */ 
 async function listFiles(dirPath,type='docs') {
-  console.log('读取目录:', dirPath);
   try {
-    const files = await fs.promises.readdir(dirPath, { withFileTypes: true });
+  console.log('读取目录:', {dirPath:path.resolve('E:/KF/github/noStyleUiDoc/src/docs')},typeof dirPath);
+
+    const files = await fs.promises.readdir(dirPath,{withFileTypes: true});
     let string = `[\n`
     const menus = []
     let menuString = ''
 
     for (const dirent of files) {
-      if (dirent.isFile()&&dirent.name.endsWith('Doc.vue')) {
-        // console.log('文件:', dirent.name);
+        // console.log('文件:', dirent);
+
+      if (dirent.name.endsWith('Doc.vue')) {
         const pamas = getPamas(dirent)
         // console.log(pamas)
         const arr = dirent.name.split('.')
@@ -146,6 +147,8 @@ async function listFiles(dirPath,type='docs') {
     return {string,menus}
   } catch (err) {
     console.error('读取目录失败:', err);
+    // console.log('失败目录:', {dirPath});
+
   }
 }
 
@@ -154,8 +157,9 @@ async function listFiles(dirPath,type='docs') {
  * @param {fs.Dirent} file
  */
 function getPamas(file){
-  // console.log('读取文件:', file.path);
-  const content = fs.readFileSync(file.path, 'utf8');
+  const filepath = file.parentPath+'\\'+file.name
+  // console.log('读取文件:', filepath);
+  const content = fs.readFileSync(filepath, 'utf8');
   // console.log(content);
 
   // 1. 提取第一个 /** ... */ 注释块
