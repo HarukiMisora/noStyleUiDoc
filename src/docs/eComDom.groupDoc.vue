@@ -67,14 +67,14 @@ import GridMode from '../components/gridMode.vue';
             <codePreview  title="自定义继承" >
                 <w-div mb="5">除了自带的属性样式可以装载和继承，WGroup还允许你针对自己的自定义组件的属性进行装载与继承。</w-div>
                 <w-div flex="g-10">
-                    <w-group :cus-props="[['type','primary'],['effect','text']]">
+                    <w-group :cus-props="{type:'primary',effect:'text'}">
                         <w-button>沉</w-button>
                         <w-button>鱼</w-button>
                         <w-button>落</w-button>
                         <w-button>雁</w-button>
                     </w-group>
                     <w-button type="error" effect="biger">，</w-button>
-                    <w-group :cus-props="[['type','success']]">
+                    <w-group :cus-props="{type:'success'}">
                         <w-button>举</w-button>
                         <w-button>世</w-button>
                         <w-button>无</w-button>

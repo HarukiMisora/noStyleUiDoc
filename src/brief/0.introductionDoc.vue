@@ -57,7 +57,7 @@ const color = ref('#000')
     </w-div>
     <w-div p="20">
       <w-h1 mb="10">基本概念</w-h1>
-      <w-group  mb="10" :cus-props="[['show',true]]">
+      <w-group  mb="10"  :cus-props="{show:true}">
         <CodePreview title="普通的属性/prop" >
           <CodePreviewTip>{组件的属性，或者说prop} = "value"的写法是最简单的写法，普通的属性只支持一个值。</CodePreviewTip>
           <w-div w="50" h="50" bg="red+blue"></w-div>

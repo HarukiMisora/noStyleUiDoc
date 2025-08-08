@@ -23,11 +23,11 @@ import 'propstyle/ui' //引入propstyle的ui库样式 （propstyle也有内置�
 // 二是我在考虑UI组件要不要迁离propStyle框架，成立一个新的项目propStyleUi分离出去。因为我觉得UI组件有点脱离我对propStyle的定义了。
 // ）
 
-createApp(App).use(nostyleui).mount('#app')`;
+createApp(App).use(propStyle).mount('#app')`;
 
 const needCode = `
 \<script lang="ts" setup>
-import { WDiv } from 'nostyleui';
+import { WDiv } from 'propstyle';
 
 <\/script>
 

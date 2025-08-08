@@ -11,6 +11,7 @@ import flexDoc from '../docs/props.flexDoc.vue'
 import gridDoc from '../docs/props.gridDoc.vue'
 import positionDoc from '../docs/props.positionDoc.vue'
 import hoverDoc from '../docs/props0.hoverDoc.vue'
+import useClassDoc from '../docs/q.useClassDoc.vue'
 import buttonDoc from '../docs/ui.buttonDoc.vue'
 import introductionDoc from '../brief/0.introductionDoc.vue'
 import installDoc from '../brief/1.installDoc.vue'
@@ -65,6 +66,11 @@ const routes = [
         path:'/docs/hover',
         component:hoverDoc,
         name:'hoverDoc',
+      },
+      {
+        path:'/docs/useClass',
+        component:useClassDoc,
+        name:'useClassDoc',
       },
       {
         path:'/docs/button',

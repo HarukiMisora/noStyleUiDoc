@@ -33,7 +33,8 @@ export default defineConfig({
       //不建议开启debug，我的垃圾log太多了。
       debug: false, 
       /*
-      * justForBuild 只在构建阶段生效，不影响开发环境。但是在build前，最好在开发跑一下这个插件看看有没有样式编译错误的地方。
+      * justForBuild 只在打包阶段生效，不影响开发环境。
+      * (不建议设为true，其实这是我用来调试差异的。浏览器解析与node环境解析会存在一些微妙的差异，我希望你始终设为false，以node环境编译的结果为准)
       * {Boolean} 默认 false
       */
       justForBuild: false,  
@@ -55,7 +56,7 @@ export default defineConfig({
       },
 
       /*
-      * indexFile 入口文件,这是一个function，插件会扫描你的scr目录，然后插件会把扫描到的文件路径传给这个方法，你需要返回一个boolean值来告诉插件哪一个文件是入口文件。
+      * indexFile 入口文件,这是一个function，插件会扫描你的scr目录，将扫描到的文件路径传给这个方法，你需要返回一个boolean值来告诉插件哪一个文件是入口文件。
       * {(url: string) => boolean} 默认读取src/main.ts或者src/main.js
       */
       indexFile: (url) =>{
@@ -64,7 +65,7 @@ export default defineConfig({
       },
 
       /*
-      * includePath 要编译的文件夹，默认是src目录下的所以文件，但保不齐还有人会改成其它的目录。 
+      * includePath 编译时要处理的文件夹，默认是src目录下的所有*.vue文件，但保不齐还有人会改成其它的目录。 
       * {string[]} 默认 ['src/']
       */
       includePath: ['src/','src2/'];

@@ -174,6 +174,10 @@ function getPamas(file){
     const match = commentContent.match(regex);
     return match ? match[1].trim() : undefined;
   };
+    console.log({
+    desc: extractProp('desc'),
+    groupName: extractProp('groupName')
+  });
 
   // 3. 返回结果对象
   return {
@@ -181,7 +185,7 @@ function getPamas(file){
     groupName: extractProp('groupName')
   };
 
-  // console.log(result);
+
 }
 
 

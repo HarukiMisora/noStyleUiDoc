@@ -106,7 +106,7 @@ const goToLastVersion = (e:any)=>{
   return selectVersion.value=version
 }
 
-useClass('flex','centerr')
+useClass('ml','120',['0'])
 onMounted(()=>{
   resize()
 })
@@ -135,7 +135,7 @@ window.onresize = resize
         </w-div>
         <w-div  w="100%" h="calc(100vh - 60px)" flex   >
             <w-div  w="200" style="border-right: 1px solid #99999980;" pt="10" c="primary" px="5">
-              <w-button @click="menuType = menuType==='API'?'BRIEF':'API'" :ml="menuType==='API'?0:120">
+              <w-button @click="menuType = menuType==='API'?'BRIEF':'API'" style="transition: all .3s ease !important;"   :ml="menuType==='API'?0:120">
                 {{menuType==='API'?'简介':'API'}}
                 <template #icon>
                   GO 

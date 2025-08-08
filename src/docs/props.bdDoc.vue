@@ -156,8 +156,8 @@ const  bdProps = ([
                         <w-div bd="x-rgb(255,0,0)">
                             <w-span bg="#1e1e1eff" c="white">rgb(255,0,0)生效</w-span>
                         </w-div>
-                        <w-div bd="x-red-red">
-                            <w-span bg="#1e1e1eff" c="white">red-red生效</w-span>
+                        <w-div bd="x-red+red">
+                            <w-span bg="#1e1e1eff" c="white">red+red生效</w-span>
                         </w-div>
                     </w-group>
                     </w-div>
@@ -172,8 +172,8 @@ const  bdProps = ([
                         <w-div bd="x-rgb(255,0,0)">
                             <w-span bg="#1e1e1eff" c="white">rgb(255,0,0)生效</w-span>
                         </w-div>
-                        <w-div bd="x-red-red">
-                            <w-span bg="#1e1e1eff" c="white">red-red生效</w-span>
+                        <w-div bd="x-red+red">
+                            <w-span bg="#1e1e1eff" c="white">red+red生效</w-span>
                         </w-div>
                     </w-group>
                 </w-div>

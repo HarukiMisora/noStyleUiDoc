@@ -48,6 +48,15 @@ export const menuData = {
       ]
     },
     {
+      label: "Functions",
+      children: [
+        {
+          label: "useClass",
+          name: "useClassDoc"
+        }
+      ]
+    },
+    {
       label: "组件",
       children: [
         {
