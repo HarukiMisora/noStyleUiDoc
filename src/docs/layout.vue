@@ -122,10 +122,10 @@ window.onresize = resize
             </w-div>
             <w-div p="20" :flex="['g-20','i-center']">
                 <w-button @click="gotoLilmonix3">
-                    <Fish class="w-18 mr-5"></Fish>lilmonix3
+                    <Fish  w="18" mr="5"></Fish>lilmonix3
                 </w-button>
                 <w-button @click="gotoGithub">
-                    <LogoGithub  class="w-18 mr-5"></LogoGithub>Github
+                    <LogoGithub  w="18" mr="5"></LogoGithub>Github
                 </w-button>
                 <select style="user-select: none;padding: 5px;" @change="goToLastVersion"  v-model="selectVersion" >
                   <option :value="version">⚡ {{version}}</option>
