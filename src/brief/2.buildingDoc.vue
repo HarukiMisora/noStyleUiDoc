@@ -134,7 +134,7 @@ const codeBuild =`<div class="c-red">hello world</div>
           
           <Code-Preview flex="1 item" title="编译后"  :text="codeBuild"   :show="true" hideButton>
             <div class="c-red">hello world</div>
-            <div class="transition-all-0-3s-ease bs-cover bd-s-solid w-100p h-200 flex flex-center hover-100p-auto hover-c0008 hover-50 hover-bd-l-c-cfff8 hover-bd-r-c-cfff8 hover-bd-l-15vw hover-bd-r-15vw hover-bd-s-solid" style="background-image: url(&quot;/img.png&quot;);"></div>
+            <w-div :bg="as.img" class="transition-all-0-3s-ease bs-cover bd-s-solid w-100p h-200 flex flex-center hover-100p-auto hover-c0008 hover-50 hover-bd-l-c-cfff8 hover-bd-r-c-cfff8 hover-bd-l-15vw hover-bd-r-15vw hover-bd-s-solid" ></w-div>
           </Code-Preview>
         </w-div>
 

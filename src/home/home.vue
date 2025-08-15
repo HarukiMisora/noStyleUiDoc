@@ -20,7 +20,7 @@ const router = useRouter()
 const start =()=>{
   // mouseEnter(-1)
   // setTimeout(()=>{
-    router.push('/brief')
+    router.push('/docs/introduction')
   // },1350)
 }
 const words =[
