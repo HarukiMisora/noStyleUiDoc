@@ -48,7 +48,7 @@ export const menuData = {
       ]
     },
     {
-      label: "Functions",
+      label: "Function",
       children: [
         {
           label: "useClass",
