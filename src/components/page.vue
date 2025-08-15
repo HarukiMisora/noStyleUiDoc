@@ -11,6 +11,8 @@ const props = withDefaults(defineProps<{
   msgType: 'tip',
   msgKeyWord:'作用'
 })
+props;
+
   
 </script>
 

@@ -197,7 +197,7 @@ const backgroundProps = ([
                         因为在这个版本我加入一套规范、标准以及概念来解决过去版本中的的一些用法混乱的问题，详情可以看WDom的文档。
                     </w-div>
                     <w-div flex="g-10 wrap">
-                        <w-group w="calc(95% / 3)" h="150" c="#fff" :bg="`green size-75-75 r-n ${as.img}`" >
+                        <w-group w="calc(95% / 3)" h="150" c="#fff" s.-bg="green size-75-75 r-n" :bg="as.img" >
                             <w-div bg="left" >left</w-div>
                             <w-div bg="top center" >top center</w-div>
                             <w-div bg="right">right</w-div>

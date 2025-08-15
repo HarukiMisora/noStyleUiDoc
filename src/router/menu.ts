@@ -44,6 +44,10 @@ export const menuData = {
         {
           label: "hover属性集",
           name: "hoverDoc"
+        },
+        {
+          label: "static标识",
+          name: "staticDoc"
         }
       ]
     },

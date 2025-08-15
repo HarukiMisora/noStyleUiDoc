@@ -7,10 +7,10 @@ import version from '../version';
 import { computed, onMounted, provide, ref, watchEffect } from 'vue';
 // import codePreview from '../components/codePreview.vue';
 
-import {  type WDiv } from 'propstyle/types/index.js';
+// import {  type WDiv } from 'propstyle/types/index.js';
 import {useClass} from 'propstyle'
 const router = useRouter()
-const scrollBoxRef = ref<InstanceType<typeof WDiv>>()
+const scrollBoxRef = ref()
 const gridMode = ref(false)
 provide('gridMode',gridMode)
 
