@@ -20,7 +20,9 @@ const color = ref('#000')
         <w-h1 mb="10">什么是prop style?</w-h1>
         <w-div>
           通过vue的prop来控制组件的样式，这就是prop style。<br/>
-          (计划后续版本中会实现)→非VUE组件的原生盒子，也可以生效。(动态样式还是需要依赖VUE的prop)<br/><br/>
+          你的自定义VUE组件   →也可以生效。(动态样式还是需要依赖VUE的prop)<br/>
+          非VUE组件的原生盒子 →也可以生效。(动态样式还是需要依赖VUE的prop)<br/>
+          (后续计划) →对 react 等其它框架的支持。<br/>
           这样做的好处是：
           <w-ul mt="15">
             <w-li>1. 缩短DOM与CSS的“上下文”。</w-li>
