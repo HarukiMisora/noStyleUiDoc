@@ -76,7 +76,7 @@
                         </w-group>
                     </w-div>
                     <w-div  flex="1 col">
-                        <w-group p="20" :bg="`${as.img} cover size--100% r-n center`" h="calc(100% / 4)" bd="b-1-solid-#0f0" transition>
+                        <w-group p="20" :bg="`${as.img} cover size-?-100% r-n center`" h="calc(100% / 4)" bd="b-1-solid-#0f0" transition>
                             <w-div bg="right">
                                 WGrop的作用是装载共有样式然后分发给子盒子,当然子盒自身的属性优先生效。
                             </w-div>
@@ -112,7 +112,7 @@
             <CodePreview title="过渡动画">
                 <w-group>
                     <w-div mb="5">transition属性直接支持原生css的transition样式，可以设置盒子的过渡动画，它可以设置过渡的属性，持续时间，动画曲线等。如果有transition属性，但没有任何值时，默认是all .5s ease</w-div>
-                    <w-div transition  h="100" radius="5" :bg="as.head+' size--100 r-n #0008' " hover="bg=#000;p-100%"></w-div>
+                    <w-div transition  h="100" radius="5" :bg="as.head+' size-?-100 r-n #0008' " hover="bg=#000;p-100%"></w-div>
                 </w-group>
             </CodePreview>
         </PropsDisplay>

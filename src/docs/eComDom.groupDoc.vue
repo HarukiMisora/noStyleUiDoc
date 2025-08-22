@@ -19,7 +19,7 @@ import GridMode from '../components/gridMode.vue';
             <h1 >WGroup 属性容器</h1>
             <notice class="mt-10" title="作用" :msg="`它不产生任何DOM结构，WGroup只负责装载一级子元素的共有属性。它同样完全继承WDom的一切属性，可以参考 <a class='mx-5' href='${path('/#/docs/div')}' >WDom文档</a>查阅`"></notice>
         </w-div>
-        <GridMode grid="col--650px g-20">
+        <GridMode >
             <codePreview  title="基础用法-装载与继承" >
                 <w-div mb="5">
                     这四个盒子本身并没有添加任何的属性与样式，它们的属性样式完全继承WGroup装载的属性样式。继承只对一级子元素有效，不会破坏子元素的子元素的样式，比如这最后一个元素里的“雁”。

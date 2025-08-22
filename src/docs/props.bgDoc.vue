@@ -159,11 +159,11 @@ const backgroundProps = ([
                 </w-div>
             </codePreview>
             <codePreview  title="背景图片大小 size" >
-                <w-div>0.3.x版本开始，我移除了w和h参数。使用size代替，size可以同时设置图片的宽高，也可以单独设置宽高 size-w-h、size-w、size--h</w-div>
+                <w-div>0.3.x版本开始，我移除了w和h参数。使用size代替，size可以同时设置图片的宽高，也可以单独设置宽高 size-w-h、size-w、size-?-h</w-div>
                 <w-div flex="g-10 wrap">
                     <w-group w="100" h="100" c="red"  >
                         <w-div :bg="`${as.img} size-75`" ></w-div>
-                        <w-div :bg="`${as.img} size--75`"></w-div>
+                        <w-div :bg="`${as.img} size-?-75`"></w-div>
                         <w-div :bg="`${img} size-75-75`" transition>
                             <w-div  :flex="['j-around']" pt="60">
                                 <w-button type="success" @click="img=as.img">图1</w-button>
@@ -183,7 +183,7 @@ const backgroundProps = ([
                 <w-div flex="g-10 wrap">
                     <w-group w="100" h="100" c="#fff" bg="green" >
                         <w-div :bg="`${as.img} size-75 r-x`" >r-x 横向填充</w-div>
-                        <w-div :bg="`${as.img} size--75 r-y`">r-y 竖向填充</w-div>
+                        <w-div :bg="`${as.img} size-?-75 r-y`">r-y 竖向填充</w-div>
                         <w-div :bg="`${img} size-75-75 r-n`" transition>
                             r-n 不填充
                         </w-div>

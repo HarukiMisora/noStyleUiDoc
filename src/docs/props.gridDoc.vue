@@ -13,7 +13,7 @@ import GridMode from '../components/gridMode.vue';
 import CodePreviewTip from '../components/codePreviewTip.vue';
 import { ref } from 'vue';
 const min = ref('10')
-const max = ref('')
+const max = ref('?')
 
 
 const  bdProps = ([
@@ -99,16 +99,16 @@ const  bdProps = ([
                     <w-div v-for="i in 9" radius="4" :key="i" bg="#44567245" flex="center">{{ i }}</w-div>
                 </w-div>
                 <w-div mb="5">
-                    col-3--100 定义每列的最大宽度为100px，最小宽度默认为auto，它不会自动铺满剩余空间，当每列的最大宽度之和大于grid容器的宽度时，会根据容器自适应宽度而不会溢出。
+                    col-3-?-100 定义每列的最大宽度为100px，最小宽度默认为auto，它不会自动铺满剩余空间，当每列的最大宽度之和大于grid容器的宽度时，会根据容器自适应宽度而不会溢出。
                 </w-div>
-                <w-div grid="col-3--100 g-5" >
+                <w-div grid="col-3-?-100 g-5" >
                     <w-div v-for="i in 9" radius="4" :key="i" bg="#44567245" flex="center">{{ i }}</w-div>
                 </w-div>
-                极端案例 col-3-1000 与 col-3--1000, 所以再使用自动宽度时，设置最大宽度比最小宽度更安全。
+                极端案例 col-3-1000 与 col-3-?-1000, 所以再使用自动宽度时，设置最大宽度比最小宽度更安全。
                 <w-div grid="col-3-1000 g-5" mb="20">
                     <w-div v-for="i in 9" radius="4" :key="i" bg="#44567245" flex="center">{{ i }}</w-div>
                 </w-div>
-                <w-div grid="col-3--1000 g-5" >
+                <w-div grid="col-3-?-1000 g-5" >
                     <w-div v-for="i in 9" radius="4" :key="i" bg="#44567245" flex="center">{{ i }}</w-div>
                 </w-div>
             </codePreview>
@@ -136,7 +136,7 @@ const  bdProps = ([
                     both：<input style="width: 50px;" @input="(e)=>{const target = e.target as HTMLInputElement; min=target?.value; max=target?.value}"  />
                 </w-div>
                 hello col
-                <w-div :grid="`col--${min}-${max} g-5`" style="overflow-x: auto;">
+                <w-div :grid="`col-?-${min}-${max} g-5`" style="overflow-x: auto;">
                     <w-div v-for="i in 9" radius="4" :key="i" bg="#44567245" flex="center">{{ i }}</w-div>
                 </w-div>
             </codePreview>   
@@ -148,8 +148,8 @@ const  bdProps = ([
                     both：<input style="width: 50px;" @input="(e)=>{const target = e.target as HTMLInputElement; min=target?.value; max=target?.value}"  />
                 </w-div>
                 hello row
-                <w-div :grid="`row--${min}-${max} g-5`" style="overflow-x: auto;" >
-                    <w-div  @click="min='10';max=''" v-for="i in 9" radius="4" :key="i" bg="#44567245" flex="center">点我恢复{{ i }}</w-div>
+                <w-div :grid="`row-?-${min}-${max} g-5`" style="overflow-x: auto;" >
+                    <w-div  @click="min='10';max='?'" v-for="i in 9" radius="4" :key="i" bg="#44567245" flex="center">点我恢复{{ min}}</w-div>
                 </w-div>
             </codePreview>
             <codePreview  title="row 固定行数的注意事项" dir="left">
@@ -164,12 +164,12 @@ const  bdProps = ([
                 </w-div>
                 hello row
                 <w-div :grid="`row-2-${min}-${max} g-5`" style="overflow-x: auto;" >
-                    <w-div  @click="min='10';max=''" v-for="i in 9" radius="4" :key="i" bg="#44567245" flex="center">点我恢复{{ i }}</w-div>
+                    <w-div  @click="min='10';max='?'" v-for="i in 9" radius="4" :key="i" bg="#44567245" flex="center">点我恢复{{ i }}</w-div>
                 </w-div>
             </codePreview>
             <codePreview  title="你可以同时使用col和row" dir="right">
-                <w-div grid="col-3 row--45-40 g-5"  >
-                    <w-div  @click="min='10';max=''" v-for="i in '123456789,0.'" transition radius="4" :key="i" bg="#44567245" flex="center" hover="bg=#123456 c=white">{{ i }}</w-div>
+                <w-div grid="col-3 row-?-45-40 g-5"  >
+                    <w-div  @click="min='10';max='?'" v-for="i in '123456789,0.'" transition radius="4" :key="i" bg="#44567245" flex="center" hover="bg=#123456 c=white">{{ i }}</w-div>
                 </w-div>
             </codePreview>
             <codePreview  title="grid 子元素的定位与大小" dir="left">
@@ -177,8 +177,8 @@ const  bdProps = ([
                     例子 grid=“item grow-1-5 gcol-2-3” item 是在声明我只是一个子元素，而非一个grid容器,grow-1-5 表示该子元素从行位置1开始占据到5，gcol-2-3 表示该子元素从列位置2开始占据到3。那么这个位置怎么看呢？看看第一列的盒子，1368 <br/>
                     {1}--🎄1--{2}--🎄3--{3}--🎄6--{4}--🎄8--{5} 。小学数学题，1-4 之间有5段。
                 </CodePreviewTip>
-                <w-div grid="col-3 row--45-40 g-5"  >
-                    <w-div  @click="min='10';max=''" v-for="i in '12346789'" :key="i" transition radius="4"  bg="#44567245" flex="center" hover="bg=#123456 c=white">🎄{{ i }}</w-div>
+                <w-div grid="col-3 row-?-45-40 g-5"  >
+                    <w-div  v-for="i in '12346789'" :key="i" transition radius="4"  bg="#44567245" flex="center" hover="bg=#123456 c=white">🎄{{ i }}</w-div>
                     <w-div grid="item grow-1-5 gcol-2-3" transition radius="4"  bg="#44567245" flex="center" hover="bg=#123456 c=white">
                         🧦5
                     </w-div>
