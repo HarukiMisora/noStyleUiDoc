@@ -5,14 +5,14 @@
  * @groupName 组件
  */
 import NoTice from '../components/notice.vue';
-import GridMode from '../components/gridMode.vue';
+// import GridMode from '../components/gridMode.vue';
 import CodePreview from '../components/codePreview.vue';
 import { CartSharp, GameController } from '@vicons/ionicons5';
-import { as, path } from '../assets/assets';
-import { effect, ref } from 'vue';
+import {  path } from '../assets/assets';
+import {  ref } from 'vue';
 import Goods from '../components/recyclingBucketHelper/goods.vue';
 import CodePreviewTip from '../components/codePreviewTip.vue';
-import type ts from 'typescript';
+
 import PropsDisplay from '../components/propsDisplay.vue';
 const bucketRef = ref()
 const bucketRef2 = ref()
