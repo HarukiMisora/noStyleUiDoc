@@ -85,8 +85,8 @@ function addGoods4(index: number) {
   bucketRef4.value.recycle(goodsRefs4.value[index])
   cartNumber4.value++
 }
+const  callBack = ()=> {cartNumber5.value++}
 function addGoods5(index: number) { 
-  const  callBack = ()=> {cartNumber5.value++}
   const options = index%2===0?{
     moveEffect: ['small','rotate'],
     effect:'shake',
@@ -170,17 +170,18 @@ const goodsList = ref<{
   price:number,
   img:string
 }>([])
-
+const  callBack = ()=> {cartNumber5.value++}
 function addGoods5(index: number) {
   const options = index%2===0?{
     moveEffect: ['small','rotate'],
-    effect:'shake'
+    effect:'shake',
+    callBack
   }:{
     moveEffect: ['small'],
-    effect:'flash'  
+    effect:'flash',
+    callBack
   }
   bucketRef5.value.recycle(goodsRefs5.value[index],options)
-  cartNumber5.value++
 }
 getList()`
 
