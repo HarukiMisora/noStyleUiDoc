@@ -7,7 +7,7 @@
       <w-div flex="1 col j-between">
         <w-p px="5">{{ props.name }}</w-p>
         <w-p px="5" c="red" flex="j-between">
-          <span>￥{{ price }} 元</span>
+          <span>￥{{ price||'FREE' }} {{ price?'元':'!' }}</span>
           <slot></slot>
         </w-p>
       </w-div>
@@ -22,10 +22,7 @@ const props = defineProps<{
   price: number,
   img:string
 }>()
-const emit = defineEmits(['addToCart'])
-function addToCart(e: MouseEvent) {
-  emit('addToCart',e)
-}
+
 </script>
 
 <style lang="scss" scoped>

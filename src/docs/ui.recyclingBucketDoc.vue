@@ -32,37 +32,37 @@ const goodsList = ref([
   {
     id:1,
     name:'Mount & Blade II Bannerlord',
-    price:268,
+    price:248,
     img:path('/MountBladeIIBannerlord.png')
   },
   {
     id:2,
     name:'Half - Life 2',
-    price:28,
+    price:42,
     img:path('/HalfLife2.jpg')
   },
   {
     id:3,
     name:'portal 2',
-    price:28,
+    price:42,
     img:path('/Portal2.jpg')
   },
   {
     id:4,
     name:'The Elder Scrolls V: Skyrim',
-    price:268,
+    price:165,
     img:path('/TheElderScrollsVSkyrim.jpg')
   },
   {
     id:5,
     name:'doki doki literature club',
-    price:6,
+    price:0,
     img:path('/DokiDokiLiteratureClub.jpg')
   },
   {
     id:6,
     name:'Miside',
-    price:28,
+    price:52,
     img:path('/Miside.png')
   }
 ])
