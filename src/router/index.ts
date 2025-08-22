@@ -14,6 +14,7 @@ import hoverDoc from '../docs/props0.hoverDoc.vue'
 import staticDoc from '../docs/props1.staticDoc.vue'
 import useClassDoc from '../docs/q.useClassDoc.vue'
 import buttonDoc from '../docs/ui.buttonDoc.vue'
+import recyclingBucketDoc from '../docs/ui.recyclingBucketDoc.vue'
 import introductionDoc from '../brief/0.introductionDoc.vue'
 import installDoc from '../brief/1.installDoc.vue'
 import buildingDoc from '../brief/2.buildingDoc.vue'
@@ -82,6 +83,11 @@ const routes = [
         path:'/docs/button',
         component:buttonDoc,
         name:'buttonDoc',
+      },
+      {
+        path:'/docs/recyclingBucket',
+        component:recyclingBucketDoc,
+        name:'recyclingBucketDoc',
       },
     ]
   },

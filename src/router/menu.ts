@@ -64,8 +64,12 @@ export const menuData = {
       label: "组件",
       children: [
         {
-          label: "WButton按钮",
+          label: "Button 按钮",
           name: "buttonDoc"
+        },
+        {
+          label: "ReclingBucket 回收桶",
+          name: "recyclingBucketDoc"
         }
       ]
     }
