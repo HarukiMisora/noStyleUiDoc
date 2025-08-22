@@ -86,15 +86,17 @@ function addGoods4(index: number) {
   cartNumber4.value++
 }
 function addGoods5(index: number) { 
+  const  callBack = ()=> {cartNumber5.value++}
   const options = index%2===0?{
     moveEffect: ['small','rotate'],
-    effect:'shake'
+    effect:'shake',
+    callBack
   }:{
     moveEffect: ['small'],
-    effect:'flash'
+    effect:'flash',
+    callBack
   }
   bucketRef5.value.recycle(goodsRefs5.value[index],options)
-  cartNumber5.value++
 }
 
 
@@ -379,6 +381,7 @@ const optionsTIterface  =[
                 <CodePreviewTip>
                   上面的所有例子中，recycle都只用到了参数1，现在解锁参数2的用途，它可以让单次点击区别与组件统一的回收效果。<br/>
                   我想让它奇数旋转，偶数不旋转，想让它偶数闪烁，奇数震动。<br/>
+                  另外callBack可以确保动画结束后执行回调函数，可以让计数器在收到回收事件后才增加。<br/>
                 </CodePreviewTip>
                 <w-recycling-bucket ref="bucketRef5" mt="20" :move-effect="['rotate','small']" easing="ease-in-out" >
                   <w-div f="18" w="200" position="rel" flex>
