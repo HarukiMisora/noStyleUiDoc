@@ -39,25 +39,25 @@ const goodsList = ref([
     id:2,
     name:'Half - Life 2',
     price:42,
-    img:path('/HalfLife2.jpg')
+    img:path('/HalfLife2.png')
   },
   {
     id:3,
     name:'portal 2',
     price:42,
-    img:path('/Portal2.jpg')
+    img:path('/Portal2.png')
   },
   {
     id:4,
     name:'The Elder Scrolls V: Skyrim',
     price:165,
-    img:path('/TheElderScrollsVSkyrim.jpg')
+    img:path('/TheElderScrollsVSkyrim.png')
   },
   {
     id:5,
     name:'doki doki literature club',
     price:0,
-    img:path('/DokiDokiLiteratureClub.jpg')
+    img:path('/DokiDokiLiteratureClub.png')
   },
   {
     id:6,
