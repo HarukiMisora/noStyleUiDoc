@@ -220,12 +220,37 @@
         
         </GridMode>
         <w-div p="20">
-            <PropsDisplay title="Button props" :props="ButtonProps" :noneed="['units']"></PropsDisplay>
+            <PropsDisplay title="Props  " :props="ButtonProps" :cols="[
+              {
+                label:'名称',
+                key:'prop'
+              },
+              {
+                label:'说明',
+                key:'text'
+              },
+              {
+                label:'类型',
+                key:'type'
+              },
+              {
+                label:'默认值',
+                key:'default'
+              }
+            ]"></PropsDisplay>
         </w-div>
         <w-div p="20">
-            <w-h1 mb="10">Button slots</w-h1>
-            <h3>defalut&nbsp;&nbsp;按钮内容</h3>
-            <h3>icon&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;按钮图标</h3>
+            <PropsDisplay title="Slots" :props="SlotsApi" :cols="[
+              {
+                label:'插槽',
+                key:'prop'
+              },
+              {
+                label:'说明',
+                key:'text'
+              }
+            ]"></PropsDisplay>
+
         </w-div>
 
     </w-div>
@@ -295,6 +320,17 @@ const ButtonProps = [
         type:"'mini'|'small'|'default'|'biger'",
         default:"'defalut'"
     }
+]
+const SlotsApi = [
+    {
+        prop:'default',
+        text:'按钮内容/默认插槽'
+    },
+    {
+        prop:'icon',
+        text:'自定义图标'
+    },
+
 ]
 
 

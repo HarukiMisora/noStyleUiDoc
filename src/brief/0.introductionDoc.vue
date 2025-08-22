@@ -47,7 +47,7 @@ const color = ref('#000')
           <w-div>上面的所有效果实现一共写了{ 0 } 行css代码 与 { 0 } 行style内联样式！ 是不是很方便？</w-div>
         </CodePreview>
     </w-div>
-    <w-div p="20" flex="col" >
+    <!-- <w-div p="20" flex="col" >
         <w-h1 mb="10">你是否正在想？</w-h1>
         <w-ul mt="15">
           <w-li>1.如果我需要给一排的盒子全部加上red背景，我是不是得每个盒子都得写一遍color=red？ </w-li>
@@ -56,7 +56,7 @@ const color = ref('#000')
           <w-ol>try🐒:：我会尽力去优化。如果一个组件使用到了很多很多的prop style，我就不得不去依次解析prop style的规则才能为组件挂载对应的css类名与style样式。而这个解析挂载的过程全都是在客户端的浏览器上完成的，大量的解析过程确实会造成性能问题。
             <br/>后续我会把部分解析放在node环境，凡是没有用到变量的静态的样式，我会再node环境拦截它直接解析生成对应的样式，避免它往vue的prop流程里面走一遭的同时对于非VUE组件的原生盒子也将有效！</w-ol>
         </w-ul>
-    </w-div>
+    </w-div> -->
     <w-div p="20">
       <w-h1 mb="10">基本概念</w-h1>
       <w-group  mb="10"  :cus-props="{show:true}">
@@ -70,14 +70,26 @@ const color = ref('#000')
           <w-div w="50" h="50" :bg="`red+blue ${as.head} fill`"></w-div>
           <CodePreviewTip>属性集也支持数组的形式</CodePreviewTip>
           <w-div w="50" h="50" :bg="['red+blue',as.head,'fill']"></w-div>
+          <!--早期的设计方案，不推荐使用数组形式-->
+
         </CodePreview>
 
-        <CodePreview title="属性集 隐式参数与显示参数" >
+        <CodePreview title="属性集→参数类型" >
           <CodePreviewTip>
-            属性集的显示参数写法应该是 prop="key-value key2-value"，比如bg里面size-50% &nbsp; r-n <br/>
-            而隐式参数，是没有参数名/key的，它只有参数值，比如bg="颜色 &nbsp;图片地址&nbsp; center" 
+            显示参数：key-value，比如bg="size-50% &nbsp; r-n" <br/>
+            隐式参数：value,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;比如bg="center &nbsp; #1e1e1e &nbsp; 图片地址" 
           </CodePreviewTip>
-          <w-div w="150" h="150" :bg="`red+blue ${as.head} center size-50% r-n `"></w-div>
+          <w-div w="150" h="150" s.-bg="center size-50% r-n #1e1e1e" :bg="as.img"></w-div>
+        </CodePreview>
+        <CodePreview title="属性集→?空值传递" >
+          <CodePreviewTip>
+            有的显示参数具备多个value，列如，bg属性集下的size-75vw-40px(2个值)、grid属性集下的row-5-45-40(3个值)<br/>
+            有时候，中间值并不是必须的。在过去的版本中，我们可以直接跳过中间值，写成size--40px，row--45-40。<br/>
+            但是在[0.4.9]版本更新之后, “--”会被理解成负号如 size--40px 会被理解为 size的第一个参数值为-40px,而不是像之前版本中size的第二个参数值为40px。<br/>
+            [0.4.9]版本更新之后跳过前置参数值的写法是使用?替代空值，比如size-?-40px、row-?-45-40。
+            
+          </CodePreviewTip>
+          <w-div w="150" h="150" s.-bg="center size-?-100% r-n #1e1e1e" :bg="as.img"></w-div>
         </CodePreview>
       </w-group>
     </w-div>
